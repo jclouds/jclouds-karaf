@@ -60,6 +60,10 @@ limitations under the License.
       <artifactId>jclouds-core</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.apache.jclouds.labs.management</groupId>
+      <artifactId>management-core</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-blobstore</artifactId>
     </dependency>
