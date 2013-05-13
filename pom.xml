@@ -26,7 +26,7 @@
         <version>4</version>
     </parent>
 
-    <groupId>org.jclouds</groupId>
+    <groupId>org.apache.jclouds</groupId>
     <artifactId>jclouds-karaf-pom</artifactId>
     <packaging>pom</packaging>
     <version>1.5.9-SNAPSHOT</version>
@@ -239,53 +239,53 @@
         <dependencies>
             <!-- Internal dependencies -->
             <dependency>
-                <groupId>org.jclouds.karaf</groupId>
+                <groupId>org.apache.jclouds.karaf</groupId>
                 <artifactId>core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf</groupId>
+                <groupId>org.apache.jclouds.karaf</groupId>
                 <artifactId>utils</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf</groupId>
+                <groupId>org.apache.jclouds.karaf</groupId>
                 <artifactId>recipe</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf</groupId>
+                <groupId>org.apache.jclouds.karaf</groupId>
                 <artifactId>cache</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf</groupId>
+                <groupId>org.apache.jclouds.karaf</groupId>
                 <artifactId>services</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf</groupId>
+                <groupId>org.apache.jclouds.karaf</groupId>
                 <artifactId>commands</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf.chef</groupId>
+                <groupId>org.apache.jclouds.karaf.chef</groupId>
                 <artifactId>core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf.chef</groupId>
+                <groupId>org.apache.jclouds.karaf.chef</groupId>
                 <artifactId>services</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.karaf.chef</groupId>
+                <groupId>org.apache.jclouds.karaf.chef</groupId>
                 <artifactId>commands</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.jclouds.karaf</groupId>
+                <groupId>org.apache.jclouds.karaf</groupId>
                 <artifactId>jclouds-karaf</artifactId>
                 <version>${project.version}</version>
                 <type>xml</type>
@@ -506,57 +506,57 @@
 
             <!-- JClouds Dependencies -->
             <dependency>
-                <groupId>org.jclouds</groupId>
+                <groupId>org.apache.jclouds</groupId>
                 <artifactId>jclouds-core</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds</groupId>
+                <groupId>org.apache.jclouds</groupId>
                 <artifactId>jclouds-blobstore</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds</groupId>
+                <groupId>org.apache.jclouds</groupId>
                 <artifactId>jclouds-compute</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds</groupId>
+                <groupId>org.apache.jclouds</groupId>
                 <artifactId>jclouds-scriptbuilder</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.api</groupId>
+                <groupId>org.apache.jclouds.api</groupId>
                 <artifactId>ec2</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.driver</groupId>
+                <groupId>org.apache.jclouds.driver</groupId>
                 <artifactId>jclouds-log4j</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.driver</groupId>
+                <groupId>org.apache.jclouds.driver</groupId>
                 <artifactId>jclouds-slf4j</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.driver</groupId>
+                <groupId>org.apache.jclouds.driver</groupId>
                 <artifactId>jclouds-jsch</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.driver</groupId>
+                <groupId>org.apache.jclouds.driver</groupId>
                 <artifactId>jclouds-sshj</artifactId>
                 <version>${jclouds.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.jclouds.labs</groupId>
+                <groupId>org.apache.jclouds.labs</groupId>
                 <artifactId>nodepool</artifactId>
                 <version>${jclouds.version}</version>
              </dependency>
             <dependency>
-                <groupId>org.jclouds.api</groupId>
+                <groupId>org.apache.jclouds.api</groupId>
                 <artifactId>chef</artifactId>
                 <version>${jclouds.chef.version}</version>
             </dependency>
