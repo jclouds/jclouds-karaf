@@ -22,7 +22,7 @@ under the License.
   <parent>
     <artifactId>chef</artifactId>
     <groupId>org.apache.jclouds.karaf</groupId>
-    <version>1.5.9-SNAPSHOT</version>
+    <version>1.5.11-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 

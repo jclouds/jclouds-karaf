@@ -29,7 +29,7 @@ under the License.
   <groupId>org.apache.jclouds</groupId>
   <artifactId>jclouds-karaf-pom</artifactId>
   <packaging>pom</packaging>
-  <version>1.5.9-SNAPSHOT</version>
+  <version>1.5.11-SNAPSHOT</version>
   <name>JClouds :: Karaf</name>
 
   <description>Jclouds Karaf Integration Project</description>
@@ -197,8 +197,8 @@ under the License.
     <httpcore.version>4.1</httpcore.version>
     <java-xmlbuilder.bundle.version>0.3_1</java-xmlbuilder.bundle.version>
     <javax.inject.bundle.version>1_1</javax.inject.bundle.version>
-    <jclouds.version>1.5.9</jclouds.version>
-    <jclouds.chef.version>1.5.9</jclouds.chef.version>
+    <jclouds.version>1.5.11-SNAPSHOT</jclouds.version>
+    <jclouds.chef.version>1.5.11-SNAPSHOT</jclouds.chef.version>
     <jersey.version>1.11</jersey.version>
     <jersey.bundle.version>1.11_1</jersey.bundle.version>
     <joda.version>2.1</joda.version>
