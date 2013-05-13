@@ -21,12 +21,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>jclouds-karaf-pom</artifactId>
-        <groupId>org.jclouds</groupId>
+        <groupId>org.apache.jclouds</groupId>
         <version>1.6.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.jclouds.karaf</groupId>
+    <groupId>org.apache.jclouds.karaf</groupId>
     <artifactId>urlhandler</artifactId>
     <packaging>bundle</packaging>
     <name>JClouds :: Karaf :: URL Handler</name>
@@ -41,12 +41,12 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jclouds.karaf</groupId>
+            <groupId>org.apache.jclouds.karaf</groupId>
             <artifactId>utils</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.jclouds</groupId>
+            <groupId>org.apache.jclouds</groupId>
             <artifactId>jclouds-blobstore</artifactId>
         </dependency>
         <dependency>
