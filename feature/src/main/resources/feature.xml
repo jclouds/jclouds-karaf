@@ -43,7 +43,7 @@
 
     <feature name='jclouds-compute' description='JClouds Compute' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds</feature>
-        <bundle dependency='true'>mvn:org.jclouds/jclouds-scriptbuilder/${jclouds.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds/jclouds-scriptbuilder/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds/jclouds-compute/${jclouds.version}</bundle>
     </feature>
 
