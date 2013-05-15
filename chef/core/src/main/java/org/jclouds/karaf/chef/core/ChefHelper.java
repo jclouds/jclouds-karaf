@@ -340,8 +340,8 @@ public class ChefHelper {
         builder = builder.name(name).modules(ImmutableSet.<Module>of(new SLF4JLoggingModule()));
         builder = builder.name(name).credentials(clientName, clientCredential).overrides(chefConfig);
 
-        // cast required for Java 6
-        ChefContext context = (ChefContext) builder.build();
+        // builder.build() does not compile on JDK 6
+        ChefContext context = builder.build(ChefContext.class);
         ChefService service = context.getChefService();
         return service;
     }
