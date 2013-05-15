@@ -23,6 +23,7 @@ import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.Option;
 import org.jclouds.chef.ChefService;
+import org.jclouds.chef.domain.BootstrapConfig;
 import org.jclouds.chef.util.RunListBuilder;
 import org.jclouds.scriptbuilder.domain.Statement;
 
@@ -61,7 +62,8 @@ public class ChefNodeBootstrap extends ChefRunscriptBase {
         ChefService chefService = getChefService();
         if (chefService != null) {
             List<String> runlist = new RunListBuilder().addRecipes(cookbook).build();
-            chefService.updateRunListForGroup(runlist, "single");
+            BootstrapConfig bootstrapConfig = BootstrapConfig.builder().runList(runlist).build();
+            chefService.updateBootstrapConfigForGroup("single", bootstrapConfig);
             statement = chefService.createBootstrapScriptForGroup("single");
         }
         return statement;
