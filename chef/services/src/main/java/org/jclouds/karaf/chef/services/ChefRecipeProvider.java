@@ -21,6 +21,7 @@ package org.jclouds.karaf.chef.services;
 
 import com.google.common.collect.Sets;
 import org.jclouds.chef.ChefService;
+import org.jclouds.chef.domain.BootstrapConfig;
 import org.jclouds.chef.domain.CookbookVersion;
 import org.jclouds.chef.util.RunListBuilder;
 import org.jclouds.karaf.recipe.RecipeProvider;
@@ -47,7 +48,8 @@ public class ChefRecipeProvider implements RecipeProvider {
     @Override
     public Statement createStatement(String recipe, String group) {
         List<String> runlist = new RunListBuilder().addRecipes(recipe).build();
-        chefService.updateRunListForGroup(runlist, group);
+        BootstrapConfig bootstrapConfig = BootstrapConfig.builder().runList(runlist).build();
+        chefService.updateBootstrapConfigForGroup(group, bootstrapConfig);
         return chefService.createBootstrapScriptForGroup(group);
     }
 
