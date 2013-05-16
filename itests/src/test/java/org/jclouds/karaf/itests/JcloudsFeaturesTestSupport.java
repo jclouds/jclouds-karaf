@@ -31,7 +31,7 @@ import org.ops4j.pax.exam.junit.Configuration;
 
 public class JcloudsFeaturesTestSupport extends JcloudsKarafTestSupport {
 
-    public static final String JCLOUDS_FEATURE_FORMAT = "mvn:org.jclouds.karaf/jclouds-karaf/%s/xml/features";
+    public static final String JCLOUDS_FEATURE_FORMAT = "mvn:org.apache.jclouds.karaf/jclouds-karaf/%s/xml/features";
     public static final String JCLOUDS_FEATURE_VERSION_PROPERTY =  "jclouds.feature.version";
 
     /**
