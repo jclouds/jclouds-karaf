@@ -53,7 +53,7 @@ public class ObrResolverTest extends JcloudsFeaturesTestSupport {
     public void testJcloudsKarafServicesResolution() throws Exception {
         installAndCheckFeature("obr");
         installAndCheckFeature("jclouds-services");
-        String jcloudsServicesBundles = executeCommand("osgi:list -s | grep -i -c org.jclouds.karaf.services");
+        String jcloudsServicesBundles = executeCommand("osgi:list -s | grep -i -c org.apache.jclouds.karaf.services");
         assertNotNull(jcloudsServicesBundles);
         int jcloudsServicesBundlesCount = Integer.parseInt(jcloudsServicesBundles.trim());
         assertEquals("Expected only one jclouds-services bundle", 1, jcloudsServicesBundlesCount);
@@ -67,12 +67,12 @@ public class ObrResolverTest extends JcloudsFeaturesTestSupport {
     public void testJcloudsKarafCommandsResolution() throws Exception {
         installAndCheckFeature("obr");
         installAndCheckFeature("jclouds-commands");
-        String jcloudsCommandsBundles = executeCommand("osgi:list -s | grep -i -c org.jclouds.karaf.commands");
+        String jcloudsCommandsBundles = executeCommand("osgi:list -s | grep -i -c org.apache.jclouds.karaf.commands");
         assertNotNull(jcloudsCommandsBundles);
         int jcloudsCommandsBundlesCount = Integer.parseInt(jcloudsCommandsBundles.trim());
         assertEquals("Expected one jclouds-commands bundle", 1, jcloudsCommandsBundlesCount);
 
-        String jcloudsServicesBundles = executeCommand("osgi:list -s | grep -i -c org.jclouds.karaf.services");
+        String jcloudsServicesBundles = executeCommand("osgi:list -s | grep -i -c org.apache.jclouds.karaf.services");
         assertNotNull(jcloudsServicesBundles);
         int jcloudsServicesBundlesCount = Integer.parseInt(jcloudsServicesBundles.trim());
         assertEquals("Expected one jclouds-services bundle", 1, jcloudsServicesBundlesCount);
@@ -86,12 +86,12 @@ public class ObrResolverTest extends JcloudsFeaturesTestSupport {
     public void testJcloudsKarafChefResolution() throws Exception {
         installAndCheckFeature("obr");
         installAndCheckFeature("jclouds-chef");
-        String jcloudsChefCommandsBundles = executeCommand("osgi:list -s | grep -i -c org.jclouds.karaf.chef.commands");
+        String jcloudsChefCommandsBundles = executeCommand("osgi:list -s | grep -i -c org.apache.jclouds.karaf.chef.commands");
         assertNotNull(jcloudsChefCommandsBundles);
         int jcloudsCommandsBundlesCount = Integer.parseInt(jcloudsChefCommandsBundles.trim());
         assertEquals("Expected one chef commands bundle", 1, jcloudsCommandsBundlesCount);
 
-        String jcloudsChefServicesBundles = executeCommand("osgi:list -s | grep -i -c org.jclouds.karaf.chef.services");
+        String jcloudsChefServicesBundles = executeCommand("osgi:list -s | grep -i -c org.apache.jclouds.karaf.chef.services");
         assertNotNull(jcloudsChefServicesBundles);
         int jcloudsServicesBundlesCount = Integer.parseInt(jcloudsChefServicesBundles.trim());
         assertEquals("Expected one chef services bundle", 1, jcloudsServicesBundlesCount);
