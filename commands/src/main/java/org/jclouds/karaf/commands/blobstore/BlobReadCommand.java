@@ -23,6 +23,7 @@ import java.io.InputStream;
 
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
+import org.apache.felix.gogo.commands.CommandException;
 import org.apache.felix.gogo.commands.Option;
 import org.jclouds.blobstore.BlobStore;
 import org.jclouds.blobstore.KeyNotFoundException;
@@ -71,6 +72,9 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
          CharStreams.copy(CharStreams.newReaderSupplier(supplier, Charsets.UTF_8), System.err);
          System.err.flush();
       } else {
+         if (fileName == null) {
+            throw new CommandException("Must specify --exists, --display, or file name");
+         }
          File file = new File(fileName);
          if (!file.exists() && !file.createNewFile()) {
             throw new IOException("Could not create: " + file);
