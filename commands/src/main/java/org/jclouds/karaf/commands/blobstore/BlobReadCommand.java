@@ -52,19 +52,9 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
    @Option(name = "-d", aliases = "--display", description = "Display the content to the console", required = false, multiValued = false)
    boolean display;
 
-   @Option(name = "-e", aliases = "--exists", description = "Test whether a blob exists", required = false, multiValued = false)
-   boolean exists;
-
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
-
-      if (exists) {
-          if (!blobStore.blobExists(containerName, blobName)) {
-              throw new KeyNotFoundException(containerName, blobName, "while checking existence");
-          }
-          return null;
-      }
 
       InputSupplier<InputStream> supplier = getBlobInputStream(blobStore, containerName, blobName);
 
@@ -73,7 +63,7 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
          System.out.flush();
       } else {
          if (fileName == null) {
-            throw new CommandException("Must specify --exists, --display, or file name");
+            throw new CommandException("Must specify --display or file name");
          }
          File file = new File(fileName);
          if (!file.exists() && !file.createNewFile()) {
