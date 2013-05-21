@@ -36,10 +36,10 @@ import com.google.common.io.Files;
 import com.google.common.io.InputSupplier;
 
 /**
- * @author: iocanel
+ * @author: Andrew Gaul
  */
-@Command(scope = "jclouds", name = "blobstore-read", description = "Reads data from the blobstore")
-public class BlobReadCommand extends BlobStoreCommandWithOptions {
+@Command(scope = "jclouds", name = "blobstore-blob-exists", description = "Checks blob existence on the blobstore")
+public class BlobExistsCommand extends BlobStoreCommandWithOptions {
 
    @Argument(index = 0, name = "containerName", description = "The name of the container", required = true, multiValued = false)
    String containerName;
@@ -47,29 +47,13 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
    @Argument(index = 1, name = "blobName", description = "The name of the blob", required = true, multiValued = false)
    String blobName;
 
-   @Argument(index = 2, name = "toFile", description = "The file to store the blob", required = false, multiValued = false)
-   String fileName;
-
-   @Option(name = "-d", aliases = "--display", description = "Display the content to the console", required = false, multiValued = false)
-   boolean display;
-
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
 
-      InputSupplier<InputStream> supplier = getBlobInputStream(blobStore, containerName, blobName);
-
-      if (display) {
-         CharStreams.copy(CharStreams.newReaderSupplier(supplier, Charsets.UTF_8), System.err);
-         System.err.flush();
-      } else {
-         File file = new File(fileName);
-         if (!file.exists() && !file.createNewFile()) {
-            throw new IOException("Could not create: " + file);
-         }
-         Files.copy(supplier, file);
+      if (!blobStore.blobExists(containerName, blobName)) {
+          throw new KeyNotFoundException(containerName, blobName, "while checking existence");
       }
-
       return null;
    }
 }
