@@ -60,7 +60,6 @@ limitations under the License.
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
         <version>0.8</version>
-        <inherited>false</inherited>
         <executions>
           <execution>
             <phase>package</phase>
@@ -89,6 +88,9 @@ limitations under the License.
             <exclude>**/.checkstyle</exclude>
             <exclude>**/target/**</exclude>
             <exclude>.repository/**</exclude>
+
+            <!-- Excluded because these text files are spat out directly as help -->
+            <exclude>**/src/main/resources/**/*.txt</exclude>
             <!-- binary -->
           </excludes>
         </configuration>
