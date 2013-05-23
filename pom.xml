@@ -31,7 +31,7 @@ limitations under the License.
   <name>JClouds :: Karaf</name>
 
   <description>Jclouds Karaf Integration Project</description>
-  <url>https://github.com/jclouds/jclouds-karaf</url>
+  <url>http://jclouds.incubator.apache.org</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -39,10 +39,12 @@ limitations under the License.
       <distribution>repo</distribution>
     </license>
   </licenses>
+
   <scm>
-    <connection>scm:git:git://github.com/jclouds/jclouds-karaf.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/jclouds/jclouds-karaf.git</developerConnection>
-    <url>http://github.com/jclouds/jclouds-karaf</url>
+    <connection>scm:git:https://git-wip-us.apache.org/repos/asf/incubator-jclouds-karaf.git</connection>
+    <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/incubator-jclouds-karaf.git</developerConnection>
+    <url>https://git-wip-us.apache.org/repos/asf?p=incubator-jclouds-karaf.git</url>
+    <tag>HEAD</tag>
   </scm>
 
   <developers>
