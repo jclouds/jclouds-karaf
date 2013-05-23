@@ -70,8 +70,8 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
       InputSupplier<InputStream> supplier = getBlobInputStream(blobStore, containerName, blobName);
 
       if (display) {
-         CharStreams.copy(CharStreams.newReaderSupplier(supplier, Charsets.UTF_8), System.err);
-         System.err.flush();
+         CharStreams.copy(CharStreams.newReaderSupplier(supplier, Charsets.UTF_8), System.out);
+         System.out.flush();
       } else {
          File file = new File(fileName);
          if (!file.exists() && !file.createNewFile()) {
