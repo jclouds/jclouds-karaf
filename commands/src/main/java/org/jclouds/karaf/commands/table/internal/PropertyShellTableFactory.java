@@ -32,7 +32,7 @@ public class PropertyShellTableFactory extends BasicShellTableFactory implements
 
   private static final Logger LOGGER = LoggerFactory.getLogger(PropertyShellTableFactory.class);
 
-  private final String PROPERTIES_FILE_PATH = System.getProperty("karaf.home") + File.separatorChar + "etc" + File.separatorChar + "org.jclouds.shell.cfg";
+  private final String PROPERTIES_FILE_PATH = System.getProperty("karaf.home") + File.separatorChar + "etc" + File.separatorChar + "org.apache.jclouds.shell.cfg";
 
   public PropertyShellTableFactory() {
     load();
