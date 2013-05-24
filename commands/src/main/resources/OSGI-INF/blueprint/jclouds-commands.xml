@@ -557,7 +557,7 @@ limitations under the License.
           <value>org.jclouds.karaf.commands.table.ShellTableFactory</value>
       </interfaces>
     <service-properties>
-      <entry key="service.pid" value="org.jclouds.shell"/>
+      <entry key="service.pid" value="org.apache.jclouds.shell"/>
     </service-properties>
   </service>
 
