@@ -164,7 +164,9 @@ limitations under the License.
         <artifactId>maven-release-plugin</artifactId>
         <version>${maven-release-plugin.version}</version>
         <configuration>
-          <preparationGoals>clean install</preparationGoals>
+          <useReleaseProfile>false</useReleaseProfile>
+          <goals>deploy</goals>
+          <arguments>-Pdoc -Papache-release ${arguments}</arguments>
         </configuration>
       </plugin>
     </plugins>
@@ -229,11 +231,13 @@ limitations under the License.
     <maven-compiler-plugin.version>2.0.2</maven-compiler-plugin.version>
     <maven-dependency-plugin.version>2.3</maven-dependency-plugin.version>
     <maven-war-plugin.version>2.1.1</maven-war-plugin.version>
-    <maven-release-plugin.version>2.2.2</maven-release-plugin.version>
+    <maven-release-plugin.version>2.4</maven-release-plugin.version>
     <maven-remote-resources-plugin.version>1.2.1</maven-remote-resources-plugin.version>
     <maven-resources-plugin.version>2.4.3</maven-resources-plugin.version>
     <maven-surefire-plugin.version>2.10</maven-surefire-plugin.version>
     <build-helper-maven-plugin.version>1.5</build-helper-maven-plugin.version>
+
+    <sourceReleaseAssemblyDescriptor>source-release-zip-tar</sourceReleaseAssemblyDescriptor>
   </properties>
 
   <dependencyManagement>
