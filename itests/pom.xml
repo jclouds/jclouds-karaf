@@ -166,6 +166,7 @@ limitations under the License.
             <include>**/*Test.*</include>
           </includes>
           <excludes>
+            <exclude>**/live/*Test.*</exclude>
             <exclude>**/special/*Test.*</exclude>
           </excludes>
           <systemPropertyVariables>
