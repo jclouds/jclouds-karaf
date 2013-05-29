@@ -147,7 +147,6 @@ limitations under the License.
         <version>${maven-remote-resources-plugin.version}</version>
         <executions>
           <execution>
-            <id>process-remote-resources</id>
             <goals>
               <goal>process</goal>
             </goals>
