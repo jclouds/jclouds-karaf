@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>org.apache.jclouds</groupId>
   <artifactId>jclouds-karaf</artifactId>
   <packaging>pom</packaging>
-  <version>1.6.1-SNAPSHOT</version>
+  <version>1.6.1-incubating</version>
   <name>JClouds :: Karaf</name>
 
   <description>Jclouds Karaf Integration Project</description>
@@ -44,7 +44,7 @@ limitations under the License.
     <connection>scm:git:https://git-wip-us.apache.org/repos/asf/incubator-jclouds-karaf.git</connection>
     <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/incubator-jclouds-karaf.git</developerConnection>
     <url>https://git-wip-us.apache.org/repos/asf?p=incubator-jclouds-karaf.git</url>
-    <tag>HEAD</tag>
+    <tag>jclouds-karaf-1.6.1-incubating-rc2</tag>
   </scm>
 
   <developers>
