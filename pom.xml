@@ -25,7 +25,7 @@ limitations under the License.
   </parent>
 
   <groupId>org.apache.jclouds</groupId>
-  <artifactId>jclouds-karaf-pom</artifactId>
+  <artifactId>jclouds-karaf</artifactId>
   <packaging>pom</packaging>
   <version>1.6.1-incubating</version>
   <name>JClouds :: Karaf</name>
