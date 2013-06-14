@@ -18,7 +18,6 @@
 package org.jclouds.karaf.commands.blobstore;
 
 import java.io.PrintStream;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -42,7 +41,7 @@ import org.jclouds.blobstore.options.ListContainerOptions;
 public class BlobListCommand extends BlobStoreCommandWithOptions {
 
    @Argument(index = 0, name = "containerNames", description = "The name of the container", required = false, multiValued = true)
-   final Collection<String> containerNames = Lists.newArrayList();
+   final List<String> containerNames = Lists.newArrayList();
 
    @Option(name = "-a", aliases = "--all", description = "List all containers", required = false)
    boolean listAllContainers = false;
@@ -64,9 +63,14 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
          throw new CommandException("Must specify container names or --all");
       }
 
-      for (String containerName : containerNames) {
-         out.println(containerName + ":");
-         out.println();
+      for (int i = 0; i < containerNames.size(); ++i) {
+         String containerName = containerNames.get(i);
+         if (containerNames.size() > 1) {
+             if (i != 0) {
+                 out.println();
+             }
+             out.println(containerName + ":");
+         }
 
          ListContainerOptions options = ListContainerOptions.Builder.recursive();
 
@@ -82,7 +86,7 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
 
             Collections.sort(blobNames);
             for (String blobName : blobNames) {
-               out.println("    " + blobName);
+               out.println(blobName);
             }
 
             String marker = blobStoreMetadatas.getNextMarker();
@@ -92,8 +96,6 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
 
             options = options.afterMarker(marker);
          }
-
-         out.println();
       }
       return null;
    }
