@@ -28,7 +28,7 @@ limitations under the License.
   <artifactId>jclouds-karaf</artifactId>
   <packaging>pom</packaging>
   <version>1.6.1-incubating</version>
-  <name>JClouds :: Karaf</name>
+  <name>Apache jclouds :: Karaf</name>
 
   <description>Jclouds Karaf Integration Project</description>
   <url>http://jclouds.incubator.apache.org</url>

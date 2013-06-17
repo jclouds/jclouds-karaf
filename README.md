@@ -330,6 +330,6 @@ Most of the commands support tab completion, in order to help the user easily co
 
 ## License
 
-Copyright (C) 2009-2011 jclouds, Inc.
+Copyright (C) 2009-2013 The Apache Software Foundation
 
 Licensed under the Apache License, Version 2.0
