@@ -41,11 +41,11 @@ import org.jclouds.blobstore.options.ListContainerOptions;
 @Command(scope = "jclouds", name = "blobstore-list", description = "Lists blobs in a container")
 public class BlobListCommand extends BlobStoreCommandWithOptions {
 
-   @Argument(index = 0, name = "containerNames", description = "The name of the container", required = false, multiValued = true)
-   final Collection<String> containerNames = Lists.newArrayList();
+   @Argument(index = 0, name = "containerName", description = "The name of the container", required = true)
+   String containerName;
 
-   @Option(name = "-a", aliases = "--all", description = "List all containers", required = false)
-   boolean listAllContainers = false;
+   @Argument(index = 1, name = "directoryPath", description = "List blobs only in this directory path", required = false)
+   String directoryPath;
 
    private static final PrintStream out = System.out;
 
@@ -53,47 +53,32 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
 
-      if (listAllContainers) {
-         containerNames.clear();
-         for (StorageMetadata containerMetadata : blobStore.list()) {
-            String containerName = containerMetadata.getName();
-            containerNames.add(containerName);
-            cacheProvider.getProviderCacheForType("container").put(containerMetadata.getProviderId(), containerName);
-         }
-      } else if (containerNames.isEmpty()) {
-         throw new CommandException("Must specify container names or --all");
+      ListContainerOptions options = ListContainerOptions.Builder.recursive();
+      if (directoryPath != null) {
+         options = options.inDirectory(directoryPath);
       }
 
-      for (String containerName : containerNames) {
-         out.println(containerName + ":");
-         out.println();
+      while (true) {
+         PageSet<? extends StorageMetadata> blobStoreMetadatas = blobStore.list(containerName, options);
+         List<String> blobNames = Lists.newArrayList();
 
-         ListContainerOptions options = ListContainerOptions.Builder.recursive();
-
-         while (true) {
-            PageSet<? extends StorageMetadata> blobStoreMetadatas = blobStore.list(containerName, options);
-            List<String> blobNames = Lists.newArrayList();
-
-            for (StorageMetadata blobMetadata : blobStoreMetadatas) {
-               String blobName = blobMetadata.getName();
-               cacheProvider.getProviderCacheForType("blob").put(blobMetadata.getProviderId(), blobName);
-               blobNames.add(blobName);
-            }
-
-            Collections.sort(blobNames);
-            for (String blobName : blobNames) {
-               out.println("    " + blobName);
-            }
-
-            String marker = blobStoreMetadatas.getNextMarker();
-            if (marker == null) {
-               break;
-            }
-
-            options = options.afterMarker(marker);
+         for (StorageMetadata blobMetadata : blobStoreMetadatas) {
+            String blobName = blobMetadata.getName();
+            cacheProvider.getProviderCacheForType("blob").put(blobMetadata.getProviderId(), blobName);
+            blobNames.add(blobName);
          }
 
-         out.println();
+         Collections.sort(blobNames);
+         for (String blobName : blobNames) {
+            out.println(blobName);
+         }
+
+         String marker = blobStoreMetadatas.getNextMarker();
+         if (marker == null) {
+            break;
+         }
+
+         options = options.afterMarker(marker);
       }
       return null;
    }
