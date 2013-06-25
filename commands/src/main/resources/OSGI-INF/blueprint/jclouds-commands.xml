@@ -208,6 +208,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.NodeListCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <optional-completers>
                 <entry key="--name" value-ref="computeContextNameCompleter"/>
