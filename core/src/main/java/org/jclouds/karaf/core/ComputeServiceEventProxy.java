@@ -35,6 +35,7 @@ import org.jclouds.compute.domain.NodeMetadata;
 import org.jclouds.compute.domain.Template;
 import org.jclouds.compute.domain.TemplateBuilder;
 import org.jclouds.compute.extensions.ImageExtension;
+import org.jclouds.compute.extensions.SecurityGroupExtension;
 import org.jclouds.compute.options.RunScriptOptions;
 import org.jclouds.compute.options.TemplateOptions;
 import org.jclouds.domain.Location;
@@ -525,5 +526,16 @@ public class ComputeServiceEventProxy implements ComputeService {
     @Override
     public Optional<ImageExtension> getImageExtension() {
         return computeService.getImageExtension();
+    }
+
+    /**
+     * Returns the {@link org.jclouds.compute.extensions.SecurityGroupExtension} for this provider if it implements it.
+     *
+     * @return an optional of the {@link org.jclouds.compute.extensions.SecurityGroupExtension} or {@link com.google.common.base.Optional#absent()} if not
+     *         implemented
+     */
+    @Override
+    public Optional<SecurityGroupExtension> getSecurityGroupExtension() {
+        return computeService.getSecurityGroupExtension();
     }
 }
