@@ -19,6 +19,7 @@ package org.jclouds.karaf.commands.compute;
 
 import org.apache.felix.gogo.commands.Command;
 import org.jclouds.compute.ComputeService;
+import org.jclouds.karaf.commands.table.internal.PropertyShellTableFactory;
 
 /**
  * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
@@ -35,6 +36,11 @@ public class HardwareListCommand extends ComputeCommandWithOptions {
          System.err.println(t.getMessage());
          return null;
       }
+      
+      if (shellTableFactory == null){
+      	shellTableFactory = new PropertyShellTableFactory();
+      }
+      
       printHardwares(service, service.listHardwareProfiles(), System.out);
       return null;
    }

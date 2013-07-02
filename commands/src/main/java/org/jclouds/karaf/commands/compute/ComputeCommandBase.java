@@ -24,7 +24,6 @@ import java.util.Dictionary;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.apache.felix.service.command.CommandSession;
@@ -40,7 +39,6 @@ import org.jclouds.compute.domain.Processor;
 import org.jclouds.domain.Location;
 import org.jclouds.karaf.cache.BasicCacheProvider;
 import org.jclouds.karaf.cache.CacheProvider;
-import org.jclouds.karaf.commands.table.internal.PropertyShellTableFactory;
 import org.jclouds.karaf.commands.table.ShellTable;
 import org.jclouds.karaf.commands.table.ShellTableFactory;
 import org.jclouds.karaf.core.Constants;
@@ -63,7 +61,7 @@ public abstract class ComputeCommandBase extends AbstractAction {
    protected ConfigurationAdmin configAdmin;
    protected CacheProvider cacheProvider = new BasicCacheProvider();
    protected List<ComputeService> computeServices = new ArrayList<ComputeService>();
-   protected ShellTableFactory shellTableFactory = new PropertyShellTableFactory();
+   protected ShellTableFactory shellTableFactory;
 
    @Override
    public Object execute(CommandSession session) throws Exception {

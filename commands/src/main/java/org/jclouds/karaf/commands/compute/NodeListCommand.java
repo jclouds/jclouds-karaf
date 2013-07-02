@@ -25,6 +25,7 @@ import org.jclouds.compute.ComputeService;
 import org.jclouds.compute.domain.ComputeMetadata;
 import org.jclouds.compute.domain.NodeMetadata;
 import org.jclouds.javax.annotation.Nullable;
+import org.jclouds.karaf.commands.table.internal.PropertyShellTableFactory;
 import org.jclouds.karaf.core.Constants;
 import org.jclouds.karaf.utils.ServiceHelper;
 
@@ -59,6 +60,11 @@ public class NodeListCommand extends ComputeCommandWithOptions {
         return true;
       }
     });
+    
+    if (shellTableFactory == null){
+    	shellTableFactory = new PropertyShellTableFactory();
+    }
+    
     printNodes(service, nodes, System.out);
 
     for (ComputeMetadata node : service.listNodes()) {
