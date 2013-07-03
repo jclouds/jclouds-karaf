@@ -105,7 +105,7 @@ There are currently two ways of creating a service for blobstore service:
 The compute service command allows you to create and reuse blobstore service for a jclouds provider or api.
 To create a compute service for the S3 provider:
 
-    karaf@root> jclouds:blobstore-service-create --provider aws-s3 blobstore --identity XXXXXX --credential XXXXXXX
+    karaf@root> jclouds:blobstore-service-create --provider aws-s3 --identity XXXXXX --credential XXXXXXX
 
 To see the list of installed providers and apis or remove the service for one of the providers, you can use the jclouds:blobstore-service-list and jclouds-blobstore-service-remove commands.
 
