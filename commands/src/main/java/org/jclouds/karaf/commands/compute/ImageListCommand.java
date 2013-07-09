@@ -19,7 +19,6 @@ package org.jclouds.karaf.commands.compute;
 
 import org.apache.felix.gogo.commands.Command;
 import org.jclouds.compute.ComputeService;
-import org.jclouds.karaf.commands.table.internal.PropertyShellTableFactory;
 
 /**
  * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
@@ -35,10 +34,6 @@ public class ImageListCommand extends ComputeCommandWithOptions {
       } catch (Throwable t) {
          System.err.println(t.getMessage());
          return null;
-      }
-      
-      if (shellTableFactory == null){
-      	shellTableFactory = new PropertyShellTableFactory();
       }
       
       printImages(service, service.listImages(), System.out);

@@ -41,6 +41,7 @@ import org.jclouds.karaf.cache.BasicCacheProvider;
 import org.jclouds.karaf.cache.CacheProvider;
 import org.jclouds.karaf.commands.table.ShellTable;
 import org.jclouds.karaf.commands.table.ShellTableFactory;
+import org.jclouds.karaf.commands.table.internal.PropertyShellTableFactory;
 import org.jclouds.karaf.core.Constants;
 import org.jclouds.karaf.utils.ServiceHelper;
 import org.jclouds.providers.ProviderMetadata;
@@ -72,6 +73,12 @@ public abstract class ComputeCommandBase extends AbstractAction {
          System.err.println(String.format("Authorization error: %s",ex.getMessage()));
          return null;
       }
+   }
+   
+   private void initShellTableFactory(){
+	   if (shellTableFactory == null){
+	    	shellTableFactory = new PropertyShellTableFactory();
+	    }
    }
 
    protected void printComputeProviders(Iterable<ProviderMetadata> providers, List<ComputeService> computeServices,
@@ -109,6 +116,7 @@ public abstract class ComputeCommandBase extends AbstractAction {
    }
 
    protected void printNodes(ComputeService service, Set<? extends ComputeMetadata> nodes, PrintStream out) {
+	 initShellTableFactory();
      ShellTable table = shellTableFactory.build("node");
      table.setDisplayData(nodes);
      table.display(out, true, true);
@@ -122,7 +130,8 @@ public abstract class ComputeCommandBase extends AbstractAction {
    }
 
    protected void printHardwares(ComputeService service, Set<? extends Hardware> hardwares, PrintStream out) {
-     ShellTable table = shellTableFactory.build("hardware");
+	 initShellTableFactory();
+	 ShellTable table = shellTableFactory.build("hardware");
      table.setDisplayData(hardwares);
      table.display(out, true, true);
 
@@ -134,6 +143,7 @@ public abstract class ComputeCommandBase extends AbstractAction {
    }
 
    protected void printImages(ComputeService service, Set<? extends Image> images, PrintStream out) {
+	  initShellTableFactory();
       ShellTable table = shellTableFactory.build("image");
       table.setDisplayData(images);
       table.display(out, true, true);
@@ -146,6 +156,7 @@ public abstract class ComputeCommandBase extends AbstractAction {
    }
 
    protected void printLocations(ComputeService computeService, PrintStream out) {
+	 initShellTableFactory();
      ShellTable table = shellTableFactory.build("location");
      table.setDisplayData(getAllLocations(computeService));
      table.display(out, true, true);
