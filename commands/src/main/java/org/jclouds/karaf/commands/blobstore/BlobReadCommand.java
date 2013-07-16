@@ -52,11 +52,14 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
    @Option(name = "-d", aliases = "--display", description = "Display the content to the console", required = false, multiValued = false)
    boolean display;
 
+   @Option(name = "-S", aliases = "--signed-request", description = "Use a signed request", required = false, multiValued = false)
+   boolean signedRequest;
+
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
 
-      InputSupplier<InputStream> supplier = getBlobInputStream(blobStore, containerName, blobName);
+      InputSupplier<InputStream> supplier = getBlobInputStream(blobStore, containerName, blobName, signedRequest);
 
       if (display) {
          CharStreams.copy(CharStreams.newReaderSupplier(supplier, Charsets.UTF_8), System.out);
