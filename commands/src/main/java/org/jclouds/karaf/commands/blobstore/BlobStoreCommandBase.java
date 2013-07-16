@@ -23,15 +23,19 @@ import org.apache.felix.service.command.CommandSession;
 import org.apache.karaf.shell.console.AbstractAction;
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.blobstore.BlobStore;
+import org.jclouds.blobstore.BlobStoreContext;
 import org.jclouds.blobstore.ContainerNotFoundException;
 import org.jclouds.blobstore.KeyNotFoundException;
 import org.jclouds.blobstore.domain.Blob;
 import org.jclouds.blobstore.options.PutOptions;
 import org.jclouds.blobstore.util.BlobStoreUtils;
+import org.jclouds.http.HttpRequest;
+import org.jclouds.http.HttpResponse;
 import org.jclouds.karaf.cache.BasicCacheProvider;
 import org.jclouds.karaf.cache.CacheProvider;
 import org.jclouds.karaf.core.Constants;
 import org.jclouds.providers.ProviderMetadata;
+import org.jclouds.rest.HttpClient;
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
 import org.slf4j.Logger;
@@ -120,8 +124,20 @@ public abstract class BlobStoreCommandBase extends AbstractAction {
     * @param blobName
     * @return
     */
-   public InputSupplier<InputStream> getBlobInputStream(BlobStore blobStore, String containerName, String blobName)
+   public InputSupplier<InputStream> getBlobInputStream(BlobStore blobStore, String containerName, String blobName, boolean signedRequest)
          throws Exception {
+      if (signedRequest) {
+         BlobStoreContext context = blobStore.getContext();
+         HttpRequest request = context.getSigner().signGetBlob(containerName, blobName);
+         HttpClient httpClient = context.utils().http();
+         HttpResponse response = httpClient.invoke(request);
+         int statusCode = response.getStatusCode();
+         if (statusCode != 200) {
+            throw new IOException(response.getStatusLine());
+         }
+         return response.getPayload();
+      }
+
       Blob blob = blobStore.getBlob(containerName, blobName);
       if (blob == null) {
          if (!blobStore.containerExists(containerName)) {
@@ -141,7 +157,7 @@ public abstract class BlobStoreCommandBase extends AbstractAction {
     * @param blob
     * @param options
     */
-   public void write(BlobStore blobStore, String bucket, String blobName, Blob blob, PutOptions options) throws Exception {
+   public void write(BlobStore blobStore, String bucket, String blobName, Blob blob, PutOptions options, boolean signedRequest) throws Exception {
       if (blobName.contains("/")) {
          String directory = BlobStoreUtils.parseDirectoryFromPath(blobName);
          if (!Strings.isNullOrEmpty(directory)) {
@@ -149,7 +165,18 @@ public abstract class BlobStoreCommandBase extends AbstractAction {
          }
       }
 
-      blobStore.putBlob(bucket, blob, options);
+      if (signedRequest) {
+         BlobStoreContext context = blobStore.getContext();
+         HttpRequest request = context.getSigner().signPutBlob(bucket, blob);
+         HttpClient httpClient = context.utils().http();
+         HttpResponse response = httpClient.invoke(request);
+         int statusCode = response.getStatusCode();
+         if (statusCode != 200 && statusCode != 201) {
+            throw new IOException(response.getStatusLine());
+         }
+      } else {
+         blobStore.putBlob(bucket, blob, options);
+      }
    }
 
    protected void printBlobStoreProviders(Iterable<ProviderMetadata> providers, List<BlobStore> blobStores,
