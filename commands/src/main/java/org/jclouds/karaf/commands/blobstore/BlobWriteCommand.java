@@ -55,6 +55,9 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
    @Option(name = "-m", aliases = "--multipart-upload", description = "Use multi-part upload", required = false, multiValued = false)
    boolean multipartUpload;
 
+   @Option(name = "-S", aliases = "--signed-request", description = "Use a signed request", required = false, multiValued = false)
+   boolean signedRequest;
+
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
@@ -78,7 +81,8 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
       }
 
       PutOptions options = multipartUpload ? new PutOptions().multipart(true) : PutOptions.NONE;
-      write(blobStore, containerName, blobName, builder.build(), options);
+
+      write(blobStore, containerName, blobName, builder.build(), options, signedRequest);
 
       cacheProvider.getProviderCacheForType("container").put(blobStore.getContext().unwrap().getId(), containerName);
       cacheProvider.getProviderCacheForType("blob").put(blobStore.getContext().unwrap().getId(), blobName);
