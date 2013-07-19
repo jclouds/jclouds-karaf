@@ -17,12 +17,7 @@
 
 package org.jclouds.karaf.commands.blobstore;
 
-import java.io.InputStream;
 import java.io.File;
-import java.net.URL;
-
-import com.google.common.io.ByteStreams;
-import com.google.common.io.Closeables;
 
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -46,12 +41,6 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
    @Argument(index = 2, name = "payload", description = "Payload, interpreted as a file name by default", required = true, multiValued = false)
    String payload;
 
-   @Option(name = "-s", aliases = "--string-payload", description = "Use string payload instead of a file", required = false, multiValued = false)
-   boolean stringPayload;
-
-   @Option(name = "-u", aliases = "--url-payload", description = "Use payload from a URL instead of a file", required = false, multiValued = false)
-   boolean urlPayload;
-
    @Option(name = "-m", aliases = "--multipart-upload", description = "Use multi-part upload", required = false, multiValued = false)
    boolean multipartUpload;
 
@@ -61,26 +50,15 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
-
-      BlobBuilder builder = blobStore.blobBuilder(blobName);
-      if (stringPayload) {
-         builder = builder.payload(payload.getBytes());  // use default Charset
-      } else if (urlPayload) {
-         InputStream input = new URL(payload).openStream();
-         try {
-            builder = builder.payload(ByteStreams.toByteArray(input));
-         } finally {
-            input.close();
-         }
-      } else {
-         BlobBuilder.PayloadBlobBuilder payloadBuilder = builder.payload(new File(payload));
-         if (!multipartUpload) {
-            payloadBuilder = payloadBuilder.calculateMD5();
-         }
-         builder = payloadBuilder;
-      }
-
       PutOptions options = multipartUpload ? new PutOptions().multipart(true) : PutOptions.NONE;
+
+      BlobBuilder.PayloadBlobBuilder builder = blobStore
+            .blobBuilder(blobName)
+            .payload(new File(payload));
+      if (!multipartUpload) {
+         builder = builder.calculateMD5();
+         options = new PutOptions().multipart(true);
+      }
 
       write(blobStore, containerName, blobName, builder.build(), options, signedRequest);
 
