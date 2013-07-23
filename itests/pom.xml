@@ -17,15 +17,14 @@ limitations under the License.
 -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <parent>
-    <artifactId>jclouds-karaf</artifactId>
-    <groupId>org.apache.jclouds</groupId>
-    <version>1.7.0-SNAPSHOT</version>
-    <relativePath>..</relativePath>
-  </parent>
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.apache.jclouds.karaf</groupId>
+    <artifactId>project</artifactId>
+    <version>1.7.0-SNAPSHOT</version>
+    <relativePath>../project</relativePath>
+  </parent>
 
-  <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>itests</artifactId>
   <name>JClouds :: Karaf :: Integration Tests</name>
 
@@ -68,42 +67,49 @@ limitations under the License.
       <artifactId>jclouds-karaf</artifactId>
       <type>xml</type>
       <classifier>features</classifier>
+      <version>${jclouds.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>core</artifactId>
       <scope>test</scope>
+      <version>${jclouds.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
       <scope>test</scope>
+      <version>${jclouds.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-log4j</artifactId>
       <scope>test</scope>
+      <version>${jclouds.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-compute</artifactId>
       <scope>test</scope>
+      <version>${jclouds.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-blobstore</artifactId>
       <scope>test</scope>
+      <version>${jclouds.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>ec2</artifactId>
       <scope>test</scope>
+      <version>${jclouds.version}</version>
     </dependency>
 
 

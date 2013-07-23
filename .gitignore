@@ -6,6 +6,7 @@
 .ruleset
 .settings/
 target/
+bin/
 *.iml
 *.iws
 *.ipr
