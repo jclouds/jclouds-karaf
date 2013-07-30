@@ -19,16 +19,15 @@ limitations under the License.
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>chef</artifactId>
     <groupId>org.apache.jclouds.karaf</groupId>
+    <artifactId>chef</artifactId>
     <version>1.7.0-SNAPSHOT</version>
   </parent>
-  <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.apache.jclouds.karaf.chef</groupId>
   <artifactId>commands</artifactId>
-  <version>1.7.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>JClouds :: Karaf :: Chef :: Commands</name>
 
@@ -37,7 +36,7 @@ limitations under the License.
     <osgi.import>
       javax.script,
       org.codehaus.groovy.jsr223,
-      org.jclouds.karaf.cache*;version=${project.version},
+      org.jclouds.karaf.cache*;version=${jclouds.version},
       org.jclouds.compute;version=${jclouds.version},
       org.apache.felix.service.command,
       org.apache.felix.gogo.commands,
@@ -56,44 +55,54 @@ limitations under the License.
     <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>chef</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
 
     <!-- Internal Dependencies -->
     <dependency>
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>cache</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>core</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>utils</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>services</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>commands</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.karaf.chef</groupId>
       <artifactId>core</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-compute</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
       <artifactId>jclouds-log4j</artifactId>
+      <version>${jclouds.version}</version>
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
