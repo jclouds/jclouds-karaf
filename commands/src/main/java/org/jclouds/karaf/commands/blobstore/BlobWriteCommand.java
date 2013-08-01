@@ -23,6 +23,8 @@ import java.net.URL;
 
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
+import com.google.common.io.FileBackedOutputStream;
+import com.google.common.io.InputSupplier;
 
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -30,6 +32,7 @@ import org.apache.felix.gogo.commands.Option;
 import org.jclouds.blobstore.BlobStore;
 import org.jclouds.blobstore.domain.BlobBuilder;
 import org.jclouds.blobstore.options.PutOptions;
+import org.jclouds.io.payloads.InputStreamSupplierPayload;
 
 /**
  * @author: iocanel
@@ -61,6 +64,7 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
+      FileBackedOutputStream fbos = null;
 
       BlobBuilder builder = blobStore.blobBuilder(blobName);
       if (stringPayload) {
@@ -73,7 +77,17 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
             input.close();
          }
       } else {
-         BlobBuilder.PayloadBlobBuilder payloadBuilder = builder.payload(new File(payload));
+         BlobBuilder.PayloadBlobBuilder payloadBuilder;
+         if (payload.equals("-")) {
+            fbos = new FileBackedOutputStream(64 * 1024 * 1024);  // TODO: configurable
+            ByteStreams.copy(System.in, fbos);
+            InputSupplier<InputStream> supplier = fbos.getSupplier();
+            payloadBuilder = builder
+                  .payload(new InputStreamSupplierPayload(supplier))
+                  .contentLength(ByteStreams.length(supplier));
+         } else {
+            payloadBuilder = builder.payload(new File(payload));
+         }
          if (!multipartUpload) {
             payloadBuilder = payloadBuilder.calculateMD5();
          }
@@ -86,6 +100,10 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
 
       cacheProvider.getProviderCacheForType("container").put(blobStore.getContext().unwrap().getId(), containerName);
       cacheProvider.getProviderCacheForType("blob").put(blobStore.getContext().unwrap().getId(), blobName);
+
+      if (fbos != null) {
+         fbos.close();
+      }
 
       return null;
    }
