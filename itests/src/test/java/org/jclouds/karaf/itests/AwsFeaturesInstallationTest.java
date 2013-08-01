@@ -50,7 +50,6 @@ public class AwsFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
         installAndCheckFeature("jclouds-aws-sqs");
     }
 
-    @Ignore
     @Test
     public void testAwsStsFeature() throws Exception {
         installAndCheckFeature("jclouds-aws-sts");

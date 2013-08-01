@@ -29,10 +29,7 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
 
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 @Command(scope = "jclouds", name = "blobstore-service-create", description = "Creates a BlobStore service.", detailedDescription = "classpath:blobstore-service-create.txt")
 public class BlobStoreServiceCreateCommand extends BlobStoreCommandWithOptions {
@@ -141,9 +138,9 @@ public class BlobStoreServiceCreateCommand extends BlobStoreCommandWithOptions {
                         "org.jclouds.blobstore", id, provider, api);
                if (configuration != null) {
                   @SuppressWarnings("unchecked")
-                  Dictionary<Object, Object> dictionary = configuration.getProperties();
+                  Dictionary<String, Object> dictionary = configuration.getProperties();
                   if (dictionary == null) {
-                     dictionary = new Properties();
+                     dictionary = new Hashtable<String, Object>();
                   }
 
                   String providerValue = EnvHelper.getBlobStoreProvider(provider);

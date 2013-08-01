@@ -27,6 +27,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.util.tracker.ServiceTracker;
 
+import java.util.Hashtable;
 import java.util.Properties;
 
 public class Activator implements BundleActivator {
@@ -57,7 +58,7 @@ public class Activator implements BundleActivator {
     @Override
     public void start(BundleContext context) throws Exception {
         CacheProvider cacheProvider = new BasicCacheProvider();
-        cacheProviderRegistration = context.registerService(CacheProvider.class.getName(), cacheProvider, new Properties());
+        cacheProviderRegistration = context.registerService(CacheProvider.class.getName(), cacheProvider, new Hashtable<String, Object>());
 
 
         chefServiceTracker = CacheUtils.createServiceCacheTracker(context, ChefService.class, chefCacheManager);
