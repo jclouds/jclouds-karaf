@@ -17,8 +17,8 @@
 
 package org.jclouds.karaf.itests;
 
-import static org.openengsb.labs.paxexam.karaf.options.KarafDistributionOption.editConfigurationFileExtend;
-import static org.openengsb.labs.paxexam.karaf.options.KarafDistributionOption.karafDistributionConfiguration;
+import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.karafDistributionConfiguration;
+import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.editConfigurationFileExtend;
 import static org.ops4j.pax.exam.CoreOptions.maven;
 
 import java.io.ByteArrayOutputStream;
@@ -39,6 +39,7 @@ import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.TestProbeBuilder;
 import org.ops4j.pax.exam.junit.ProbeBuilder;
+import org.ops4j.pax.exam.options.DefaultCompositeOption;
 import org.ops4j.pax.exam.options.MavenArtifactProvisionOption;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -48,6 +49,8 @@ import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
+
+import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.editConfigurationFileExtend;
 
 public class JcloudsKarafTestSupport {
 
@@ -86,9 +89,16 @@ public class JcloudsKarafTestSupport {
      * @return
      */
     protected Option jcloudsDistributionConfiguration() {
-        return karafDistributionConfiguration().frameworkUrl(
-                maven().groupId(KARAF_GROUP_ID).artifactId(KARAF_ARTIFACT_ID).versionAsInProject().type("tar.gz"))
-                .karafVersion(getKarafVersion()).name("Apache Karaf Distro").unpackDirectory(new File("target/paxexam/unpack/"));
+        return new DefaultCompositeOption(karafDistributionConfiguration()
+                .frameworkUrl(maven()
+                        .groupId(KARAF_GROUP_ID)
+                        .artifactId(KARAF_ARTIFACT_ID)
+                        .versionAsInProject().type("tar.gz"))
+                .karafVersion(getKarafVersion()).name("Apache Karaf Distro")
+                .unpackDirectory(new File("target/paxexam/unpack/")),
+                //We use this option to allow the container to use artifacts found in a private repo.
+                editConfigurationFileExtend("etc/org.ops4j.pax.url.mvn.cfg", "org.ops4j.pax.url.mvn.repositories",", file:${maven.local.repo}@id=mavenlocalrepo@snapshots")
+        );
     }
 
     /**

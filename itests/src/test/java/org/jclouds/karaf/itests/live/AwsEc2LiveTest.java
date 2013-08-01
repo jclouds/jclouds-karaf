@@ -18,8 +18,8 @@
 package org.jclouds.karaf.itests.live;
 
 import static org.junit.Assert.assertTrue;
-import static org.openengsb.labs.paxexam.karaf.options.KarafDistributionOption.keepRuntimeFolder;
-import static org.openengsb.labs.paxexam.karaf.options.KarafDistributionOption.logLevel;
+import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.keepRuntimeFolder;
+import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.logLevel;
 import static org.ops4j.pax.exam.CoreOptions.scanFeatures;
 
 import org.jclouds.compute.ComputeService;
@@ -27,7 +27,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openengsb.labs.paxexam.karaf.options.LogLevelOption;
+import org.apache.karaf.tooling.exam.options.LogLevelOption;
 import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.Configuration;

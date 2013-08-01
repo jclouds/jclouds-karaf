@@ -29,10 +29,7 @@ import org.osgi.framework.ServiceReference;
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
 
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 @Command(scope = "chef", name = "service-create", description = "Creates a chef service")
 public class ChefServiceCreateCommand extends ChefCommandWithOptions {
@@ -126,9 +123,9 @@ public class ChefServiceCreateCommand extends ChefCommandWithOptions {
                     Configuration configuration = findOrCreateFactoryConfiguration(configurationAdmin, "org.jclouds.chef", name, api);
                     if (configuration != null) {
                         @SuppressWarnings("unchecked")
-                        Dictionary<Object, Object> dictionary = configuration.getProperties();
+                        Dictionary<String, Object> dictionary = configuration.getProperties();
                         if (dictionary == null) {
-                            dictionary = new Properties();
+                            dictionary = new Hashtable<String, Object>();
                         }
 
                         String apiValue = ChefHelper.getChefApi(api);

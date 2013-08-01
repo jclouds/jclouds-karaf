@@ -17,10 +17,7 @@
 
 package org.jclouds.karaf.commands.compute;
 
-import java.util.Dictionary;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.Option;
@@ -140,9 +137,9 @@ public class ComputeServiceCreateCommand extends ComputeCommandWithOptions {
                Configuration configuration = findOrCreateFactoryConfiguration(configurationAdmin, "org.jclouds.compute", name, provider, api);
                if (configuration != null) {
                   @SuppressWarnings("unchecked")
-                  Dictionary<Object, Object> dictionary = configuration.getProperties();
+                  Dictionary<String, Object> dictionary = configuration.getProperties();
                   if (dictionary == null) {
-                     dictionary = new Properties();
+                     dictionary = new Hashtable<String, Object>();
                   }
 
                   String providerValue = EnvHelper.getComputeProvider(provider);
