@@ -18,7 +18,6 @@
 package org.jclouds.karaf.itests.live;
 
 import static org.junit.Assert.assertTrue;
-import static org.openengsb.labs.paxexam.karaf.options.KarafDistributionOption.debugConfiguration;
 import static org.openengsb.labs.paxexam.karaf.options.KarafDistributionOption.keepRuntimeFolder;
 import static org.openengsb.labs.paxexam.karaf.options.KarafDistributionOption.logLevel;
 import static org.ops4j.pax.exam.CoreOptions.scanFeatures;
@@ -90,7 +89,7 @@ public class RackspaceLiveTest extends JcloudsLiveTestSupport {
                 systemProperty("jclouds.rackspace.image"),
                 systemProperty("jclouds.rackspace.location"),
                 systemProperty("jclouds.rackspace.user"),
-                scanFeatures(String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)), "jclouds", "jclouds-compute", "jclouds-cloudserver-us").start()
+                scanFeatures(getJcloudsKarafConfigFeatureURL(), "jclouds", "jclouds-compute", "jclouds-cloudserver-us").start()
         };
     }
 }
