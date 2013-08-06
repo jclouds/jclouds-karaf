@@ -157,6 +157,7 @@ limitations under the License.
         <version>${maven-release-plugin.version}</version>
         <configuration>
           <useReleaseProfile>false</useReleaseProfile>
+          <preparationGoals>clean install</preparationGoals>
           <goals>deploy</goals>
           <arguments>-Pdoc -Papache-release ${arguments}</arguments>
         </configuration>
