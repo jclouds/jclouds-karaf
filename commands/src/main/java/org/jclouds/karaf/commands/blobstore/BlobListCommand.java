@@ -72,7 +72,7 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
 
          for (StorageMetadata blobMetadata : blobStoreMetadatas) {
             String blobName = blobMetadata.getName();
-            cacheProvider.getProviderCacheForType("blob").put(blobMetadata.getProviderId(), blobName);
+            // do not add to cacheProvider since long lists will cause OutOfMemoryError
             blobNames.add(blobName);
          }
 
