@@ -19,7 +19,6 @@ package org.jclouds.karaf.commands.blobstore;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.io.BaseEncoding;
 import com.google.inject.Module;
 import org.apache.felix.gogo.commands.Option;
 import org.apache.felix.service.command.CommandSession;
@@ -27,14 +26,12 @@ import org.jclouds.Constants;
 import org.jclouds.ContextBuilder;
 import org.jclouds.blobstore.BlobStore;
 import org.jclouds.blobstore.BlobStoreContext;
-import org.jclouds.io.ContentMetadata;
 import org.jclouds.karaf.utils.EnvHelper;
 import org.jclouds.karaf.utils.ServiceHelper;
 import org.jclouds.logging.log4j.config.Log4JLoggingModule;
 
 import java.io.IOException;
 import java.io.File;
-import java.io.PrintStream;
 import java.util.Collections;
 import java.util.List;
 
@@ -153,26 +150,4 @@ public abstract class BlobStoreCommandWithOptions extends BlobStoreCommandBase {
       }
       return blobStore;
    }
-
-
-   static void printMetadata(PrintStream out, ContentMetadata metadata) {
-      printMetadata(out, "Content-Disposition", metadata.getContentDisposition());
-      printMetadata(out, "Content-Encoding", metadata.getContentEncoding());
-      printMetadata(out, "Content-Language", metadata.getContentLanguage());
-      byte[] contentMD5 = metadata.getContentMD5();
-      if (contentMD5 != null) {
-         printMetadata(out, "Content-MD5",
-               BaseEncoding.base16().lowerCase().encode(contentMD5));
-      }
-      printMetadata(out, "Content-Type", metadata.getContentType());
-      printMetadata(out, "Expires", metadata.getExpires());
-      printMetadata(out, "Length", metadata.getContentLength());
-   }
-
-   static void printMetadata(PrintStream out, String key, Object value) {
-      if (value != null) {
-         out.println(String.format("    %s: %s", key, value));
-      }
-   }
-
 }

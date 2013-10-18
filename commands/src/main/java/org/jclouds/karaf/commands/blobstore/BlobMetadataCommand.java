@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.google.common.collect.Lists;
+import com.google.common.io.BaseEncoding;
 
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -56,11 +57,29 @@ public class BlobMetadataCommand extends BlobStoreCommandWithOptions {
             throw new KeyNotFoundException(containerName, blobName, "while getting metadata");
          }
 
+         ContentMetadata contentMetdata = blobMetadata.getContentMetadata();
          out.println(blobName + ":");
-         BlobStoreCommandWithOptions.printMetadata(out, blobMetadata.getContentMetadata());
+
+         printMetadata("Content-Disposition", contentMetdata.getContentDisposition());
+         printMetadata("Content-Encoding", contentMetdata.getContentEncoding());
+         printMetadata("Content-Language", contentMetdata.getContentLanguage());
+         byte[] contentMD5 = contentMetdata.getContentMD5();
+         if (contentMD5 != null) {
+            printMetadata("Content-MD5",
+                  BaseEncoding.base16().lowerCase().encode(contentMD5));
+         }
+         printMetadata("Content-Type", contentMetdata.getContentType());
+         printMetadata("Expires", contentMetdata.getExpires());
+         printMetadata("Length", contentMetdata.getContentLength());
 
          out.println("");
       }
       return null;
+   }
+
+   private static void printMetadata(String key, Object value) {
+      if (value != null) {
+         out.println(String.format("    %s: %s", key, value));
+      }
    }
 }

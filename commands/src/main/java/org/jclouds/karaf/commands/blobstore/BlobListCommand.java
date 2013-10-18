@@ -21,19 +21,14 @@ import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.Callable;
 
 import com.google.common.collect.Lists;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.ListeningExecutorService;
 
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.CommandException;
 import org.apache.felix.gogo.commands.Option;
 import org.jclouds.blobstore.BlobStore;
-import org.jclouds.blobstore.domain.BlobMetadata;
 import org.jclouds.blobstore.domain.PageSet;
 import org.jclouds.blobstore.domain.StorageMetadata;
 import org.jclouds.blobstore.options.ListContainerOptions;
@@ -52,14 +47,11 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
    @Argument(index = 1, name = "directoryPath", description = "List blobs only in this directory path", required = false)
    String directoryPath;
 
-   @Option(name = "-d", aliases = "--details", description = "Display blob details", required = false, multiValued = false)
-   boolean details;
-
    private static final PrintStream out = System.out;
 
    @Override
    protected Object doExecute() throws Exception {
-      final BlobStore blobStore = getBlobStore();
+      BlobStore blobStore = getBlobStore();
 
       ListContainerOptions options = ListContainerOptions.Builder.recursive();
       if (directoryPath != null) {
@@ -77,28 +69,8 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
          }
 
          Collections.sort(blobNames);
-         if (details) {
-            ListeningExecutorService executor = blobStore.getContext().utils().userExecutor();
-            Collection<ListenableFuture<BlobMetadata>> futures = Lists.newArrayList();
-            for (final String blobName : blobNames) {
-               futures.add(executor.submit(new Callable<BlobMetadata>() {
-                  @Override
-                  public BlobMetadata call() {
-                     return blobStore.blobMetadata(containerName, blobName);
-                  }
-               }));
-            }
-            Collection<BlobMetadata> metadatas = Futures.allAsList(futures).get();
-
-            for (BlobMetadata metadata : metadatas) {
-                out.println(metadata.getName() + ":");
-                BlobStoreCommandWithOptions.printMetadata(out, metadata.getContentMetadata());
-                out.println();
-            }
-         } else {
-            for (String blobName : blobNames) {
-               out.println(blobName);
-            }
+         for (String blobName : blobNames) {
+            out.println(blobName);
          }
 
          String marker = blobStoreMetadatas.getNextMarker();
