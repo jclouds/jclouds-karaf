@@ -31,7 +31,7 @@ limitations under the License.
   <version>1.6.3-SNAPSHOT</version>
 
   <description>Jclouds Karaf Integration Project</description>
-  <url>http://jclouds.incubator.apache.org</url>
+  <url>http://jclouds.apache.org</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -41,9 +41,9 @@ limitations under the License.
   </licenses>
 
   <scm>
-    <connection>scm:git:https://git-wip-us.apache.org/repos/asf/incubator-jclouds-karaf.git</connection>
-    <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/incubator-jclouds-karaf.git</developerConnection>
-    <url>https://git-wip-us.apache.org/repos/asf?p=incubator-jclouds-karaf.git</url>
+    <connection>scm:git:https://git-wip-us.apache.org/repos/asf/jclouds-karaf.git</connection>
+    <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/jclouds-karaf.git</developerConnection>
+    <url>https://git-wip-us.apache.org/repos/asf?p=jclouds-karaf.git</url>
     <tag>HEAD</tag>
   </scm>
 
