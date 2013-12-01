@@ -101,7 +101,7 @@ limitations under the License.
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>services</artifactId>
     </dependency>
-    <!-- Jclouds Dependencies -->
+    <!-- jclouds Dependencies -->
     <dependency>
       <groupId>org.apache.jclouds</groupId>
       <artifactId>jclouds-core</artifactId>
