@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>cache</artifactId>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: Cache</name>
+  <name>jclouds :: Karaf :: Cache</name>
 
   <properties>
     <osgi.export>org.jclouds.karaf.cache*;version=${project.version};-noimport:=true</osgi.export>

@@ -30,7 +30,7 @@ limitations under the License.
   <artifactId>cache</artifactId>
   <version>1.7.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: Chef :: Cache</name>
+  <name>jclouds :: Karaf :: Chef :: Cache</name>
 
   <properties>
     <osgi.export>org.jclouds.karaf.chef.cache;version=${project.version};-noimport:=true</osgi.export>

@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>urlhandler</artifactId>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: URL Handler</name>
+  <name>jclouds :: Karaf :: URL Handler</name>
 
   <properties>
     <osgi.import>org.jclouds*;version=${jclouds.version};resolution:=optional,*</osgi.import>

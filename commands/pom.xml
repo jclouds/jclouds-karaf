@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>commands</artifactId>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: Commands</name>
+  <name>jclouds :: Karaf :: Commands</name>
 
   <properties>
     <osgi.import>

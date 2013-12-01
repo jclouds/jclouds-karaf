@@ -29,7 +29,7 @@ limitations under the License.
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>recipe</artifactId>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: Recipe</name>
+  <name>jclouds :: Karaf :: Recipe</name>
 
   <properties>
     <osgi.export>

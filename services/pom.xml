@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>services</artifactId>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: Services</name>
+  <name>jclouds :: Karaf :: Services</name>
 
   <build>
     <plugins>

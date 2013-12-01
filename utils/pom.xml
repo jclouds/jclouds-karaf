@@ -26,7 +26,7 @@ limitations under the License.
 
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>utils</artifactId>
-  <name>JClouds :: Karaf :: Utils</name>
+  <name>jclouds :: Karaf :: Utils</name>
 
   <dependencies>
     <dependency>

@@ -28,7 +28,7 @@ limitations under the License.
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>core</artifactId>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: Core</name>
+  <name>jclouds :: Karaf :: Core</name>
 
   <properties>
     <osgi.export>

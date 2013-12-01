@@ -30,7 +30,7 @@ limitations under the License.
   <artifactId>chef</artifactId>
   <packaging>pom</packaging>
   <version>1.7.0-SNAPSHOT</version>
-  <name>JClouds :: Karaf :: Chef</name>
+  <name>jclouds :: Karaf :: Chef</name>
 
   <modules>
     <module>core</module>

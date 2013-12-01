@@ -491,7 +491,7 @@ limitations under the License.
         <version>${easymock.version}</version>
       </dependency>
 
-      <!-- JClouds Dependencies -->
+      <!-- jclouds Dependencies -->
       <dependency>
         <groupId>org.apache.jclouds</groupId>
         <artifactId>jclouds-core</artifactId>

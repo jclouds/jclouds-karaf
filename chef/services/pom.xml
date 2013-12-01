@@ -30,7 +30,7 @@ limitations under the License.
   <artifactId>services</artifactId>
   <version>1.7.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
-  <name>JClouds :: Karaf :: Chef :: Services</name>
+  <name>jclouds :: Karaf :: Chef :: Services</name>
 
   <properties>
     <osgi.import>*</osgi.import>

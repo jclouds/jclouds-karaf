@@ -27,7 +27,7 @@ limitations under the License.
 
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>itests</artifactId>
-  <name>JClouds :: Karaf :: Integration Tests</name>
+  <name>jclouds :: Karaf :: Integration Tests</name>
 
   <properties>
     <camel.version>2.9.0</camel.version>
