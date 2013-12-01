@@ -26,7 +26,7 @@ limitations under the License.
         <bundle>mvn:org.99soft.guice/rocoto/${rocoto.version}</bundle>
     </feature>
 
-    <feature name='jclouds' description='JClouds' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds' description='jclouds' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-guice</feature>
         <bundle dependency='true'>mvn:com.google.guava/guava/${guava.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.oauth-commons/${net.oauth.bundle.version}</bundle>
@@ -35,19 +35,19 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds/jclouds-core/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-blobstore' description='JClouds Blobstore' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-blobstore' description='jclouds Blobstore' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds</feature>
         <bundle>mvn:org.apache.jclouds/jclouds-blobstore/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-compute' description='JClouds Compute' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-compute' description='jclouds Compute' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-log4j/${jclouds.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds/jclouds-scriptbuilder/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds/jclouds-compute/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-management' description='JClouds Management' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-management' description='jclouds Management' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <bundle>mvn:org.apache.jclouds.labs.representations/representations-core/${jclouds.version}</bundle>
@@ -58,48 +58,48 @@ limitations under the License.
     </feature>
 
     <!-- APIS -->
-    <feature name='jclouds-api-filesystem' description='JClouds - API - FileSystem' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-filesystem' description='jclouds - API - FileSystem' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <bundle>mvn:org.apache.jclouds.api/filesystem/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-elasticstack' description='JClouds - API - Elasticstack' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-elasticstack' description='jclouds - API - Elasticstack' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-vcloud' description='JClouds - API - Vcloud' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-vcloud' description='jclouds - API - Vcloud' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.java-xmlbuilder/${java-xmlbuilder.bundle.version}</bundle>
         <bundle>mvn:org.apache.jclouds.api/vcloud/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-byon' description='JClouds - API - Byon' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-byon' description='jclouds - API - Byon' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.yaml/snakeyaml/${snakeyaml.version}</bundle>
         <bundle>mvn:org.apache.jclouds.api/byon/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-swift' description='JClouds - API - Swift' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-swift' description='jclouds - API - Swift' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <feature version='${project.version}'>jclouds-api-openstack-keystone</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.api/swift/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-openstack-nova' description='JClouds - API - OpenStack Nova' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-openstack-nova' description='jclouds - API - OpenStack Nova' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-api-openstack-keystone</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.api/openstack-nova/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-openstack-keystone' description='JClouds - API - OpenStack Keystone' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-openstack-keystone' description='jclouds - API - OpenStack Keystone' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds</feature>
         <bundle>mvn:org.apache.jclouds.api/openstack-keystone/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-openstack-cinder' description='JClouds - API - OpenStack Cinder' version='${project.version}' resolver='(obr)'>
+    <feature name='jclouds-api-openstack-cinder' description='jclouds - API - OpenStack Cinder' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-api-openstack-keystone</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
@@ -438,7 +438,7 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/trmk-vcloudexpress/${jclouds.version}</bundle>
     </feature>
 
-    <feature name="jclouds-services" description="OSGi Service Factories for JClouds" version="${project.version}" resolver="(obr)">
+    <feature name="jclouds-services" description="OSGi Service Factories for jclouds" version="${project.version}" resolver="(obr)">
         <configfile finalname="/etc/org.apache.jclouds.credentials.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/credentials</configfile>
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-blobstore</feature>
@@ -457,7 +457,7 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.karaf/services/${project.version}</bundle>
     </feature>
 
-    <feature name="jclouds-commands" description="Karaf Commands for JClouds" version="${project.version}" resolver="(obr)">
+    <feature name="jclouds-commands" description="Karaf Commands for jclouds" version="${project.version}" resolver="(obr)">
         <configfile finalname="/etc/org.apache.jclouds.shell.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/shell</configfile>
         <feature version='${project.version}'>jclouds-services</feature>
         <bundle>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.scripting-api-1.0/${scripting.api.bundle.version}</bundle>
@@ -468,7 +468,7 @@ limitations under the License.
     </feature>
 
 
-    <feature name="jclouds-chef" description="JClouds Chef Services and Commands" version="${project.version}" resolver="(obr)">
+    <feature name="jclouds-chef" description="jclouds Chef Services and Commands" version="${project.version}" resolver="(obr)">
         <feature version='${project.version}'>jclouds-api-chef</feature>
         <feature version='${project.version}'>jclouds-commands</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-slf4j/${jclouds.version}</bundle>
@@ -477,7 +477,7 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.karaf.chef/commands/${project.version}</bundle>
     </feature>
 
-     <feature name="jclouds-url-handler" description="Url Handler for JClouds Blobs" version="${project.version}" resolver="(obr)">
+     <feature name="jclouds-url-handler" description="Url Handler for jclouds Blobs" version="${project.version}" resolver="(obr)">
         <feature version='${project.version}'>jclouds</feature>
         <bundle>mvn:org.apache.jclouds.karaf/urlhandler/${project.version}</bundle>
     </feature>
