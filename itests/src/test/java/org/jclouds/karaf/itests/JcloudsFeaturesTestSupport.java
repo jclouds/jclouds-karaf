@@ -27,19 +27,9 @@ import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.junit.Configuration;
 
+import java.io.File;
+
 public class JcloudsFeaturesTestSupport extends JcloudsKarafTestSupport {
-
-    public static final String JCLOUDS_FEATURE_FORMAT = "mvn:org.apache.jclouds.karaf/jclouds-karaf/%s/xml/features";
-    public static final String JCLOUDS_FEATURE_VERSION_PROPERTY =  "jclouds.feature.version";
-
-    /**
-     * Returns the URL of the jclouds-karaf feature.
-     * <p>Note: This method is intended to be invoked inside the test container</p>
-     * @return
-     */
-    public String getJcloudsKarafFeatureURL() {
-        return String.format(JCLOUDS_FEATURE_FORMAT, System.getProperty(JCLOUDS_FEATURE_VERSION_PROPERTY));
-    }
 
     /**
      * Installs a feature and checks that feature is properly installed.

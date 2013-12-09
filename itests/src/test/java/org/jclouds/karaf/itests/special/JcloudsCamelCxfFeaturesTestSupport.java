@@ -40,8 +40,8 @@ public class JcloudsCamelCxfFeaturesTestSupport extends AwsEc2LiveTest {
     @Before
     public void setUp() throws Exception {
         System.err.println(executeCommand("features:addurl " + String.format(CAMEL_FEATURE_FORMAT,System.getProperty(CAMEL_FEATURE_VERSION_PROPERTY))));
-        System.err.println(executeCommand("features:removeurl " + String.format(JCLOUDS_FEATURE_FORMAT, "1.3.1")));
-        System.err.println(executeCommand("features:addurl " + String.format(JCLOUDS_FEATURE_FORMAT,System.getProperty(JCLOUDS_FEATURE_VERSION_PROPERTY))));
+        System.err.println(executeCommand("features:removeurl " + String.format(MVN_JCLOUDS_FEATURE_FORMAT, "1.3.1")));
+        System.err.println(executeCommand("features:addurl " + String.format(MVN_JCLOUDS_FEATURE_FORMAT,System.getProperty(JCLOUDS_FEATURE_VERSION_PROPERTY))));
         System.err.println(executeCommand("features:install xml-specs-api"));
         System.err.println(executeCommand("osgi:install mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.jsr250-1.0/1.9.0"));
         System.err.println(executeCommand("features:install camel-cxf"));

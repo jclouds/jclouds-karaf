@@ -161,8 +161,8 @@ public class CloudFilesUsLiveTest extends JcloudsLiveTestSupport {
                 systemProperty("jclouds.rackspace.credential"),
                 systemProperty("jclouds.karaf.version",MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)),
                 systemProperty("jclouds.version",MavenUtils.getArtifactVersion(JCLOUDS_GROUP_ID, JCLOUDS_ARTIFACT_ID)),
-                systemProperty("jclouds.featureURL",String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID))),
-                scanFeatures(String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)),"jclouds", "jclouds-commands", "jclouds-cloudfiles-us").start()
+                systemProperty("jclouds.featureURL", getJcloudsKarafConfigFeatureURL()),
+                scanFeatures(String.format(MVN_JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)),"jclouds", "jclouds-commands", "jclouds-cloudfiles-us").start()
         };
     }
 }

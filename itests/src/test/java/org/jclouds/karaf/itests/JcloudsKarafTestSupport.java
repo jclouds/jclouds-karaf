@@ -23,6 +23,7 @@ import static org.ops4j.pax.exam.CoreOptions.maven;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
@@ -32,6 +33,7 @@ import java.util.Enumeration;
 
 import javax.inject.Inject;
 
+import com.google.common.base.Throwables;
 import org.apache.felix.service.command.CommandProcessor;
 import org.apache.felix.service.command.CommandSession;
 import org.ops4j.pax.exam.CoreOptions;
@@ -39,6 +41,7 @@ import org.ops4j.pax.exam.MavenUtils;
 import org.ops4j.pax.exam.Option;
 import org.ops4j.pax.exam.TestProbeBuilder;
 import org.ops4j.pax.exam.junit.ProbeBuilder;
+import org.ops4j.pax.exam.options.DefaultCompositeOption;
 import org.ops4j.pax.exam.options.MavenArtifactProvisionOption;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -63,6 +66,11 @@ public class JcloudsKarafTestSupport {
     public static final String JCLOUDS_GROUP_ID = "org.apache.jclouds";
     public static final String JCLOUDS_ARTIFACT_ID = "jclouds-core";
 
+    public static final String MVN_JCLOUDS_FEATURE_FORMAT = "mvn:org.apache.jclouds.karaf/jclouds-karaf/%s/xml/features";
+    public static final String KARAF_RELATIVE_FEAUTRE_DESCRIPTOR_LOCATION = "../../../../../feature/target/feature.xml";
+    public static final String ITESTS_RELATIVE_FEAUTRE_DESCRIPTOR_LOCATION = "../feature/target/feature.xml";
+    public static final String JCLOUDS_FEATURE_VERSION_PROPERTY =  "jclouds.feature.version";
+
     @Inject
     protected BundleContext bundleContext;
 
@@ -81,14 +89,61 @@ public class JcloudsKarafTestSupport {
     }
 
     /**
+     * Returns the URL of the jclouds-karaf feature.
+     * <p>Note: This method is intended to be invoked inside the test container</p>
+     * @return
+     */
+    public static String getJcloudsKarafFeatureURL() {
+        File localDescriptor = new File(KARAF_RELATIVE_FEAUTRE_DESCRIPTOR_LOCATION);
+        if (localDescriptor.exists()) {
+            return "file:" + localDescriptor.getAbsolutePath();
+        } else {
+            return String.format(MVN_JCLOUDS_FEATURE_FORMAT, System.getProperty(JCLOUDS_FEATURE_VERSION_PROPERTY));
+        }
+    }
+
+    /**
+     * Returns the URL of the jclouds-karaf feature.
+     * <p>Note: This method is intended to be invoked outside of the test container</p>
+     * @return
+     */
+    public static String getJcloudsKarafConfigFeatureURL() {
+        File localDescriptor = new File(ITESTS_RELATIVE_FEAUTRE_DESCRIPTOR_LOCATION);
+        if (localDescriptor.exists()) {
+            return "file:" + localDescriptor.getAbsolutePath();
+        } else {
+            return String.format(MVN_JCLOUDS_FEATURE_FORMAT, System.getProperty(JCLOUDS_FEATURE_VERSION_PROPERTY));
+        }
+    }
+
+
+    /**
      * Create an {@link Option} for using Apache Karaf distribution.
      *
      * @return
      */
     protected Option jcloudsDistributionConfiguration() {
-        return karafDistributionConfiguration().frameworkUrl(
-                maven().groupId(KARAF_GROUP_ID).artifactId(KARAF_ARTIFACT_ID).versionAsInProject().type("tar.gz"))
-                .karafVersion(getKarafVersion()).name("Apache Karaf Distro").unpackDirectory(new File("target/paxexam/unpack/"));
+        Option option = null;
+        try {
+            option = new DefaultCompositeOption(
+                    karafDistributionConfiguration()
+                            .frameworkUrl(
+                                    maven().groupId(KARAF_GROUP_ID)
+                                            .artifactId(KARAF_ARTIFACT_ID)
+                                            .versionAsInProject()
+                                            .type("tar.gz"))
+                            .karafVersion(getKarafVersion())
+                            .name("Apache Karaf Distro")
+                            .unpackDirectory(new File("target/paxexam/unpack/")),
+                    //We are adding the generated features-repo to the list of known repositories so that we don't have to
+                    // install artifacts to local maven repo to make the tests work.
+                    editConfigurationFileExtend("etc/org.ops4j.pax.url.mvn.cfg", "org.ops4j.pax.url.mvn.defaultRepositories", ",file:" + new File("../feature/target/features-repo").getCanonicalPath() + "@snapshots")
+            );
+        } catch (IOException e) {
+            Throwables.propagate(e);
+        } finally {
+            return option;
+        }
     }
 
     /**
