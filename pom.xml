@@ -554,17 +554,14 @@ limitations under the License.
         <artifactId>org.apache.karaf.shell.console</artifactId>
         <version>${karaf.version}</version>
       </dependency>
-
       <dependency>
         <groupId>org.apache.karaf</groupId>
         <artifactId>apache-karaf</artifactId>
         <version>${karaf.version}</version>
         <type>tar.gz</type>
       </dependency>
-
     </dependencies>
   </dependencyManagement>
-
 
   <repositories>
     <repository>
