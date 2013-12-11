@@ -586,28 +586,4 @@ limitations under the License.
     </repository>
   </repositories>
 
-  <profiles>
-    <!-- modifies the plugin config inherited from oss-parent -->
-    <profile>
-      <id>sonatype-release-profile-extension</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <configuration>
-              <executable>${gpg.command}</executable>
-              <passphrase>${gpg.passphrase}</passphrase>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-
 </project>
