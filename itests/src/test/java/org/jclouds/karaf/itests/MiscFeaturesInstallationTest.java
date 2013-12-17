@@ -108,16 +108,6 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
-    public void testTrmkVcloudExpressFeature() throws Exception {
-        installAndCheckFeature("jclouds-trmk-vcloudexpress");
-    }
-
-    @Test
-    public void testTrmkEcloudFeature() throws Exception {
-        installAndCheckFeature("jclouds-trmk-ecloud");
-    }
-
-    @Test
     public void testAzureBlobFeature() throws Exception {
         installAndCheckFeature("jclouds-azureblob");
     }
