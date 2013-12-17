@@ -424,20 +424,6 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/softlayer/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-trmk-ecloud' description='Terremark Enterprise Cloud' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.java-xmlbuilder/${java-xmlbuilder.bundle.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.common/trmk-common/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/trmk-ecloud/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-trmk-vcloudexpress' description='Terremark vCloud Express' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.java-xmlbuilder/${java-xmlbuilder.bundle.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.common/trmk-common/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/trmk-vcloudexpress/${jclouds.version}</bundle>
-    </feature>
-
     <feature name="jclouds-services" description="OSGi Service Factories for jclouds" version="${project.version}" resolver="(obr)">
         <configfile finalname="/etc/org.apache.jclouds.credentials.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/credentials</configfile>
         <feature version='${project.version}'>jclouds-compute</feature>
