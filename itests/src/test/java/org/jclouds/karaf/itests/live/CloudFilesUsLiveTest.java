@@ -31,9 +31,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.google.common.io.ByteStreams;
-import com.google.common.io.Closeables;
 import org.apache.karaf.features.FeaturesService;
 import org.jclouds.blobstore.BlobStore;
+import org.jclouds.util.Closeables2;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -118,8 +118,8 @@ public class CloudFilesUsLiveTest extends JcloudsLiveTestSupport {
             try {
                 ByteStreams.copy(is, os);
             } finally {
-                Closeables.closeQuietly(is);
-                Closeables.closeQuietly(os);
+                Closeables2.closeQuietly(is);
+                Closeables2.closeQuietly(os);
             }
 
             //Make sure that only S3 is available as a repo.
