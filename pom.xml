@@ -180,7 +180,7 @@ limitations under the License.
 
   <properties>
     <aopalliance.bundle.version>1.0_5</aopalliance.bundle.version>
-    <bcprov.version>1.47</bcprov.version>
+    <bcprov.version>1.49</bcprov.version>
     <configadmin.version>1.2.8</configadmin.version>
     <easymock.version>3.0</easymock.version>
     <felix.configadmin.version>1.2.8</felix.configadmin.version>
