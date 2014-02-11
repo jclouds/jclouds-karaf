@@ -29,10 +29,9 @@ limitations under the License.
   <packaging>pom</packaging>
   <version>1.7.2-SNAPSHOT</version>
   <name>Apache jclouds :: Karaf</name>
-  <url>http://jclouds.apache.org</url>
-  <description>jclouds Karaf Integration Project</description>
-  <inceptionYear>2009</inceptionYear>
 
+  <description>jclouds Karaf Integration Project</description>
+  <url>http://jclouds.apache.org</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
