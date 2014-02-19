@@ -424,6 +424,11 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/softlayer/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-digitalocean' description='Components to access DigitalOcean' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle>mvn:org.apache.jclouds.labs/digitalocean/${jclouds.version}</bundle>
+    </feature>
+
     <feature name="jclouds-services" description="OSGi Service Factories for jclouds" version="${project.version}" resolver="(obr)">
         <configfile finalname="/etc/org.apache.jclouds.credentials.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/credentials</configfile>
         <feature version='${project.version}'>jclouds-compute</feature>

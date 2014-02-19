@@ -170,6 +170,8 @@ limitations under the License.
             <exclude>**/special/*Test.*</exclude>
           </excludes>
           <systemPropertyVariables>
+            <!-- Private Maven Repo -->
+            <maven.repo.local>${maven.repo.local}</maven.repo.local>
             <!-- EC2 Live Variables -->
             <jclouds.aws.identity>${jclouds.aws.identity}</jclouds.aws.identity>
             <jclouds.aws.credential>${jclouds.aws.credential}</jclouds.aws.credential>
