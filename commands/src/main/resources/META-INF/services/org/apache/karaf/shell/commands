@@ -42,3 +42,4 @@ org.jclouds.karaf.commands.blobstore.ContainerExistsCommand
 org.jclouds.karaf.commands.blobstore.ContainerListCommand
 org.jclouds.karaf.commands.blobstore.ContainerMetadataCommand
 org.jclouds.karaf.commands.blobstore.LocationListCommand
+org.jclouds.karaf.commands.blobstore.TimeCommand
