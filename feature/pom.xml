@@ -158,6 +158,7 @@ limitations under the License.
                 <feature>jclouds-serverlove-z1-man</feature>
                 <feature>jclouds-skalicloud-sdg-my</feature>
                 <feature>jclouds-softlayer</feature>
+                <feature>jclouds-digitalocean</feature>
               </features>
               <repository>target/features-repo</repository>
             </configuration>
