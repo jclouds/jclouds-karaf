@@ -435,6 +435,12 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <feature version='${project.version}'>jclouds-management</feature>
         <bundle dependency='true'>mvn:net.schmizz/sshj/${sshj.version}</bundle>
+        <!-- not currently available as bundles - see https://issues.apache.org/jira/browse/SMX4-1728 and SMX4-1729 -->
+        <bundle>wrap:mvn:com.jcraft/jsch.agentproxy.jsch/${jsch.agentproxy.version}</bundle>
+        <bundle>wrap:mvn:com.jcraft/jsch.agentproxy.sshj/${jsch.agentproxy.version}</bundle>
+        <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.connector-factory/${jsch.agentproxy.version}</bundle>
+        <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.usocket-nc/${jsch.agentproxy.version}</bundle>
+        <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.sshagent/${jsch.agentproxy.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jzlib/${jzlib.bundle.version}</bundle>
         <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/${bcprov.version}</bundle>
         <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/${bcprov.version}</bundle>
