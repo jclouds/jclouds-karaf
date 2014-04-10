@@ -20,13 +20,13 @@ limitations under the License.
   <parent>
     <artifactId>chef</artifactId>
     <groupId>org.apache.jclouds.karaf</groupId>
-    <version>1.7.2</version>
+    <version>1.7.2-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.apache.jclouds.karaf.chef</groupId>
   <artifactId>services</artifactId>
-  <version>1.7.2</version>
+  <version>1.7.2-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>jclouds :: Karaf :: Chef :: Services</name>
 
