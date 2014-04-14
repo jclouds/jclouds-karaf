@@ -474,16 +474,6 @@ limitations under the License.
         <artifactId>jsch.agentproxy.connector-factory</artifactId>
         <version>${jsch.agentproxy.version}</version>
       </dependency>
-      <dependency>
-        <groupId>com.jcraft</groupId>
-        <artifactId>jsch.agentproxy.usocket-nc</artifactId>
-        <version>${jsch.agentproxy.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.jcraft</groupId>
-        <artifactId>jsch.agentproxy.sshagent</artifactId>
-        <version>${jsch.agentproxy.version}</version>
-      </dependency>
 
       <!-- Logging Dependencies -->
       <dependency>
