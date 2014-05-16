@@ -17,8 +17,7 @@
 
 package org.jclouds.karaf.core;
 
-public class Constants {
-
+public final class Constants {
 
   public static final String NODE_CACHE = "NODE_CACHE";
   public static final String ACTIVE_NODE_CACHE = "ACTIVE_NODE_CACHE";
@@ -37,4 +36,8 @@ public class Constants {
   public static final String ENDPOINT = "endpoint";
   public static final String IDENTITY = "identity";
   public static final String CREDENTIAL = "credential";
+
+  private Constants() {
+    throw new AssertionError("intentionally unimplemented");
+  }
 }

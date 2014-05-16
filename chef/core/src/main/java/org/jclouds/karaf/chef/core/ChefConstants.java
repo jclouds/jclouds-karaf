@@ -17,7 +17,7 @@
 
 package org.jclouds.karaf.chef.core;
 
-public class ChefConstants {
+public final class ChefConstants {
 
     public static final String NAME = "name";
     public static final String API = "api";
@@ -30,4 +30,8 @@ public class ChefConstants {
     public static final String CLIENT_CREDENTIAL = "client.credential";
 
     public static final String COOKBOOK_CACHE = "COOKBOOK_CACHE";
+
+    private ChefConstants() {
+        throw new AssertionError("intentionally unimplemented");
+    }
 }
