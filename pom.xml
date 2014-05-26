@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>org.apache.jclouds</groupId>
   <artifactId>jclouds-karaf</artifactId>
   <packaging>pom</packaging>
-  <version>1.7.3-SNAPSHOT</version>
+  <version>1.7.3</version>
   <name>Apache jclouds :: Karaf</name>
   <url>http://jclouds.apache.org</url>
   <description>jclouds Karaf Integration Project</description>
@@ -45,7 +45,7 @@ limitations under the License.
     <connection>scm:git:https://git-wip-us.apache.org/repos/asf/jclouds-karaf.git</connection>
     <developerConnection>scm:git:https://git-wip-us.apache.org/repos/asf/jclouds-karaf.git</developerConnection>
     <url>https://git-wip-us.apache.org/repos/asf?p=jclouds-karaf.git</url>
-    <tag>HEAD</tag>
+    <tag>jclouds-karaf-1.7.3-rc1</tag>
   </scm>
 
   <developers>
@@ -554,7 +554,7 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.jclouds.api</groupId>
         <artifactId>chef</artifactId>
-        <version>1.7.3-SNAPSHOT</version>
+        <version>1.7.3</version>
       </dependency>
 
       <!-- Karaf Dependencies -->
