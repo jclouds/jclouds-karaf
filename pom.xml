@@ -21,7 +21,7 @@ limitations under the License.
   <parent>
     <groupId>org.apache</groupId>
     <artifactId>apache</artifactId>
-    <version>13</version>
+    <version>14</version>
   </parent>
 
   <groupId>org.apache.jclouds</groupId>
@@ -554,7 +554,7 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.jclouds.api</groupId>
         <artifactId>chef</artifactId>
-        <version>1.7.3-SNAPSHOT</version>
+        <version>1.7.3</version>
       </dependency>
 
       <!-- Karaf Dependencies -->
