@@ -25,9 +25,6 @@ import org.jclouds.karaf.commands.table.ShellTable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "image-list", description = "Lists the available images.")
 public class ImageListCommand extends ComputeCommandWithOptions {
 

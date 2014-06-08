@@ -30,9 +30,6 @@ import org.jclouds.karaf.utils.ServiceHelper;
 
 import java.util.Set;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "node-list", description = "Displays the list of nodes.")
 public class NodeListCommand extends ComputeCommandWithOptions {
 

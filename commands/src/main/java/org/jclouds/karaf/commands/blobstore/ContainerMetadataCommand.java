@@ -34,8 +34,6 @@ import org.jclouds.domain.Location;
 
 /**
  * Output container metadata.
- *
- * @author: Andrew Gaul
  */
 @Command(scope = "jclouds", name = "blobstore-container-metadata", description = "Output container metadata")
 public class ContainerMetadataCommand extends BlobStoreCommandWithOptions {

@@ -24,9 +24,6 @@ import org.apache.felix.gogo.commands.Command;
 import org.jclouds.compute.ComputeService;
 import org.jclouds.karaf.core.Constants;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "node-destroy", description = "Destroys the specified nodes.")
 public class NodeDestroyCommand extends ComputeCommandWithOptions {
 

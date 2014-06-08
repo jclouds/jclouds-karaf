@@ -48,9 +48,6 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.List;
 
-/**
- * @author iocanel
- */
 public abstract class BlobStoreCommandBase extends AbstractAction {
 
    private static final Logger LOGGER = LoggerFactory.getLogger(BlobStoreCommandBase.class);

@@ -34,9 +34,6 @@ import com.google.common.io.CharStreams;
 import com.google.common.io.Files;
 import com.google.common.io.InputSupplier;
 
-/**
- * @author: iocanel
- */
 @Command(scope = "jclouds", name = "blobstore-read", description = "Reads data from the blobstore")
 public class BlobReadCommand extends BlobStoreCommandWithOptions {
 

@@ -21,9 +21,6 @@ import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
 import org.jclouds.compute.ComputeService;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "node-suspend", description = "Suspends a node.")
 public class NodeSuspendCommand extends ComputeCommandWithOptions {
 

@@ -30,9 +30,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "group-destroy", description = "Destroys a group of nodes.")
 public class GroupDestroyCommand extends ComputeCommandWithOptions {
 

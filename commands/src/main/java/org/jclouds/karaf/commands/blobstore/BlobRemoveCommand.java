@@ -27,8 +27,6 @@ import org.jclouds.blobstore.BlobStore;
 
 /**
  * Remove blobs.
- *
- * @author Andrew Gaul
  */
 @Command(scope = "jclouds", name = "blobstore-remove", description = "Removes blobs")
 public class BlobRemoveCommand extends BlobStoreCommandWithOptions {

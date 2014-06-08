@@ -35,9 +35,6 @@ import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author iocanel
- */
 public abstract class BlobStoreCommandWithOptions extends BlobStoreCommandBase {
 
    @Option(name = "--name", description = "The service context name. Used to distinct between multiple service of the same provider/api. Only usable in interactive mode.")

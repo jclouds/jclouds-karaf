@@ -20,9 +20,6 @@ package org.jclouds.karaf.commands.compute;
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "node-runscript", description = "Executes a command or a script to a node.")
 public class NodeRunScriptCommand extends ComputeRunscriptBase {
 

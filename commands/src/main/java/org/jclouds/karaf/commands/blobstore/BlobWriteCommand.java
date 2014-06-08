@@ -31,9 +31,6 @@ import org.jclouds.blobstore.BlobStore;
 import org.jclouds.blobstore.domain.BlobBuilder;
 import org.jclouds.blobstore.options.PutOptions;
 
-/**
- * @author: iocanel
- */
 @Command(scope = "jclouds", name = "blobstore-write", description = "Writes data to the blobstore")
 public class BlobWriteCommand extends BlobStoreCommandWithOptions {
 

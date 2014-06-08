@@ -33,8 +33,6 @@ import org.jclouds.io.ContentMetadata;
 
 /**
  * Print blob metadata.
- *
- * @author: Andrew Gaul
  */
 @Command(scope = "jclouds", name = "blobstore-blob-metadata", description = "Print blob metadata")
 public class BlobMetadataCommand extends BlobStoreCommandWithOptions {

@@ -24,9 +24,6 @@ import org.jclouds.compute.domain.NodeMetadata;
 
 import com.google.common.collect.Sets;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "node-info", description = "Displays detailed information about a node.")
 public class NodeInfoCommand extends ComputeCommandWithOptions {
 

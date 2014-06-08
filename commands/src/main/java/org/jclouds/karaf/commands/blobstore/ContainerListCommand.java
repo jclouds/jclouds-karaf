@@ -28,8 +28,6 @@ import org.jclouds.blobstore.domain.StorageMetadata;
 
 /**
  * List all container names.
- *
- * @author: Andrew Gaul
  */
 @Command(scope = "jclouds", name = "blobstore-container-list", description = "Lists all container names")
 public class ContainerListCommand extends BlobStoreCommandWithOptions {

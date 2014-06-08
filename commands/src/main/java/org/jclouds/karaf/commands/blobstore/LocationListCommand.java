@@ -28,8 +28,6 @@ import org.jclouds.domain.Location;
 
 /**
  * List all location names.
- *
- * @author: Andrew Gaul
  */
 @Command(scope = "jclouds", name = "blobstore-location-list", description = "List all location names")
 public class LocationListCommand extends BlobStoreCommandWithOptions {

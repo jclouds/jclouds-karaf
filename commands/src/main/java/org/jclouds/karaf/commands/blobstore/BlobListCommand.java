@@ -34,8 +34,6 @@ import org.jclouds.blobstore.options.ListContainerOptions;
 
 /**
  * List blobs in a container.
- *
- * @author: iocanel
  */
 @Command(scope = "jclouds", name = "blobstore-list", description = "Lists blobs in a container")
 public class BlobListCommand extends BlobStoreCommandWithOptions {

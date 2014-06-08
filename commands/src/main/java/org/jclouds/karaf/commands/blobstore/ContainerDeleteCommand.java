@@ -25,9 +25,6 @@ import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.Option;
 import org.jclouds.blobstore.BlobStore;
 
-/**
- * @author: iocanel
- */
 @Command(scope = "jclouds", name = "blobstore-container-delete", description = "Deletes a container")
 public class ContainerDeleteCommand extends BlobStoreCommandWithOptions {
 

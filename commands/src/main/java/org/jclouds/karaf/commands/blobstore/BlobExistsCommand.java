@@ -35,9 +35,6 @@ import com.google.common.io.CharStreams;
 import com.google.common.io.Files;
 import com.google.common.io.InputSupplier;
 
-/**
- * @author: Andrew Gaul
- */
 @Command(scope = "jclouds", name = "blobstore-blob-exists", description = "Checks existence of blob on the blobstore")
 public class BlobExistsCommand extends BlobStoreCommandWithOptions {
 

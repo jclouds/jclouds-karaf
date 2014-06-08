@@ -36,9 +36,6 @@ import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 public abstract class ComputeCommandWithOptions extends ComputeCommandBase {
 
    @Option(name = "--name", description = "The service context name. Used to distinct between multiple service of the same provider/api. Only ")

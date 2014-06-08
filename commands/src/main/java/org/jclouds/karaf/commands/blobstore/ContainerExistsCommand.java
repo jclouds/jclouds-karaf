@@ -28,8 +28,6 @@ import org.jclouds.blobstore.ContainerNotFoundException;
 
 /**
  * Test whether a container exists.
- *
- * @author: Andrew Gaul
  */
 @Command(scope = "jclouds", name = "blobstore-container-exists", description = "Test whether a container exists")
 public class ContainerExistsCommand extends BlobStoreCommandWithOptions {

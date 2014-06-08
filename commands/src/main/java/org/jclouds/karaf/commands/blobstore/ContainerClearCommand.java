@@ -28,8 +28,6 @@ import org.jclouds.blobstore.BlobStore;
 
 /**
  * Clear a container.
- *
- * @author: Andrew Gaul
  */
 @Command(scope = "jclouds", name = "blobstore-container-clear", description = "Clears a container")
 public class ContainerClearCommand extends BlobStoreCommandWithOptions {

@@ -39,9 +39,6 @@ import org.jclouds.scriptbuilder.statements.login.AdminAccess;
 import java.util.List;
 import java.util.Set;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "node-create", description = "Creates a node.", detailedDescription = "classpath:node-create.txt")
 public class NodeCreateCommand extends ComputeCommandWithOptions {
    @Option(name = "--adminAccess", description = "Sets up a user account with passwordless sudo access and copies ssh keys.")

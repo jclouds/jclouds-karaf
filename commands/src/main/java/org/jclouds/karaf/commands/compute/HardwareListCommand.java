@@ -20,9 +20,6 @@ package org.jclouds.karaf.commands.compute;
 import org.apache.felix.gogo.commands.Command;
 import org.jclouds.compute.ComputeService;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "hardware-list", description = "Lists the available hardware for the provider.")
 public class HardwareListCommand extends ComputeCommandWithOptions {
 

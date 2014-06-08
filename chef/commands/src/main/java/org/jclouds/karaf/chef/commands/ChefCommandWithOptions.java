@@ -26,9 +26,6 @@ import org.jclouds.karaf.chef.core.ChefHelper;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 public abstract class ChefCommandWithOptions extends ChefCommandBase {
 
     @Option(name = "--name", description = "The service context name. Used to distinct between multiple service of the same provider/api. Only ")

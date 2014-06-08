@@ -41,9 +41,6 @@ import org.jclouds.karaf.utils.EnvHelper;
 import com.google.common.base.Predicate;
 import org.jclouds.scriptbuilder.domain.Statement;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 public abstract class RunScriptBase extends ComputeCommandWithOptions {
 
    @Option(name = "-u", aliases = "--user", description = "The user that will run the script.", required = false, multiValued = false)

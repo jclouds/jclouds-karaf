@@ -27,9 +27,6 @@ import org.jclouds.karaf.utils.ServiceHelper;
 
 import java.util.Set;
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 @Command(scope = "jclouds", name = "node-destroy-all", description = "Destroys all nodes.")
 public class NodeDestroyAllCommand extends ComputeCommandWithOptions {
 

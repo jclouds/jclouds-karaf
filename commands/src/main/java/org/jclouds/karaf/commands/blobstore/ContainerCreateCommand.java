@@ -25,9 +25,6 @@ import org.apache.felix.gogo.commands.Option;
 import org.jclouds.blobstore.BlobStore;
 import org.jclouds.domain.Location;
 
-/**
- * @author: iocanel
- */
 @Command(scope = "jclouds", name = "blobstore-container-create", description = "Creates a container")
 public class ContainerCreateCommand extends BlobStoreCommandWithOptions {
 

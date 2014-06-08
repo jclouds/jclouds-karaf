@@ -51,9 +51,6 @@ import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
 
 
-/**
- * @author <a href="mailto:gnodet[at]gmail.com">Guillaume Nodet (gnodet)</a>
- */
 public abstract class ComputeCommandBase extends AbstractAction {
 
    public static final String NODE_DETAILS_FORMAT = "%20s %-60s";
