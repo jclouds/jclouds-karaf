@@ -21,8 +21,11 @@ import java.io.InputStream;
 import java.io.File;
 import java.net.URL;
 
+import com.google.common.hash.Hashing;
+import com.google.common.io.ByteSource;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Closeables;
+import com.google.common.io.Files;
 
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -70,9 +73,12 @@ public class BlobWriteCommand extends BlobStoreCommandWithOptions {
             input.close();
          }
       } else {
-         BlobBuilder.PayloadBlobBuilder payloadBuilder = builder.payload(new File(payload));
+         ByteSource byteSource = Files.asByteSource(new File(payload));
+         BlobBuilder.PayloadBlobBuilder payloadBuilder = builder
+               .payload(byteSource)
+               .contentLength(byteSource.size());
          if (!multipartUpload) {
-            payloadBuilder = payloadBuilder.calculateMD5();
+            payloadBuilder = payloadBuilder.contentMD5(byteSource.hash(Hashing.md5()).asBytes());
          }
          builder = payloadBuilder;
       }
