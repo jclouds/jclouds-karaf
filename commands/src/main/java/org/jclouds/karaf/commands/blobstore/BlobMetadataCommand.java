@@ -45,8 +45,6 @@ public class BlobMetadataCommand extends BlobStoreCommandWithOptions {
    @Argument(index = 1, name = "blobNames", description = "The name of the blobs", required = true, multiValued = true)
    List<String> blobNames = Lists.newArrayList();
 
-   private static final PrintStream out = System.out;
-
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
@@ -58,7 +56,7 @@ public class BlobMetadataCommand extends BlobStoreCommandWithOptions {
          }
 
          ContentMetadata contentMetdata = blobMetadata.getContentMetadata();
-         out.println(blobName + ":");
+         System.out.println(blobName + ":");
 
          printMetadata("Content-Disposition", contentMetdata.getContentDisposition());
          printMetadata("Content-Encoding", contentMetdata.getContentEncoding());
@@ -72,14 +70,14 @@ public class BlobMetadataCommand extends BlobStoreCommandWithOptions {
          printMetadata("Expires", contentMetdata.getExpires());
          printMetadata("Length", contentMetdata.getContentLength());
 
-         out.println("");
+         System.out.println("");
       }
       return null;
    }
 
    private static void printMetadata(String key, Object value) {
       if (value != null) {
-         out.println(String.format("    %s: %s", key, value));
+         System.out.println(String.format("    %s: %s", key, value));
       }
    }
 }
