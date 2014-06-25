@@ -43,8 +43,6 @@ public class ContainerMetadataCommand extends BlobStoreCommandWithOptions {
    @Argument(index = 0, name = "containerName", description = "The name of the container", required = true, multiValued = true)
    final Collection<String> containerNames = Lists.newArrayList();
 
-   private static final PrintStream out = System.out;
-
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
@@ -68,7 +66,7 @@ public class ContainerMetadataCommand extends BlobStoreCommandWithOptions {
    }
 
    private static void printContainerMetadata(StorageMetadata containerMetadata) {
-      out.println(containerMetadata.getName());
+      System.out.println(containerMetadata.getName());
       printMetadata("ETag", containerMetadata.getETag());
       printMetadata("Creation-Date", containerMetadata.getCreationDate());
       printMetadata("Last-Modified", containerMetadata.getLastModified());
@@ -81,12 +79,12 @@ public class ContainerMetadataCommand extends BlobStoreCommandWithOptions {
       for (Map.Entry<String, String> entry : containerMetadata.getUserMetadata().entrySet()) {
          printMetadata(entry.getKey(), entry.getValue());
       }
-      out.println("");
+      System.out.println("");
    }
 
    private static void printMetadata(String key, Object value) {
       if (value != null) {
-         out.println(String.format("    %s: %s", key, value));
+         System.out.println(String.format("    %s: %s", key, value));
       }
    }
 }

@@ -46,8 +46,6 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
    @Argument(index = 1, name = "directoryPath", description = "List blobs only in this directory path", required = false)
    String directoryPath;
 
-   private static final PrintStream out = System.out;
-
    @Override
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
@@ -69,7 +67,7 @@ public class BlobListCommand extends BlobStoreCommandWithOptions {
 
          Collections.sort(blobNames);
          for (String blobName : blobNames) {
-            out.println(blobName);
+            System.out.println(blobName);
          }
 
          String marker = blobStoreMetadatas.getNextMarker();
