@@ -268,13 +268,15 @@ public class ComputeServiceEventProxy implements ComputeService {
      * <p/>
      * affected nodes may not resume with the same IP address(es)
      *
+     * @return list of nodes resumed
+     *
      * @throws UnsupportedOperationException if the underlying provider doesn't support suspend/resume
      * @throws java.util.NoSuchElementException
      *                                       if no nodes matched the predicate specified
      */
     @Override
-    public void resumeNodesMatching(Predicate<NodeMetadata> filter) {
-        computeService.resumeNodesMatching(filter);
+    public Set<? extends NodeMetadata> resumeNodesMatching(Predicate<NodeMetadata> filter) {
+        return computeService.resumeNodesMatching(filter);
     }
 
     /**
@@ -300,13 +302,15 @@ public class ComputeServiceEventProxy implements ComputeService {
      * <p/>
      * affected nodes may not resume with the same IP address(es)
      *
+     * @return list of nodes suspended
+     *
      * @throws UnsupportedOperationException if the underlying provider doesn't support suspend/resume
      * @throws java.util.NoSuchElementException
      *                                       if no nodes matched the predicate specified
      */
     @Override
-    public void suspendNodesMatching(Predicate<NodeMetadata> filter) {
-        computeService.suspendNodesMatching(filter);
+    public Set<? extends NodeMetadata> suspendNodesMatching(Predicate<NodeMetadata> filter) {
+        return computeService.suspendNodesMatching(filter);
     }
 
     /**
@@ -366,12 +370,14 @@ public class ComputeServiceEventProxy implements ComputeService {
      * nodes matching the filter are treated as a logical set. Using this command, you can save time
      * by rebooting the nodes in parallel.
      *
+     * @return list of nodes rebooted
+     *
      * @throws java.util.NoSuchElementException
      *          if no nodes matched the predicate specified
      */
     @Override
-    public void rebootNodesMatching(Predicate<NodeMetadata> filter) {
-        computeService.rebootNodesMatching(filter);
+    public Set<? extends NodeMetadata> rebootNodesMatching(Predicate<NodeMetadata> filter) {
+        return computeService.rebootNodesMatching(filter);
     }
 
     /**
