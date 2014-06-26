@@ -115,10 +115,6 @@ limitations under the License.
       <artifactId>jclouds-blobstore</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.apache.jclouds.driver</groupId>
-      <artifactId>jclouds-log4j</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.apache.jclouds.api</groupId>
       <artifactId>ec2</artifactId>
     </dependency>
