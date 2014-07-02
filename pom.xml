@@ -86,6 +86,7 @@ limitations under the License.
             <exclude>**/README.md</exclude>
             <exclude>**/README.txt</exclude>
             <exclude>**/DEPENDENCIES</exclude>
+            <exclude>**/CONTRIBUTING.md</exclude>
 
             <exclude>.git/**</exclude>
             <exclude>**/.gitignore</exclude>
