@@ -18,7 +18,6 @@
 package org.jclouds.karaf.commands.blobstore;
 
 import com.google.common.base.Strings;
-import com.google.common.io.InputSupplier;
 import org.apache.felix.service.command.CommandSession;
 import org.apache.karaf.shell.console.AbstractAction;
 import org.jclouds.apis.ApiMetadata;
@@ -121,7 +120,7 @@ public abstract class BlobStoreCommandBase extends AbstractAction {
     * @param blobName
     * @return
     */
-   public InputSupplier<InputStream> getBlobInputStream(BlobStore blobStore, String containerName, String blobName, boolean signedRequest)
+   public InputStream getBlobInputStream(BlobStore blobStore, String containerName, String blobName, boolean signedRequest)
          throws Exception {
       if (signedRequest) {
          BlobStoreContext context = blobStore.getContext();
@@ -132,7 +131,7 @@ public abstract class BlobStoreCommandBase extends AbstractAction {
          if (statusCode != 200) {
             throw new IOException(response.getStatusLine());
          }
-         return response.getPayload();
+         return response.getPayload().openStream();
       }
 
       Blob blob = blobStore.getBlob(containerName, blobName);
@@ -142,7 +141,7 @@ public abstract class BlobStoreCommandBase extends AbstractAction {
          }
          throw new KeyNotFoundException(containerName, blobName, "while getting blob");
       }
-      return blob.getPayload();
+      return blob.getPayload().openStream();
    }
 
    /**

@@ -20,6 +20,7 @@ package org.jclouds.karaf.commands.blobstore;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import org.apache.felix.gogo.commands.Argument;
 import org.apache.felix.gogo.commands.Command;
@@ -31,6 +32,7 @@ import org.jclouds.blobstore.KeyNotFoundException;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
 import com.google.common.io.CharStreams;
+import com.google.common.io.Closeables;
 import com.google.common.io.Files;
 import com.google.common.io.InputSupplier;
 
@@ -56,20 +58,23 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
    protected Object doExecute() throws Exception {
       BlobStore blobStore = getBlobStore();
 
-      InputSupplier<InputStream> supplier = getBlobInputStream(blobStore, containerName, blobName, signedRequest);
-
-      if (display) {
-         CharStreams.copy(CharStreams.newReaderSupplier(supplier, Charsets.UTF_8), System.out);
-         System.out.flush();
-      } else {
-         if (fileName == null) {
-            throw new CommandException("Must specify --display or file name");
+      InputStream is = getBlobInputStream(blobStore, containerName, blobName, signedRequest);
+      try {
+         if (display) {
+            CharStreams.copy(new InputStreamReader(is, Charsets.UTF_8), System.out);
+            System.out.flush();
+         } else {
+            if (fileName == null) {
+               throw new CommandException("Must specify --display or file name");
+            }
+            File file = new File(fileName);
+            if (!file.exists() && !file.createNewFile()) {
+               throw new IOException("Could not create: " + file);
+            }
+            Files.asByteSink(file).writeFrom(is);
          }
-         File file = new File(fileName);
-         if (!file.exists() && !file.createNewFile()) {
-            throw new IOException("Could not create: " + file);
-         }
-         Files.copy(supplier, file);
+      } finally {
+         Closeables.closeQuietly(is);
       }
 
       return null;
