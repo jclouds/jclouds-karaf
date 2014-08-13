@@ -159,6 +159,7 @@ limitations under the License.
                 <feature>jclouds-skalicloud-sdg-my</feature>
                 <feature>jclouds-softlayer</feature>
                 <feature>jclouds-digitalocean</feature>
+                <feature>jclouds-openstack-swift</feature>
               </features>
               <repository>target/features-repo</repository>
             </configuration>

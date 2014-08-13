@@ -80,6 +80,11 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.api/byon/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-openstack-swift' description='jclouds - Openstack - Swift' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle>mvn:org.apache.jclouds.labs/openstack-swift/${jclouds.version}</bundle>
+    </feature>
+
     <feature name='jclouds-api-swift' description='jclouds - API - Swift' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <feature version='${project.version}'>jclouds-api-openstack-keystone</feature>
