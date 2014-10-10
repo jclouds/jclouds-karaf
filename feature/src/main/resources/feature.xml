@@ -308,20 +308,6 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/rackspace-cloudblockstorage-uk/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-cloudsigma-zrh' description='CloudSigma ZRH' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.api/cloudsigma/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/cloudsigma-zrh/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-cloudsigma-lvs' description='CloudSigma ZRH' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.api/cloudsigma/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/cloudsigma-lvs/${jclouds.version}</bundle>
-    </feature>
-
     <feature name='jclouds-elastichosts-lon-b' description='Elastichosts Bluesquare London' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>

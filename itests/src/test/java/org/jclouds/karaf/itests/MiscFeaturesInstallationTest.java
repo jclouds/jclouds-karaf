@@ -61,11 +61,6 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
-    public void testCloudSigmaZrhFeature() throws Exception {
-        installAndCheckFeature("jclouds-cloudsigma-zrh");
-    }
-
-    @Test
     public void testGoGridFeature() throws Exception {
         installAndCheckFeature("jclouds-gogrid");
     }

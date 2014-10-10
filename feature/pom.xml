@@ -139,8 +139,6 @@ limitations under the License.
                 <feature>jclouds-rackspace-clouddns-uk</feature>
                 <feature>jclouds-rackspace-cloudblockstorage-us</feature>
                 <feature>jclouds-rackspace-cloudblockstorage-uk</feature>
-                <feature>jclouds-cloudsigma-zrh</feature>
-                <feature>jclouds-cloudsigma-lvs</feature>
                 <feature>jclouds-elastichosts-lon-b</feature>
                 <feature>jclouds-elastichosts-lon-p</feature>
                 <feature>jclouds-elastichosts-sat-p</feature>
