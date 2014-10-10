@@ -109,14 +109,15 @@ limitations under the License.
                 <feature>jclouds-blobstore</feature>
                 <feature>jclouds-compute</feature>
                 <feature>jclouds-management</feature>
-                <feature>jclouds-api-filesystem</feature>
-                <feature>jclouds-api-elasticstack</feature>
-                <feature>jclouds-api-vcloud</feature>
                 <feature>jclouds-api-byon</feature>
-                <feature>jclouds-api-swift</feature>
+                <feature>jclouds-api-cloudstack</feature>
+                <feature>jclouds-api-elasticstack</feature>
+                <feature>jclouds-api-filesystem</feature>
                 <feature>jclouds-api-openstack-nova</feature>
                 <feature>jclouds-api-openstack-keystone</feature>
                 <feature>jclouds-api-openstack-cinder</feature>
+                <feature>jclouds-api-swift</feature>
+                <feature>jclouds-api-vcloud</feature>
                 <feature>jclouds-aws-cloudwatch</feature>
                 <feature>jclouds-aws-ec2</feature>
                 <feature>jclouds-aws-route53</feature>
@@ -124,7 +125,6 @@ limitations under the License.
                 <feature>jclouds-aws-sqs</feature>
                 <feature>jclouds-aws-sts</feature>
                 <feature>jclouds-azureblob</feature>
-                <feature>jclouds-bluelock-vcloud-zone01</feature>
                 <feature>jclouds-cloudfiles-uk</feature>
                 <feature>jclouds-cloudfiles-us</feature>
                 <feature>jclouds-dynect</feature>
@@ -145,12 +145,9 @@ limitations under the License.
                 <feature>jclouds-elastichosts-tor-p</feature>
                 <feature>jclouds-gogrid</feature>
                 <feature>jclouds-go2cloud-jhb1</feature>
-                <feature>jclouds-greenhousedata-element-vcloud</feature>
                 <feature>jclouds-glesys</feature>
                 <feature>jclouds-hpcloud-objectstorage</feature>
                 <feature>jclouds-hpcloud-compute</feature>
-                <feature>jclouds-ninefold-storage</feature>
-                <feature>jclouds-ninefold-compute</feature>
                 <feature>jclouds-openhosting-east1</feature>
                 <feature>jclouds-serverlove-z1-man</feature>
                 <feature>jclouds-skalicloud-sdg-my</feature>
