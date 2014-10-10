@@ -198,7 +198,6 @@ limitations under the License.
 
     <feature name='jclouds-azureblob' description='Azureblob' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-blobstore</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/azure-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.provider/azureblob/${jclouds.version}</bundle>
     </feature>
 
