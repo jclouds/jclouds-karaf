@@ -202,14 +202,6 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/azureblob/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-bluelock-vcloud-zone01' description='vCloud implementation targeted to Bluelock vCloud Zone01' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-api-vcloud</feature>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.java-xmlbuilder/${java-xmlbuilder.bundle.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds/jclouds-compute/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds/jclouds-scriptbuilder/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/bluelock-vcloud-zone01/${jclouds.version}</bundle>
-    </feature>
-
     <feature name='jclouds-cloudfiles-uk' description='Cloudfiles UK' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-api-swift</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/cloudfiles/${jclouds.version}</bundle>
@@ -353,12 +345,6 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/go2cloud-jhb1/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-greenhousedata-element-vcloud' description='Green House Data Element vCloud' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-api-vcloud</feature>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.java-xmlbuilder/${java-xmlbuilder.bundle.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/greenhousedata-element-vcloud/${jclouds.version}</bundle>
-    </feature>
-
     <feature name='jclouds-glesys' description='GleSYS' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle>mvn:org.apache.jclouds.provider/glesys/${jclouds.version}</bundle>
@@ -372,18 +358,6 @@ limitations under the License.
     <feature name='jclouds-hpcloud-compute' description='HP Cloud Compute' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-api-openstack-nova</feature>
         <bundle>mvn:org.apache.jclouds.provider/hpcloud-compute/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-ninefold-storage' description='Ninefold Storage' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-blobstore</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.api/atmos/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/ninefold-storage/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-ninefold-compute' description='Ninefold Compute' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.api/cloudstack/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/ninefold-compute/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-openhosting-east1' description='Open Hosting for East1' version='${project.version}' resolver='(obr)'>

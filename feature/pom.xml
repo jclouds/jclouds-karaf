@@ -124,7 +124,6 @@ limitations under the License.
                 <feature>jclouds-aws-sqs</feature>
                 <feature>jclouds-aws-sts</feature>
                 <feature>jclouds-azureblob</feature>
-                <feature>jclouds-bluelock-vcloud-zone01</feature>
                 <feature>jclouds-cloudfiles-uk</feature>
                 <feature>jclouds-cloudfiles-us</feature>
                 <feature>jclouds-dynect</feature>
@@ -146,12 +145,9 @@ limitations under the License.
                 <feature>jclouds-elastichosts-tor-p</feature>
                 <feature>jclouds-gogrid</feature>
                 <feature>jclouds-go2cloud-jhb1</feature>
-                <feature>jclouds-greenhousedata-element-vcloud</feature>
                 <feature>jclouds-glesys</feature>
                 <feature>jclouds-hpcloud-objectstorage</feature>
                 <feature>jclouds-hpcloud-compute</feature>
-                <feature>jclouds-ninefold-storage</feature>
-                <feature>jclouds-ninefold-compute</feature>
                 <feature>jclouds-openhosting-east1</feature>
                 <feature>jclouds-serverlove-z1-man</feature>
                 <feature>jclouds-skalicloud-sdg-my</feature>
