@@ -129,7 +129,6 @@ limitations under the License.
                 <feature>jclouds-dynect</feature>
                 <feature>jclouds-rackspace-cloudloadbalancers-us</feature>
                 <feature>jclouds-rackspace-cloudloadbalancers-uk</feature>
-                <feature>jclouds-cloudonestorage</feature>
                 <feature>jclouds-cloudserver-uk</feature>
                 <feature>jclouds-cloudserver-us</feature>
                 <feature>jclouds-rackspace-cloudservers-us</feature>

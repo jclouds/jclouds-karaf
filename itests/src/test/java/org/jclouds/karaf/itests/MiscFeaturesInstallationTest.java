@@ -50,11 +50,6 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
-    public void testCloudOneStorageFeature() throws Exception {
-        installAndCheckFeature("jclouds-cloudonestorage");
-    }
-
-    @Test
     public void testGoGridFeature() throws Exception {
         installAndCheckFeature("jclouds-gogrid");
     }
