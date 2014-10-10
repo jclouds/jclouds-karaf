@@ -54,12 +54,6 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
         installAndCheckFeature("jclouds-bluelock-vcloud-zone01");
     }
 
-
-    @Test
-    public void testCloudOneStorageFeature() throws Exception {
-        installAndCheckFeature("jclouds-cloudonestorage");
-    }
-
     @Test
     public void testGoGridFeature() throws Exception {
         installAndCheckFeature("jclouds-gogrid");

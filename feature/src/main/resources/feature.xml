@@ -249,13 +249,6 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/rackspace-cloudloadbalancers-uk/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-cloudonestorage' description='Cloud One Storage' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-blobstore</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.api/atmos/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/cloudonestorage/${jclouds.version}</bundle>
-    </feature>
-
-
     <feature name='jclouds-cloudserver-uk' description='Cloudservers UK' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
