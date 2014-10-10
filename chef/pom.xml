@@ -20,14 +20,14 @@ limitations under the License.
   <parent>
     <artifactId>jclouds-karaf</artifactId>
     <groupId>org.apache.jclouds</groupId>
-    <version>1.8.1-SNAPSHOT</version>
+    <version>1.8.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.apache.jclouds.karaf</groupId>
   <artifactId>chef</artifactId>
   <packaging>pom</packaging>
-  <version>1.8.1-SNAPSHOT</version>
+  <version>1.8.1</version>
   <name>jclouds :: Karaf :: Chef</name>
 
   <modules>
