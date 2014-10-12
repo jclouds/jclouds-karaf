@@ -50,22 +50,6 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
-    public void testBlueLockFeature() throws Exception {
-        installAndCheckFeature("jclouds-bluelock-vcloud-zone01");
-    }
-
-
-    @Test
-    public void testCloudOneStorageFeature() throws Exception {
-        installAndCheckFeature("jclouds-cloudonestorage");
-    }
-
-    @Test
-    public void testCloudSigmaZrhFeature() throws Exception {
-        installAndCheckFeature("jclouds-cloudsigma-zrh");
-    }
-
-    @Test
     public void testGoGridFeature() throws Exception {
         installAndCheckFeature("jclouds-gogrid");
     }
@@ -73,17 +57,6 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     @Test
     public void testGo2CloudFeature() throws Exception {
         installAndCheckFeature("jclouds-go2cloud-jhb1");
-    }
-
-
-    @Test
-    public void testGreenHouseDataFeature() throws Exception {
-        installAndCheckFeature("jclouds-greenhousedata-element-vcloud");
-    }
-
-    @Test
-    public void testNineFoldStorageFeature() throws Exception {
-        installAndCheckFeature("jclouds-ninefold-storage");
     }
 
     @Test
