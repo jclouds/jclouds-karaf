@@ -127,17 +127,10 @@ limitations under the License.
                 <feature>jclouds-azureblob</feature>
                 <feature>jclouds-cloudfiles-uk</feature>
                 <feature>jclouds-cloudfiles-us</feature>
-                <feature>jclouds-dynect</feature>
-                <feature>jclouds-rackspace-cloudloadbalancers-us</feature>
-                <feature>jclouds-rackspace-cloudloadbalancers-uk</feature>
                 <feature>jclouds-cloudserver-uk</feature>
                 <feature>jclouds-cloudserver-us</feature>
-                <feature>jclouds-rackspace-cloudservers-us</feature>
-                <feature>jclouds-rackspace-cloudservers-uk</feature>
-                <feature>jclouds-rackspace-clouddns-us</feature>
-                <feature>jclouds-rackspace-clouddns-uk</feature>
-                <feature>jclouds-rackspace-cloudblockstorage-us</feature>
-                <feature>jclouds-rackspace-cloudblockstorage-uk</feature>
+                <feature>jclouds-digitalocean</feature>
+                <feature>jclouds-dynect</feature>
                 <feature>jclouds-elastichosts-lon-b</feature>
                 <feature>jclouds-elastichosts-lon-p</feature>
                 <feature>jclouds-elastichosts-sat-p</feature>
@@ -149,10 +142,17 @@ limitations under the License.
                 <feature>jclouds-hpcloud-objectstorage</feature>
                 <feature>jclouds-hpcloud-compute</feature>
                 <feature>jclouds-openhosting-east1</feature>
+                <feature>jclouds-rackspace-cloudloadbalancers-us</feature>
+                <feature>jclouds-rackspace-cloudloadbalancers-uk</feature>
+                <feature>jclouds-rackspace-cloudservers-us</feature>
+                <feature>jclouds-rackspace-cloudservers-uk</feature>
+                <feature>jclouds-rackspace-clouddns-us</feature>
+                <feature>jclouds-rackspace-clouddns-uk</feature>
+                <feature>jclouds-rackspace-cloudblockstorage-us</feature>
+                <feature>jclouds-rackspace-cloudblockstorage-uk</feature>
                 <feature>jclouds-serverlove-z1-man</feature>
                 <feature>jclouds-skalicloud-sdg-my</feature>
                 <feature>jclouds-softlayer</feature>
-                <feature>jclouds-digitalocean</feature>
               </features>
               <repository>target/features-repo</repository>
             </configuration>
