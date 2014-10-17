@@ -13,3 +13,6 @@ target
 velocity.log
 maven-eclipse.xml
 .externalToolBuilders
+.DS_Store
+.java-version
+
