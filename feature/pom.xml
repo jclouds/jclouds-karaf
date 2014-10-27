@@ -109,14 +109,16 @@ limitations under the License.
                 <feature>jclouds-blobstore</feature>
                 <feature>jclouds-compute</feature>
                 <feature>jclouds-management</feature>
-                <feature>jclouds-api-filesystem</feature>
-                <feature>jclouds-api-elasticstack</feature>
-                <feature>jclouds-api-vcloud</feature>
                 <feature>jclouds-api-byon</feature>
-                <feature>jclouds-api-swift</feature>
-                <feature>jclouds-api-openstack-nova</feature>
-                <feature>jclouds-api-openstack-keystone</feature>
+                <feature>jclouds-api-cloudsigma2</feature>
+                <feature>jclouds-api-cloudstack</feature>
+                <feature>jclouds-api-elasticstack</feature>
+                <feature>jclouds-api-filesystem</feature>
                 <feature>jclouds-api-openstack-cinder</feature>
+                <feature>jclouds-api-openstack-keystone</feature>
+                <feature>jclouds-api-openstack-nova</feature>
+                <feature>jclouds-api-swift</feature>
+                <feature>jclouds-api-vcloud</feature>
                 <feature>jclouds-aws-cloudwatch</feature>
                 <feature>jclouds-aws-ec2</feature>
                 <feature>jclouds-aws-route53</feature>
@@ -131,12 +133,13 @@ limitations under the License.
                 <feature>jclouds-rackspace-cloudloadbalancers-uk</feature>
                 <feature>jclouds-cloudserver-uk</feature>
                 <feature>jclouds-cloudserver-us</feature>
-                <feature>jclouds-rackspace-cloudservers-us</feature>
-                <feature>jclouds-rackspace-cloudservers-uk</feature>
-                <feature>jclouds-rackspace-clouddns-us</feature>
-                <feature>jclouds-rackspace-clouddns-uk</feature>
-                <feature>jclouds-rackspace-cloudblockstorage-us</feature>
-                <feature>jclouds-rackspace-cloudblockstorage-uk</feature>
+                <feature>jclouds-cloudsigma2-hnl</feature>
+                <feature>jclouds-cloudsigma2-lvs</feature>
+                <feature>jclouds-cloudsigma2-sjc</feature>
+                <feature>jclouds-cloudsigma2-wdc</feature>
+                <feature>jclouds-cloudsigma2-zrh</feature>
+                <feature>jclouds-digitalocean</feature>
+                <feature>jclouds-dynect</feature>
                 <feature>jclouds-elastichosts-lon-b</feature>
                 <feature>jclouds-elastichosts-lon-p</feature>
                 <feature>jclouds-elastichosts-sat-p</feature>
@@ -148,10 +151,15 @@ limitations under the License.
                 <feature>jclouds-hpcloud-objectstorage</feature>
                 <feature>jclouds-hpcloud-compute</feature>
                 <feature>jclouds-openhosting-east1</feature>
+                <feature>jclouds-rackspace-cloudservers-us</feature>
+                <feature>jclouds-rackspace-cloudservers-uk</feature>
+                <feature>jclouds-rackspace-clouddns-us</feature>
+                <feature>jclouds-rackspace-clouddns-uk</feature>
+                <feature>jclouds-rackspace-cloudblockstorage-us</feature>
+                <feature>jclouds-rackspace-cloudblockstorage-uk</feature>
                 <feature>jclouds-serverlove-z1-man</feature>
                 <feature>jclouds-skalicloud-sdg-my</feature>
                 <feature>jclouds-softlayer</feature>
-                <feature>jclouds-digitalocean</feature>
               </features>
               <repository>target/features-repo</repository>
             </configuration>
