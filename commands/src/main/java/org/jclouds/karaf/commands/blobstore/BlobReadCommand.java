@@ -17,6 +17,8 @@
 
 package org.jclouds.karaf.commands.blobstore;
 
+import static org.jclouds.util.Closeables2.closeQuietly;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -74,7 +76,7 @@ public class BlobReadCommand extends BlobStoreCommandWithOptions {
             Files.asByteSink(file).writeFrom(is);
          }
       } finally {
-         Closeables.closeQuietly(is);
+         closeQuietly(is);
       }
 
       return null;
