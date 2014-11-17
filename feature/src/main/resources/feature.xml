@@ -68,12 +68,6 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-api-vcloud' description='jclouds - API - Vcloud' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.java-xmlbuilder/${java-xmlbuilder.bundle.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.api/vcloud/${jclouds.version}</bundle>
-    </feature>
-
     <feature name='jclouds-api-byon' description='jclouds - API - Byon' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.yaml/snakeyaml/${snakeyaml.version}</bundle>
