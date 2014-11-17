@@ -40,11 +40,6 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
-    public void testManagementFeature() throws Exception {
-        installAndCheckFeature("jclouds-management");
-    }
-
-    @Test
     public void testBasicFeaturesInstallation() throws Exception {
         installAndCheckFeature("jclouds-commands");
     }
