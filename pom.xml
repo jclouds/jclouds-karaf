@@ -545,11 +545,6 @@ limitations under the License.
         <version>${jclouds.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.apache.jclouds.labs</groupId>
-        <artifactId>nodepool</artifactId>
-        <version>${jclouds.version}</version>
-      </dependency>
-      <dependency>
         <groupId>org.apache.jclouds.api</groupId>
         <artifactId>chef</artifactId>
         <version>${jclouds.chef.version}</version>
