@@ -229,22 +229,6 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/rackspace-cloudloadbalancers-uk/${jclouds.version}</bundle>
     </feature>
 
-    <feature name='jclouds-cloudserver-uk' description='Cloudservers UK' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.api/cloudservers/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds/jclouds-scriptbuilder/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds/jclouds-compute/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/cloudservers-uk/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-cloudserver-us' description='Cloudservers US' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.api/cloudservers/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/cloudservers-us/${jclouds.version}</bundle>
-    </feature>
-
     <feature name='jclouds-rackspace-cloudservers-us' description='Rackspace Cloudservers US' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-api-openstack-nova</feature>
