@@ -33,7 +33,7 @@ public interface CacheProvider {
      *          ami-3xxxxx,
      *          ami-4xxxxx
      *      },
-     *      "cloudservers-us": {
+     *      "rackspace-cloudservers-us": {
      *          103,
      *          104
      *      }

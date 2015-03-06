@@ -67,19 +67,6 @@ public class RackspaceLiveTest extends JcloudsLiveTestSupport {
         }
     }
 
-    @Test
-    public void testNodeCreateLive() throws InterruptedException {
-        if (isComputeLiveConfigured()) {
-            createManagedComputeService("cloudservers-us", false);
-            ComputeService computeService = getOsgiService(ComputeService.class, 1000000L);
-            Thread.sleep(DEFAULT_TIMEOUT);
-            System.err.println(executeCommand("jclouds:image-list"));
-            System.err.println(executeCommand("jclouds:node-create --imageId " + image + " --locationId " + location + " " + group));
-            System.err.println(executeCommand("jclouds:group-runscript -d ls -u " + user + " " + group));
-            assertTrue("Expected at least one node", computeService.listNodes().size() >= 1);
-        }
-    }
-
     @Configuration
     public Option[] config() {
         return new Option[]{
