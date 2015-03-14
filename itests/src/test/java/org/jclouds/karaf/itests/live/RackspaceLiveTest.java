@@ -70,7 +70,7 @@ public class RackspaceLiveTest extends JcloudsLiveTestSupport {
     @Test
     public void testNodeCreateLive() throws InterruptedException {
         if (isComputeLiveConfigured()) {
-            createManagedComputeService("cloudservers-us", false);
+            createManagedComputeService("rackspace-cloudservers-us", false);
             ComputeService computeService = getOsgiService(ComputeService.class, 1000000L);
             Thread.sleep(DEFAULT_TIMEOUT);
             System.err.println(executeCommand("jclouds:image-list"));
@@ -90,7 +90,7 @@ public class RackspaceLiveTest extends JcloudsLiveTestSupport {
                 systemProperty("jclouds.rackspace.image"),
                 systemProperty("jclouds.rackspace.location"),
                 systemProperty("jclouds.rackspace.user"),
-                scanFeatures(String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)), "jclouds", "jclouds-compute", "jclouds-cloudserver-us").start()
+                scanFeatures(String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)), "jclouds", "jclouds-compute", "jclouds-rackspace-cloudserver-us").start()
         };
     }
 }
