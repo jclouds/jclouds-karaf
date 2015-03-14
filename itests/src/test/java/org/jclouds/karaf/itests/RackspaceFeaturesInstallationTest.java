@@ -50,16 +50,6 @@ public class RackspaceFeaturesInstallationTest extends JcloudsFeaturesTestSuppor
     }
 
     @Test
-    public void testCloudServersUsFeature() throws Exception {
-        installAndCheckFeature("jclouds-cloudserver-us");
-    }
-
-    @Test
-    public void testCloudServersUkFeature() throws Exception {
-        installAndCheckFeature("jclouds-cloudserver-uk");
-    }
-
-    @Test
     public void testCloudFilesUsFeature() throws Exception {
         installAndCheckFeature("jclouds-cloudfiles-us");
     }
