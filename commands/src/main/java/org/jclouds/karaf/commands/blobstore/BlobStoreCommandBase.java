@@ -154,6 +154,11 @@ public abstract class BlobStoreCommandBase extends AbstractAction {
     * @param options
     */
    public void write(BlobStore blobStore, String bucket, String blobName, Blob blob, PutOptions options, boolean signedRequest) throws Exception {
+      if (!blobStore.containerExists(bucket)) {
+         throw new ContainerNotFoundException(bucket, "Container " + bucket
+               + " should exist before uploading blobs");
+      }
+
       if (blobName.contains("/")) {
          String directory = BlobStoreUtils.parseDirectoryFromPath(blobName);
          if (!Strings.isNullOrEmpty(directory)) {
