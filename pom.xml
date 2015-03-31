@@ -224,7 +224,7 @@ limitations under the License.
     <!-- Plugin Versions -->
     <depends-maven-plugin.version>1.2</depends-maven-plugin.version>
     <maven-bundle-plugin.version>2.1.0</maven-bundle-plugin.version>
-    <maven-compiler-plugin.version>2.0.2</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
     <maven-dependency-plugin.version>2.3</maven-dependency-plugin.version>
     <maven-war-plugin.version>2.1.1</maven-war-plugin.version>
     <maven-release-plugin.version>2.4</maven-release-plugin.version>
