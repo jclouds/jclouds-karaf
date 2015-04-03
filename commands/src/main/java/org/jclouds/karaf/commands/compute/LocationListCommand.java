@@ -32,6 +32,7 @@ public class LocationListCommand extends ComputeCommandWithOptions {
          System.err.println(t.getMessage());
          return null;
       }
+      
       printLocations(service, System.out);
       return null;
    }

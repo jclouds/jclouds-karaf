@@ -19,11 +19,6 @@ package org.jclouds.karaf.commands.compute;
 
 import org.apache.felix.gogo.commands.Command;
 import org.jclouds.compute.ComputeService;
-import org.jclouds.compute.domain.Image;
-import org.jclouds.karaf.commands.table.ShellTable;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @Command(scope = "jclouds", name = "image-list", description = "Lists the available images.")
 public class ImageListCommand extends ComputeCommandWithOptions {
@@ -37,7 +32,8 @@ public class ImageListCommand extends ComputeCommandWithOptions {
          System.err.println(t.getMessage());
          return null;
       }
-     printImages(service, service.listImages(), System.out);
+      
+      printImages(service, service.listImages(), System.out);
       return null;
    }
 

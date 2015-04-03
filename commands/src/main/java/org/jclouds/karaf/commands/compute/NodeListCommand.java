@@ -56,6 +56,7 @@ public class NodeListCommand extends ComputeCommandWithOptions {
         return true;
       }
     });
+    
     printNodes(service, nodes, System.out);
 
     for (ComputeMetadata node : service.listNodes()) {

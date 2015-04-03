@@ -32,6 +32,7 @@ public class HardwareListCommand extends ComputeCommandWithOptions {
          System.err.println(t.getMessage());
          return null;
       }
+      
       printHardwares(service, service.listHardwareProfiles(), System.out);
       return null;
    }
