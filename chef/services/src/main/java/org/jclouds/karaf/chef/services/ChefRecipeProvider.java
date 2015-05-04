@@ -18,11 +18,14 @@
 package org.jclouds.karaf.chef.services;
 
 import com.google.common.collect.Sets;
+
+import org.jclouds.chef.ChefApi;
 import org.jclouds.chef.ChefService;
 import org.jclouds.chef.domain.BootstrapConfig;
 import org.jclouds.chef.domain.CookbookVersion;
 import org.jclouds.chef.util.RunListBuilder;
 import org.jclouds.karaf.recipe.RecipeProvider;
+import org.jclouds.rest.ApiContext;
 import org.jclouds.scriptbuilder.domain.Statement;
 
 import java.util.List;
@@ -33,9 +36,9 @@ public class ChefRecipeProvider implements RecipeProvider {
     final ChefService chefService;
     final String id;
 
-    public ChefRecipeProvider(ChefService chefService) {
-        this.chefService = chefService;
-        this.id = chefService.getContext().unwrap().getName();
+    public ChefRecipeProvider(ApiContext<ChefApi> ctx) {
+        this.chefService = ctx.getApi().chefService();
+        this.id = ctx.getName();
     }
 
     @Override

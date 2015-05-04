@@ -17,23 +17,24 @@
 
 package org.jclouds.karaf.chef.commands.completer;
 
+import java.util.List;
+
 import org.apache.karaf.shell.console.Completer;
 import org.apache.karaf.shell.console.completer.StringsCompleter;
-import org.jclouds.chef.ChefService;
-
-import java.util.List;
+import org.jclouds.chef.ChefApi;
+import org.jclouds.rest.ApiContext;
 
 public class ChefContextNameCompleter implements Completer {
 
     private final StringsCompleter delegate = new StringsCompleter();
-    private List<? extends ChefService> chefServices;
+    private List<ApiContext<ChefApi>> chefServices;
 
     @Override
     public int complete(String buffer, int cursor, List<String> candidates) {
         try {
             if (chefServices != null) {
-                for (ChefService chefService : chefServices) {
-                    String contextName = (String) chefService.getContext().unwrap().getName();
+                for (ApiContext<ChefApi> ctx : chefServices) {
+                    String contextName = ctx.getName();
                     if (contextName != null) {
                         delegate.getStrings().add(contextName);
                     }
@@ -45,11 +46,11 @@ public class ChefContextNameCompleter implements Completer {
         return delegate.complete(buffer, cursor, candidates);
     }
 
-    public List<? extends ChefService> getChefServices() {
+    public List<ApiContext<ChefApi>> getChefServices() {
         return chefServices;
     }
 
-    public void setChefServices(List<? extends ChefService> chefServices) {
+    public void setChefServices(List<ApiContext<ChefApi>> chefServices) {
         this.chefServices = chefServices;
     }
 }

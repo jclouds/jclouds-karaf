@@ -158,7 +158,7 @@ limitations under the License.
 
 
     <reference-list id="computeServices" interface="org.jclouds.compute.ComputeService" availability="optional"/>
-    <reference-list id="chefServices" interface="org.jclouds.chef.ChefService" availability="optional"/>
+    <reference-list id="chefServices" interface="org.jclouds.rest.ApiContext" availability="optional"/>
     <reference id="configAdmin" interface="org.osgi.service.cm.ConfigurationAdmin" availability="optional"/>
 
 </blueprint>

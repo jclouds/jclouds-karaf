@@ -17,15 +17,19 @@
 
 package org.jclouds.karaf.chef.cache;
 
+import org.jclouds.chef.ChefApi;
 import org.jclouds.chef.ChefService;
 import org.jclouds.karaf.cache.BasicCacheProvider;
 import org.jclouds.karaf.cache.CacheManager;
 import org.jclouds.karaf.cache.CacheProvider;
 import org.jclouds.karaf.cache.utils.CacheUtils;
+import org.jclouds.rest.ApiContext;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.util.tracker.ServiceTracker;
+
+import com.google.common.reflect.TypeToken;
 
 import java.util.Hashtable;
 import java.util.Properties;
@@ -37,7 +41,7 @@ public class Activator implements BundleActivator {
 
     private ServiceRegistration cacheProviderRegistration;
 
-    private final CacheManager<ChefService> chefCacheManager = new CacheManager<ChefService>();
+    private final CacheManager<ApiContext<ChefApi>> chefCacheManager = new CacheManager<ApiContext<ChefApi>>();
 
 
     /**
@@ -61,7 +65,9 @@ public class Activator implements BundleActivator {
         cacheProviderRegistration = context.registerService(CacheProvider.class.getName(), cacheProvider, new Hashtable<String, Object>());
 
 
-        chefServiceTracker = CacheUtils.createServiceCacheTracker(context, ChefService.class, chefCacheManager);
+        chefServiceTracker = CacheUtils.createServiceCacheTracker(context, new TypeToken<ApiContext<ChefApi>>() {
+           private static final long serialVersionUID = 1L;
+        }, chefCacheManager);
         chefCacheableTracker = CacheUtils.createCacheableTracker(context, "jclouds.chefservice", chefCacheManager);
 
         chefServiceTracker.open();

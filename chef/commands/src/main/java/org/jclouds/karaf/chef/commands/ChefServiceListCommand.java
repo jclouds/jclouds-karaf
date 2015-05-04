@@ -17,10 +17,10 @@
 
 package org.jclouds.karaf.chef.commands;
 
-import com.google.common.reflect.TypeToken;
+import static org.jclouds.karaf.chef.core.ChefHelper.CHEF_TOKEN;
+
 import org.apache.felix.gogo.commands.Command;
 import org.jclouds.apis.Apis;
-import org.jclouds.chef.ChefContext;
 
 @Command(scope = "chef", name = "service-list", description = "Lists the Chef Services")
 public class ChefServiceListCommand extends ChefCommandBase {
@@ -30,7 +30,7 @@ public class ChefServiceListCommand extends ChefCommandBase {
         try {
             System.out.println("Chef APIs:");
             System.out.println("-------------");
-            printChefApis(Apis.contextAssignableFrom(TypeToken.of(ChefContext.class)), getChefServices(), System.out);
+            printChefApis(Apis.contextAssignableFrom(CHEF_TOKEN), getChefServices(), System.out);
         } catch (Exception ex) {
             // noop
         }

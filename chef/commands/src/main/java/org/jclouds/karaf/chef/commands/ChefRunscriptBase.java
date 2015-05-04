@@ -17,12 +17,13 @@
 
 package org.jclouds.karaf.chef.commands;
 
+import java.util.List;
+
 import org.apache.felix.gogo.commands.Option;
-import org.jclouds.chef.ChefService;
+import org.jclouds.chef.ChefApi;
 import org.jclouds.karaf.chef.core.ChefHelper;
 import org.jclouds.karaf.commands.compute.RunScriptBase;
-
-import java.util.List;
+import org.jclouds.rest.ApiContext;
 
 public abstract class ChefRunscriptBase extends RunScriptBase {
 
@@ -47,17 +48,17 @@ public abstract class ChefRunscriptBase extends RunScriptBase {
     @Option(name = "--chef-endpoint", description = "The endpoint to use for a chef service.")
     protected String chefEndpoint;
 
-    protected List<ChefService> chefServices;
+    protected List<ApiContext<ChefApi>> chefServices;
 
-    protected ChefService getChefService() {
+    protected ApiContext<ChefApi> getChefService() {
         return ChefHelper.findOrCreateChefService(chefApi, chefName, clientName, null, clientKeyFile, validatorName, null, validatorKeyFile, endpoint, chefServices);
     }
 
-    public List<ChefService> getChefServices() {
+    public List<ApiContext<ChefApi>> getChefServices() {
         return chefServices;
     }
 
-    public void setChefServices(List<ChefService> chefServices) {
+    public void setChefServices(List<ApiContext<ChefApi>> chefServices) {
         this.chefServices = chefServices;
     }
 

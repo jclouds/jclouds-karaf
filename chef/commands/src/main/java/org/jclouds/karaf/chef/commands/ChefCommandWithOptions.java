@@ -17,14 +17,13 @@
 
 package org.jclouds.karaf.chef.commands;
 
-import com.google.common.base.Strings;
-import org.apache.felix.gogo.commands.Option;
-import org.jclouds.apis.Apis;
-import org.jclouds.chef.ChefService;
-import org.jclouds.karaf.chef.core.ChefHelper;
-
 import java.util.Collections;
 import java.util.List;
+
+import org.apache.felix.gogo.commands.Option;
+import org.jclouds.chef.ChefApi;
+import org.jclouds.karaf.chef.core.ChefHelper;
+import org.jclouds.rest.ApiContext;
 
 public abstract class ChefCommandWithOptions extends ChefCommandBase {
 
@@ -50,12 +49,12 @@ public abstract class ChefCommandWithOptions extends ChefCommandBase {
     protected String endpoint;
 
     @Override
-    public List<ChefService> getChefServices() {
+    public List<ApiContext<ChefApi>> getChefServices() {
         if (api == null) {
             return chefServices;
         } else {
             try {
-                ChefService service = getChefService();
+               ApiContext<ChefApi> service = getChefService();
                 return Collections.singletonList(service);
             } catch (Throwable t) {
                 return Collections.emptyList();
@@ -63,7 +62,7 @@ public abstract class ChefCommandWithOptions extends ChefCommandBase {
         }
     }
 
-    protected ChefService getChefService() {
+    protected ApiContext<ChefApi> getChefService() {
         return ChefHelper.findOrCreateChefService(api, name, clientName,null, clientKeyFile, validatorName, null, validatorKeyFile, endpoint, chefServices);
     }
 }

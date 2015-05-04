@@ -57,7 +57,7 @@ public class ChefGroupBootStrap extends ChefRunscriptBase {
     @Override
     public Statement getStatement() {
         Statement statement = null;
-        ChefService chefService = getChefService();
+        ChefService chefService = getChefService().getApi().chefService();
         if (chefService != null) {
             List<String> runlist = new RunListBuilder().addRecipes(cookbook).build();
             BootstrapConfig bootstrapConfig = BootstrapConfig.builder().runList(runlist).build();

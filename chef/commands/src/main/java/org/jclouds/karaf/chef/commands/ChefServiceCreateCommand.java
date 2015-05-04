@@ -20,10 +20,11 @@ package org.jclouds.karaf.chef.commands;
 import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.Option;
 import org.jclouds.apis.Apis;
-import org.jclouds.chef.ChefService;
+import org.jclouds.chef.ChefApi;
 import org.jclouds.karaf.chef.core.ChefConstants;
 import org.jclouds.karaf.chef.core.ChefHelper;
 import org.jclouds.karaf.core.Constants;
+import org.jclouds.rest.ApiContext;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.cm.Configuration;
@@ -179,20 +180,20 @@ public class ChefServiceCreateCommand extends ChefCommandWithOptions {
      * @param api
      * @return
      */
-    public synchronized ChefService waitForChefService(BundleContext bundleContext, String name, String api) {
-        ChefService chefService = null;
+    public synchronized ApiContext<ChefApi> waitForChefService(BundleContext bundleContext, String name, String api) {
+       ApiContext<ChefApi> chefService = null;
         try {
             for (int r = 0; r < 6; r++) {
                 ServiceReference[] references = null;
                 if (name != null) {
-                    references = bundleContext.getAllServiceReferences(ChefService.class.getName(), "(" + Constants.NAME + "="
+                    references = bundleContext.getAllServiceReferences(ApiContext.class.getName(), "(" + Constants.NAME + "="
                             + name + ")");
                 } else if (api != null) {
-                    references = bundleContext.getAllServiceReferences(ChefService.class.getName(), "(" + Constants.API + "=" + api + ")");
+                    references = bundleContext.getAllServiceReferences(ApiContext.class.getName(), "(" + Constants.API + "=" + api + ")");
                 }
 
                 if (references != null && references.length > 0) {
-                    chefService = (ChefService) bundleContext.getService(references[0]);
+                    chefService = (ApiContext<ChefApi>) bundleContext.getService(references[0]);
                     return chefService;
                 }
                 Thread.sleep(10000L);
