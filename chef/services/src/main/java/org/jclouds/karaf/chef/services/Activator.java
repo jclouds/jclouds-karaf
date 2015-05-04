@@ -17,11 +17,17 @@
 
 package org.jclouds.karaf.chef.services;
 
+import static org.jclouds.karaf.chef.core.ChefHelper.CHEF_TOKEN;
+
 import com.google.common.collect.Maps;
-import org.jclouds.chef.ChefService;
+import com.google.common.reflect.TypeToken;
+
+import org.jclouds.chef.ChefApi;
+import org.jclouds.karaf.chef.core.ChefHelper;
 import org.jclouds.karaf.recipe.RecipeProvider;
 import org.jclouds.osgi.ApiListener;
 import org.jclouds.osgi.ProviderListener;
+import org.jclouds.rest.ApiContext;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
@@ -44,13 +50,13 @@ public class Activator implements BundleActivator {
     public void start(final BundleContext context) throws Exception {
         registerChefServiceFactory(context);
         //We use the system bundle context to avoid issues with InvalidBundleContext.
-        chefServiceTracker = new ServiceTracker(context.getBundle(0).getBundleContext(), ChefService.class.getName(), null) {
+        chefServiceTracker = new ServiceTracker(context.getBundle(0).getBundleContext(), ApiContext.class.getName(), null) {
             @Override
             public Object addingService(ServiceReference reference) {
                 Object obj =  super.addingService(reference);
-                if (ChefService.class.isAssignableFrom(obj.getClass())) {
+                if (CHEF_TOKEN.isAssignableFrom(obj.getClass())) {
                     String serviceId =  String.valueOf(reference.getProperty(Constants.SERVICE_ID));
-                    registerRecipeProviderForService(context, serviceId, (ChefService) obj);
+                    registerRecipeProviderForService(context, serviceId, (ApiContext<ChefApi>) obj);
                 }
                 return obj;
             }
@@ -58,7 +64,7 @@ public class Activator implements BundleActivator {
             @Override
             public void removedService(ServiceReference reference, Object service) {
                 String serviceId =  String.valueOf(reference.getProperty(Constants.SERVICE_ID));
-                unregisterRecipeProviderForService(context, serviceId, (ChefService) service);
+                unregisterRecipeProviderForService(context, serviceId, (ApiContext<ChefApi>) service);
                 super.removedService(reference, service);
             }
         };
@@ -88,13 +94,13 @@ public class Activator implements BundleActivator {
                 chefServiceFactory, properties);
     }
 
-    private void registerRecipeProviderForService(BundleContext context, String serviceId, ChefService chefService) {
+    private void registerRecipeProviderForService(BundleContext context, String serviceId, ApiContext<ChefApi> chefService) {
         ChefRecipeProvider chefRecipeProvider = new ChefRecipeProvider(chefService);
         ServiceRegistration registration = context.registerService(RecipeProvider.class.getName(), chefRecipeProvider, null);
         registrationMap.put(serviceId, registration);
     }
 
-    private void unregisterRecipeProviderForService(BundleContext context, String serviceId, ChefService chefService) {
+    private void unregisterRecipeProviderForService(BundleContext context, String serviceId, ApiContext<ChefApi> chefService) {
         if (registrationMap.containsKey(serviceId)) {
             ServiceRegistration registration = registrationMap.remove(serviceId);
             try {

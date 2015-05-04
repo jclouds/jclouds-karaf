@@ -17,16 +17,12 @@
 
 package org.jclouds.karaf.chef.services;
 
-import com.google.common.collect.Sets;
 import org.jclouds.chef.ChefService;
-import org.jclouds.chef.domain.CookbookVersion;
 import org.jclouds.karaf.chef.core.ChefHelper;
 import org.jclouds.karaf.recipe.RecipeProvider;
 
-import java.util.Set;
-
 /**
- * An implementation of {@link RecipeProvider} for a {@link ChefService} which is configured in environment.
+ * An implementation of {@link RecipeProvider} for a chef service which is configured in environment.
  */
 public class EnvBasedChefRecipeProvider extends ChefRecipeProvider implements RecipeProvider {
 

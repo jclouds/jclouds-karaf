@@ -33,7 +33,7 @@ limitations under the License.
   <name>jclouds :: Karaf :: Chef :: Services</name>
 
   <properties>
-    <osgi.import>*</osgi.import>
+    <osgi.import>org.jclouds.rest;version=${jclouds.version},*</osgi.import>
     <osgi.private>
       org.jclouds.karaf.chef.core*,
       org.jclouds.karaf.chef.services*

@@ -17,26 +17,29 @@
 
 package org.jclouds.karaf.chef.services;
 
-import com.google.common.base.Strings;
-import com.google.common.reflect.TypeToken;
+import static org.jclouds.karaf.chef.core.ChefHelper.CHEF_TOKEN;
+
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Properties;
+
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.apis.ApiPredicates;
-import org.jclouds.chef.ChefContext;
-import org.jclouds.chef.ChefService;
+import org.jclouds.chef.ChefApi;
 import org.jclouds.karaf.chef.core.ChefConstants;
 import org.jclouds.karaf.chef.core.ChefHelper;
-import org.jclouds.karaf.services.ServiceFactorySupport;
 import org.jclouds.karaf.services.InvalidConfigurationException;
+import org.jclouds.karaf.services.ServiceFactorySupport;
 import org.jclouds.providers.ProviderMetadata;
+import org.jclouds.rest.ApiContext;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.cm.ConfigurationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.Properties;
+import com.google.common.base.Strings;
+import com.google.common.reflect.TypeToken;
 
 
 
@@ -91,9 +94,9 @@ public class ChefServiceFactory extends ServiceFactorySupport {
                 String validatorCredential = (String) properties.get(ChefConstants.VALIDATOR_CREDENTIAL);
                 String endpoint = (String) properties.get(ChefConstants.ENDPOINT);
 
-                ChefService service = ChefHelper.createChefService(apiMetadata, id, clientName, clientCredential, clientKeyFile, validatorName, validatorCredential, validatorKeyFile, endpoint);
+                ApiContext<ChefApi> service = ChefHelper.createChefService(apiMetadata, id, clientName, clientCredential, clientKeyFile, validatorName, validatorCredential, validatorKeyFile, endpoint);
                 newRegistration = bundleContext.registerService(
-                        ChefService.class.getName(), service, properties);
+                        ApiContext.class.getName(), service, properties);
 
                 //If all goes well remove the pending pid.
                 if (pendingPids.containsKey(pid)) {
@@ -143,6 +146,6 @@ public class ChefServiceFactory extends ServiceFactorySupport {
 
     @Override
     public boolean apply(ApiMetadata api) {
-        return ApiPredicates.contextAssignableFrom(TypeToken.of(ChefContext.class)).apply(api);
+       return ApiPredicates.contextAssignableFrom(CHEF_TOKEN).apply(api);
     }
 }

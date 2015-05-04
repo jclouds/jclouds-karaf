@@ -17,13 +17,14 @@
 
 package org.jclouds.karaf.chef.commands.completer;
 
-import org.jclouds.chef.ChefService;
+import org.jclouds.chef.ChefApi;
 import org.jclouds.karaf.commands.support.GenericCompleterSupport;
+import org.jclouds.rest.ApiContext;
 
-public abstract class ChefCompleterSupport extends GenericCompleterSupport<ChefService, String> {
+public abstract class ChefCompleterSupport extends GenericCompleterSupport<ApiContext<ChefApi>, String> {
 
     @Override
-    public String getCacheableKey(ChefService type) {
-        return type.getContext().unwrap().getName();
+    public String getCacheableKey(ApiContext<ChefApi> type) {
+        return type.getName();
     }
 }

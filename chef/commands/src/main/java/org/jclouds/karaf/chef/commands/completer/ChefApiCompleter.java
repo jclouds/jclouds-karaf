@@ -17,20 +17,21 @@
 
 package org.jclouds.karaf.chef.commands.completer;
 
-import com.google.common.reflect.TypeToken;
+import static org.jclouds.karaf.chef.core.ChefHelper.CHEF_TOKEN;
+
+import java.util.List;
+
 import org.apache.karaf.shell.console.Completer;
 import org.apache.karaf.shell.console.completer.StringsCompleter;
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.apis.Apis;
-import org.jclouds.chef.ChefContext;
-import org.jclouds.chef.ChefService;
-
-import java.util.List;
+import org.jclouds.chef.ChefApi;
+import org.jclouds.rest.ApiContext;
 
 public class ChefApiCompleter implements Completer {
 
     private final StringsCompleter delegate = new StringsCompleter();
-    private List<? extends ChefService> chefServices;
+    private List<ApiContext<ChefApi>> chefServices;
 
     private final boolean displayApisWithoutService;
 
@@ -42,12 +43,12 @@ public class ChefApiCompleter implements Completer {
     public int complete(String buffer, int cursor, List<String> candidates) {
         try {
             if (displayApisWithoutService) {
-                for (ApiMetadata apiMetadata : Apis.contextAssignableFrom(TypeToken.of(ChefContext.class))) {
+                for (ApiMetadata apiMetadata : Apis.contextAssignableFrom(CHEF_TOKEN)) {
                     delegate.getStrings().add(apiMetadata.getId());
                 }
             } else if (chefServices != null) {
-                for (ChefService chefService : chefServices) {
-                    String api = chefService.getContext().unwrap().getId();
+                for (ApiContext<ChefApi> ctx : chefServices) {
+                    String api = ctx.getId();
                     if (Apis.withId(api) != null) {
                         delegate.getStrings().add(api);
                     }
@@ -59,11 +60,12 @@ public class ChefApiCompleter implements Completer {
         return delegate.complete(buffer, cursor, candidates);
     }
 
-    public List<? extends ChefService> getChefServices() {
+    public List<ApiContext<ChefApi>> getChefServices() {
         return chefServices;
     }
 
-    public void setChefServices(List<? extends ChefService> chefServices) {
+    public void setChefServices(List<ApiContext<ChefApi>> chefServices) {
         this.chefServices = chefServices;
     }
+
 }

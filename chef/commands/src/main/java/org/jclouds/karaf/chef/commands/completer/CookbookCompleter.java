@@ -18,10 +18,11 @@
 package org.jclouds.karaf.chef.commands.completer;
 
 import org.apache.karaf.shell.console.Completer;
-import org.jclouds.chef.ChefService;
+import org.jclouds.chef.ChefApi;
 import org.jclouds.chef.domain.CookbookVersion;
 import org.jclouds.karaf.chef.core.ChefConstants;
 import org.jclouds.karaf.utils.ServiceHelper;
+import org.jclouds.rest.ApiContext;
 
 public class CookbookCompleter extends ChefCompleterSupport implements Completer {
 
@@ -30,9 +31,10 @@ public class CookbookCompleter extends ChefCompleterSupport implements Completer
     }
 
     @Override
-    public void updateOnAdded(ChefService chefService) {
+    public void updateOnAdded(ApiContext<ChefApi> chefService) {
         if (chefService != null) {
-            Iterable<? extends CookbookVersion> cookbookVersions = chefService.listCookbookVersions();
+            Iterable<? extends CookbookVersion> cookbookVersions = chefService.getApi().chefService()
+               .listCookbookVersions();
             if (cookbookVersions != null) {
                 for (CookbookVersion cookbookVersion : cookbookVersions) {
                     for (String cacheKey : ServiceHelper.findCacheKeysForService(chefService)) {

@@ -25,6 +25,8 @@ import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
 
+import com.google.common.reflect.TypeToken;
+
 public class CacheUtils {
 
     private CacheUtils() {
@@ -54,6 +56,28 @@ public class CacheUtils {
             @Override
             public void removedService(ServiceReference reference, Object service) {
                 if (serviceClass.isAssignableFrom(service.getClass())) {
+                    cacheManager.unbindService((T) service);
+                }
+                super.removedService(reference, service);
+            }
+        };
+    }
+
+    public static <T> ServiceTracker createServiceCacheTracker(final BundleContext context, final TypeToken<T> serviceToken, final CacheManager<T> cacheManager) {
+        return new ServiceTracker(context, serviceToken.getRawType().getName(), null) {
+
+            @Override
+            public Object addingService(ServiceReference reference) {
+                Object service = super.addingService(reference);
+                if (serviceToken.isAssignableFrom(service.getClass())) {
+                    cacheManager.bindService((T) service);
+                }
+                return service;
+            }
+
+            @Override
+            public void removedService(ServiceReference reference, Object service) {
+                if (serviceToken.isAssignableFrom(service.getClass())) {
                     cacheManager.unbindService((T) service);
                 }
                 super.removedService(reference, service);

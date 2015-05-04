@@ -17,10 +17,16 @@
 
 package org.jclouds.karaf.chef.commands;
 
+import java.io.IOException;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.List;
+
 import org.apache.felix.service.command.CommandSession;
 import org.apache.karaf.shell.console.AbstractAction;
 import org.jclouds.apis.ApiMetadata;
-import org.jclouds.chef.ChefService;
+import org.jclouds.chef.ChefApi;
 import org.jclouds.chef.domain.CookbookVersion;
 import org.jclouds.karaf.cache.BasicCacheProvider;
 import org.jclouds.karaf.cache.CacheProvider;
@@ -30,15 +36,10 @@ import org.jclouds.karaf.commands.table.ShellTableFactory;
 import org.jclouds.karaf.commands.table.internal.PropertyShellTableFactory;
 import org.jclouds.karaf.core.Constants;
 import org.jclouds.karaf.utils.ServiceHelper;
+import org.jclouds.rest.ApiContext;
 import org.jclouds.rest.AuthorizationException;
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
-
-import java.io.IOException;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
 
 
 public abstract class ChefCommandBase extends AbstractAction {
@@ -48,7 +49,7 @@ public abstract class ChefCommandBase extends AbstractAction {
 
     protected ConfigurationAdmin configAdmin;
     protected CacheProvider cacheProvider = new BasicCacheProvider();
-    protected List<ChefService> chefServices = new ArrayList<ChefService>();
+    protected List<ApiContext<ChefApi>> chefServices = new ArrayList<ApiContext<ChefApi>>();
     protected ShellTableFactory shellTableFactory = new PropertyShellTableFactory();
 
     @Override
@@ -62,14 +63,14 @@ public abstract class ChefCommandBase extends AbstractAction {
         }
     }
 
-    protected void printChefApis(Iterable<ApiMetadata> apis, List<ChefService> chefServices, PrintStream out) {
+    protected void printChefApis(Iterable<ApiMetadata> apis, List<ApiContext<ChefApi>> chefServices, PrintStream out) {
         out.println(String.format(PROVIDERFORMAT, "[id]", "[type]", "[service]"));
         for (ApiMetadata api : apis) {
             StringBuilder sb = new StringBuilder();
             sb.append("[ ");
-            for (ChefService chefService : chefServices) {
-                String contextName = (String) chefService.getContext().unwrap().getName();
-                if (chefService.getContext().unwrap().getId().equals(api.getId()) && contextName != null) {
+            for (ApiContext<ChefApi> ctx : chefServices) {
+                String contextName = ctx.getName();
+                if (ctx.getId().equals(api.getId()) && contextName != null) {
                     sb.append(contextName).append(" ");
                 }
             }
@@ -78,7 +79,7 @@ public abstract class ChefCommandBase extends AbstractAction {
         }
     }
 
-    protected void printCookbooks(ChefService service, Iterable<? extends CookbookVersion> cookbookVersions, PrintStream out) {
+    protected void printCookbooks(ApiContext<ChefApi> service, Iterable<? extends CookbookVersion> cookbookVersions, PrintStream out) {
         ShellTable table = shellTableFactory.build("cookbook");
         table.setDisplayData(cookbookVersions);
         table.display(out, true, true);
@@ -144,11 +145,11 @@ public abstract class ChefCommandBase extends AbstractAction {
         this.cacheProvider = cacheProvider;
     }
 
-    public List<ChefService> getChefServices() {
+    public List<ApiContext<ChefApi>> getChefServices() {
         return chefServices;
     }
 
-    public void setChefServices(List<ChefService> chefServices) {
+    public void setChefServices(List<ApiContext<ChefApi>> chefServices) {
         this.chefServices = chefServices;
     }
 

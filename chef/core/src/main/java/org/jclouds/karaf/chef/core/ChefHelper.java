@@ -17,26 +17,28 @@
 
 package org.jclouds.karaf.chef.core;
 
-import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Lists;
-import com.google.common.io.Files;
-import com.google.inject.Module;
-import org.jclouds.ContextBuilder;
-import org.jclouds.apis.ApiMetadata;
-import org.jclouds.apis.Apis;
-import org.jclouds.chef.ChefContext;
-import org.jclouds.chef.ChefService;
-import org.jclouds.chef.config.ChefProperties;
-import org.jclouds.logging.slf4j.config.SLF4JLoggingModule;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static com.google.common.base.Charsets.UTF_8;
 
 import java.io.File;
 import java.util.List;
 import java.util.Properties;
 
-import static com.google.common.base.Charsets.UTF_8;
+import org.jclouds.ContextBuilder;
+import org.jclouds.apis.ApiMetadata;
+import org.jclouds.apis.Apis;
+import org.jclouds.chef.ChefApi;
+import org.jclouds.chef.config.ChefProperties;
+import org.jclouds.logging.slf4j.config.SLF4JLoggingModule;
+import org.jclouds.rest.ApiContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Lists;
+import com.google.common.io.Files;
+import com.google.common.reflect.TypeToken;
+import com.google.inject.Module;
 
 public class ChefHelper {
 
@@ -50,6 +52,10 @@ public class ChefHelper {
     public static final String JCLOUDS_CHEF_VALIDATOR_KEY_FILE = "JCLOUDS_CHEF_VALIDATOR_KEY_FILE";
     public static final String JCLOUDS_CHEF_VALIDATOR_CREDENTIAL = "JCLOUDS_CHEF_VALIDATOR_CREDENTIAL";
     public static final String JCLOUDS_CHEF_ENDPOINT = "JCLOUDS_CHEF_ENDPOINT";
+    
+    public static final TypeToken<ApiContext<ChefApi>> CHEF_TOKEN = new TypeToken<ApiContext<ChefApi>>() {
+       private static final long serialVersionUID = 1L;
+    };
 
     private ChefHelper() {
         //Utility Class
@@ -169,19 +175,19 @@ public class ChefHelper {
 
 
     /**
-     * Chooses a {@link ChefService} that matches the specified a service id or a  api.
+     * Chooses a chef service that matches the specified a service id or a  api.
      *
      * @param id
      * @param api
      * @param services
      * @return
      */
-    public static ChefService getChefService(String id, String api, List<ChefService> services) {
+    public static ApiContext<ChefApi> getChefService(String id, String api, List<ApiContext<ChefApi>> services) {
         if (!Strings.isNullOrEmpty(id)) {
-            ChefService service = null;
-            for (ChefService svc : services) {
-                if (id.equals(svc.getContext().unwrap().getName())) {
-                    service = svc;
+            ApiContext<ChefApi> service = null;
+            for (ApiContext<ChefApi> ctx : services) {
+                if (id.equals(ctx.getName())) {
+                    service = ctx;
                     break;
                 }
             }
@@ -192,10 +198,10 @@ public class ChefHelper {
         }
 
         if (!Strings.isNullOrEmpty(api)) {
-            ChefService service = null;
-            for (ChefService svc : services) {
-                if (api.equals(svc.getContext().unwrap().getId())) {
-                    service = svc;
+            ApiContext<ChefApi> service = null;
+            for (ApiContext<ChefApi> ctx : services) {
+                if (api.equals(ctx.getId())) {
+                    service = ctx;
                     break;
                 }
             }
@@ -208,11 +214,11 @@ public class ChefHelper {
                 throw new IllegalArgumentException("No apis are present.  Note: It takes a couple of seconds for the provider to initialize.");
             } else if (services.size() != 1) {
                 StringBuilder sb = new StringBuilder();
-                for (ChefService svc : services) {
+                for (ApiContext<ChefApi> ctx : services) {
                     if (sb.length() > 0) {
                         sb.append(", ");
                     }
-                    sb.append(svc.getContext().unwrap().getName());
+                    sb.append(ctx.getName());
                 }
                 throw new IllegalArgumentException("Multiple apis are present, please select one using the--api argument in the following values: " + sb.toString());
             } else {
@@ -222,20 +228,22 @@ public class ChefHelper {
     }
 
     /**
-     * Creates a {@link ChefService} just by using Environmental variables.
+     * Creates a chef service just by using Environmental variables.
      *
      * @return
      */
-    public static ChefService createChefServiceFromEnvironment() {
-        return findOrCreateChefService(null, null, null, null, null, null, null, null, null, Lists.<ChefService>newArrayList());
+    public static ApiContext<ChefApi> createChefServiceFromEnvironment() {
+        return findOrCreateChefService(null, null, null, null, null, null, null, null, null, Lists.<ApiContext<ChefApi>>newArrayList());
     }
 
-    public static ChefService findOrCreateChefService(String api, String name, String clientName, String clientCredential, String clientKeyFile, String validatorName, String validatorCredential, String validatorKeyFile, String endpoint, List<ChefService> chefServices) {
+    public static ApiContext<ChefApi> findOrCreateChefService(String api, String name, String clientName,
+            String clientCredential, String clientKeyFile, String validatorName, String validatorCredential,
+            String validatorKeyFile, String endpoint, List<ApiContext<ChefApi>> chefServices) {
         if ((name == null && api == null) && (chefServices != null && chefServices.size() == 1)) {
             return chefServices.get(0);
         }
 
-        ChefService chefService = null;
+        ApiContext<ChefApi> ctx = null;
         String apiValue = ChefHelper.getChefApi(api);
         String clientNameValue = ChefHelper.getClientName(clientName);
         String clientCredentialValue = ChefHelper.getClientCredential(clientCredential);
@@ -253,7 +261,7 @@ public class ChefHelper {
         name = !Strings.isNullOrEmpty(name) ? name : apiValue;
 
         try {
-            chefService = ChefHelper.getChefService(name, apiValue, chefServices);
+            ctx = ChefHelper.getChefService(name, apiValue, chefServices);
         } catch (Throwable t) {
             if (contextNameProvided) {
                 throw new RuntimeException("Could not find chef service with id:" + name);
@@ -289,17 +297,19 @@ public class ChefHelper {
             }
         }
 
-        if (chefService == null && canCreateService) {
+        if (ctx == null && canCreateService) {
             try {
-                chefService = ChefHelper.createChefService(Apis.withId(apiValue), name, clientNameValue, clientCredentialValue, clientKeyFileValue, validatorNameValue, validatorCredentialValue, validatorKeyFileValue, endpointValue);
+                ctx = ChefHelper.createChefService(Apis.withId(apiValue), name, clientNameValue, clientCredentialValue, clientKeyFileValue, validatorNameValue, validatorCredentialValue, validatorKeyFileValue, endpointValue);
             } catch (Exception ex) {
                 throw new RuntimeException("Failed to create service:" + ex.getMessage());
             }
         }
-        return chefService;
+        return ctx;
     }
 
-    public static ChefService createChefService(ApiMetadata apiMetadata, String name, String clientName, String clientCredential, String clientKeyFile, String validatorName, String validatorCredential, String validatorKeyFile, String endpoint) throws Exception {
+   public static ApiContext<ChefApi> createChefService(ApiMetadata apiMetadata, String name, String clientName,
+         String clientCredential, String clientKeyFile, String validatorName, String validatorCredential,
+         String validatorKeyFile, String endpoint) throws Exception {
         if (Strings.isNullOrEmpty(clientName) && apiMetadata != null && !apiMetadata.getDefaultCredential().isPresent()) {
             LOGGER.warn("No client specified for api {}.", apiMetadata.getId());
             return null;
@@ -339,9 +349,7 @@ public class ChefHelper {
         builder = builder.name(name).credentials(clientName, clientCredential).overrides(chefConfig);
 
         // builder.build() does not compile on JDK 6
-        ChefContext context = builder.build(ChefContext.class);
-        ChefService service = context.getChefService();
-        return service;
+        return builder.build(CHEF_TOKEN);
     }
 
     /**

@@ -18,21 +18,22 @@
 package org.jclouds.karaf.chef.commands;
 
 import org.apache.felix.gogo.commands.Command;
-import org.jclouds.chef.ChefService;
+import org.jclouds.chef.ChefApi;
+import org.jclouds.rest.ApiContext;
 
 @Command(scope = "chef", name = "cookbook-list", description = "Lists the Chef Cook Books")
 public class ChefCookbookListCommand extends ChefCommandWithOptions {
 
     @Override
     protected Object doExecute() throws Exception {
-        ChefService service = null;
+       ApiContext<ChefApi> service = null;
         try {
             service = getChefService();
         } catch (Throwable t) {
             System.err.println(t.getMessage());
             return null;
         }
-        printCookbooks(service, service.listCookbookVersions(), System.out);
+        printCookbooks(service, service.getApi().chefService().listCookbookVersions(), System.out);
         return null;
     }
 }
