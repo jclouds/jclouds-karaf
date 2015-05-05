@@ -184,7 +184,7 @@ public class ChefHelper {
      */
     public static ApiContext<ChefApi> getChefService(String id, String api, List<ApiContext<ChefApi>> services) {
         if (!Strings.isNullOrEmpty(id)) {
-           ApiContext<ChefApi> service = null;
+            ApiContext<ChefApi> service = null;
             for (ApiContext<ChefApi> ctx : services) {
                 if (id.equals(ctx.getName())) {
                     service = ctx;
@@ -198,7 +198,7 @@ public class ChefHelper {
         }
 
         if (!Strings.isNullOrEmpty(api)) {
-           ApiContext<ChefApi> service = null;
+            ApiContext<ChefApi> service = null;
             for (ApiContext<ChefApi> ctx : services) {
                 if (api.equals(ctx.getId())) {
                     service = ctx;
@@ -236,9 +236,9 @@ public class ChefHelper {
         return findOrCreateChefService(null, null, null, null, null, null, null, null, null, Lists.<ApiContext<ChefApi>>newArrayList());
     }
 
-   public static ApiContext<ChefApi> findOrCreateChefService(String api, String name, String clientName,
-         String clientCredential, String clientKeyFile, String validatorName, String validatorCredential,
-         String validatorKeyFile, String endpoint, List<ApiContext<ChefApi>> chefServices) {
+    public static ApiContext<ChefApi> findOrCreateChefService(String api, String name, String clientName,
+            String clientCredential, String clientKeyFile, String validatorName, String validatorCredential,
+            String validatorKeyFile, String endpoint, List<ApiContext<ChefApi>> chefServices) {
         if ((name == null && api == null) && (chefServices != null && chefServices.size() == 1)) {
             return chefServices.get(0);
         }

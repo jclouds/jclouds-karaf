@@ -33,7 +33,7 @@ public class CookbookCompleter extends ChefCompleterSupport implements Completer
     @Override
     public void updateOnAdded(ApiContext<ChefApi> chefService) {
         if (chefService != null) {
-         Iterable<? extends CookbookVersion> cookbookVersions = chefService.getApi().chefService()
+            Iterable<? extends CookbookVersion> cookbookVersions = chefService.getApi().chefService()
                .listCookbookVersions();
             if (cookbookVersions != null) {
                 for (CookbookVersion cookbookVersion : cookbookVersions) {
