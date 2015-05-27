@@ -89,5 +89,14 @@ public class RackspaceFeaturesInstallationTest extends JcloudsFeaturesTestSuppor
         installAndCheckFeature("jclouds-rackspace-cloudblockstorage-uk");
     }
 
+    @Test
+    public void testRackspaceCloudFilesUkFeature() throws Exception {
+        installAndCheckFeature("jclouds-rackspace-cloudfiles-uk");
+    }
+
+    @Test
+    public void testRackspaceCloudFilesUsFeature() throws Exception {
+        installAndCheckFeature("jclouds-rackspace-cloudfiles-us");
+    }
 
 }

@@ -146,6 +146,8 @@ limitations under the License.
                 <feature>jclouds-hpcloud-objectstorage</feature>
                 <feature>jclouds-hpcloud-compute</feature>
                 <feature>jclouds-openhosting-east1</feature>
+                <feature>jclouds-rackspace-cloudfiles-us</feature>
+                <feature>jclouds-rackspace-cloudfiles-uk</feature>
                 <feature>jclouds-rackspace-cloudloadbalancers-us</feature>
                 <feature>jclouds-rackspace-cloudloadbalancers-uk</feature>
                 <feature>jclouds-rackspace-cloudservers-us</feature>
