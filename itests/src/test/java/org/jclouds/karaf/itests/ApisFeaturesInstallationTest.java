@@ -55,6 +55,11 @@ public class ApisFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
+    public void testOpenstackSwift() throws Exception {
+        installAndCheckFeature("jclouds-api-openstack-swift");
+    }
+
+    @Test
     public void testCloudStackFeature() throws Exception {
         installAndCheckFeature("jclouds-api-cloudstack");
     }

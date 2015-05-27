@@ -116,6 +116,7 @@ limitations under the License.
                 <feature>jclouds-api-openstack-nova</feature>
                 <feature>jclouds-api-openstack-keystone</feature>
                 <feature>jclouds-api-openstack-cinder</feature>
+                <feature>jclouds-api-openstack-swift</feature>
                 <feature>jclouds-api-swift</feature>
                 <feature>jclouds-aws-cloudwatch</feature>
                 <feature>jclouds-aws-ec2</feature>
