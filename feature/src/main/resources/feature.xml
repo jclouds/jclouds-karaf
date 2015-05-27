@@ -270,6 +270,20 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/rackspace-cloudblockstorage-uk/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-rackspace-cloudfiles-uk' description='Rackspace Cloud Files UK' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-api-openstack-swift</feature>
+        <feature version='${project.version}'>jclouds-api-rackspace-cloudidentity</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/rackspace-cloudfiles/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.provider/rackspace-cloudfiles-uk/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-rackspace-cloudfiles-us' description='Rackspace Cloud Files US' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-api-openstack-swift</feature>
+        <feature version='${project.version}'>jclouds-api-rackspace-cloudidentity</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/rackspace-cloudfiles/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.provider/rackspace-cloudfiles-us/${jclouds.version}</bundle>
+    </feature>
+
     <feature name='jclouds-elastichosts-lon-b' description='Elastichosts Bluesquare London' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
