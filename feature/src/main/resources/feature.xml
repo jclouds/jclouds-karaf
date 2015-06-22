@@ -48,6 +48,11 @@ limitations under the License.
     </feature>
 
     <!-- APIS -->
+    <feature name='jclouds-api-atmos' description='jclouds - API - Atmos' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-blobstore</feature>
+        <bundle>mvn:org.apache.jclouds.api/atmos/${jclouds.version}</bundle>
+    </feature>
+
     <feature name='jclouds-api-filesystem' description='jclouds - API - FileSystem' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <bundle>mvn:org.apache.jclouds.api/filesystem/${jclouds.version}</bundle>
