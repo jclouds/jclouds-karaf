@@ -40,6 +40,11 @@ public class ApisFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
+    public void testAtmosFeature() throws Exception {
+        installAndCheckFeature("jclouds-api-atmos");
+    }
+
+    @Test
     public void testFileSystemFeature() throws Exception {
         installAndCheckFeature("jclouds-api-filesystem");
     }
