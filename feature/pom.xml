@@ -108,6 +108,7 @@ limitations under the License.
                 <feature>jclouds</feature>
                 <feature>jclouds-blobstore</feature>
                 <feature>jclouds-compute</feature>
+                <feature>jclouds-api-atmos</feature>
                 <feature>jclouds-api-byon</feature>
                 <feature>jclouds-api-cloudsigma2</feature>
                 <feature>jclouds-api-cloudstack</feature>
