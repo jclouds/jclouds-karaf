@@ -78,7 +78,7 @@ public class CloudFilesUsLiveTest extends JcloudsLiveTestSupport {
     @Test
     public void testBlobStoreReadWrite() throws InterruptedException {
         if (isBlobStoreLiveConfigured()) {
-            createManagedBlobStoreService("cloudfiles-us");
+            createManagedBlobStoreService("rackspace-cloudfiles-us");
             BlobStore blobStoreService = getOsgiService(BlobStore.class);
             Thread.sleep(DEFAULT_TIMEOUT);
 
@@ -96,7 +96,7 @@ public class CloudFilesUsLiveTest extends JcloudsLiveTestSupport {
     @Test
     public void testUrlHandler() throws Exception {
         if (isBlobStoreLiveConfigured()) {
-            createManagedBlobStoreService("cloudfiles-us");
+            createManagedBlobStoreService("rackspace-cloudfiles-us");
             BlobStore blobStoreService = getOsgiService(BlobStore.class);
             Thread.sleep(DEFAULT_TIMEOUT);
 
@@ -125,7 +125,7 @@ public class CloudFilesUsLiveTest extends JcloudsLiveTestSupport {
             //Make sure that only S3 is available as a repo.
             System.err.println(executeCommands("config:edit org.ops4j.pax.url.mvn",
                     "config:propset org.ops4j.pax.url.mvn.localRepository " + System.getProperty("karaf.base") + File.separatorChar + "none",
-                    "config:propset org.ops4j.pax.url.mvn.repositories blob:cloudfiles-us/itest-container/maven2@snapshots ",
+                    "config:propset org.ops4j.pax.url.mvn.repositories blob:rackspace-cloudfiles-us/itest-container/maven2@snapshots ",
                     "config:update"));
             Thread.sleep(DEFAULT_TIMEOUT);
 
@@ -162,7 +162,7 @@ public class CloudFilesUsLiveTest extends JcloudsLiveTestSupport {
                 systemProperty("jclouds.karaf.version",MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)),
                 systemProperty("jclouds.version",MavenUtils.getArtifactVersion(JCLOUDS_GROUP_ID, JCLOUDS_ARTIFACT_ID)),
                 systemProperty("jclouds.featureURL",String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID))),
-                scanFeatures(String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)),"jclouds", "jclouds-commands", "jclouds-cloudfiles-us").start()
+                scanFeatures(String.format(JCLOUDS_FEATURE_FORMAT, MavenUtils.getArtifactVersion(JCLOUDS_KARAF_GROUP_ID, JCLOUDS_KARAF_ARTIFACT_ID)),"jclouds", "jclouds-commands", "jclouds-rackspace-cloudfiles-us").start()
         };
     }
 }
