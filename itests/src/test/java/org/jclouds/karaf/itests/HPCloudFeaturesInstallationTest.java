@@ -43,9 +43,4 @@ public class HPCloudFeaturesInstallationTest extends JcloudsFeaturesTestSupport 
     public void testHPCloudCompute() throws Exception {
         installAndCheckFeature("jclouds-hpcloud-compute");
     }
-    
-    @Test
-    public void testHPCloudObjectStorage() throws Exception {
-        installAndCheckFeature("jclouds-hpcloud-objectstorage");
-    }
 }

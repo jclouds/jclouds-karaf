@@ -141,7 +141,6 @@ limitations under the License.
                 <feature>jclouds-gogrid</feature>
                 <feature>jclouds-go2cloud-jhb1</feature>
                 <feature>jclouds-glesys</feature>
-                <feature>jclouds-hpcloud-objectstorage</feature>
                 <feature>jclouds-hpcloud-compute</feature>
                 <feature>jclouds-openhosting-east1</feature>
                 <feature>jclouds-rackspace-cloudfiles-us</feature>
