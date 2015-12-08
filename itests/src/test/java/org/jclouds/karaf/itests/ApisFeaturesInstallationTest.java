@@ -90,11 +90,6 @@ public class ApisFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
-    public void testSwiftFeature() throws Exception {
-        installAndCheckFeature("jclouds-api-swift");
-    }
-
-    @Test
     public void testCloudSigma2Feature() throws Exception {
         installAndCheckFeature("jclouds-api-cloudsigma2");
     }
