@@ -100,6 +100,11 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
+    public void testGoogleCloudStorageFeature() throws Exception {
+        installAndCheckFeature("jclouds-google-cloud-storage");
+    }
+
+    @Test
     public void testProfitBricksFeature() throws Exception {
         installAndCheckFeature("jclouds-profitbricks");
     }
