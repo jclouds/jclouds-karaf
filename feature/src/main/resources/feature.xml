@@ -327,6 +327,13 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/digitalocean2/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-google-compute-engine' description='Components to access Google Compute Engine' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds.common/googlecloud/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.provider/google-compute-engine/${jclouds.version}</bundle>
+     </feature>
+
     <feature name='jclouds-serverlove-z1-man' description='Serverlove implementation targeted to Manchester' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
@@ -387,6 +394,7 @@ limitations under the License.
         <bundle dependency='true'>mvn:org.bouncycastle/bcprov-ext-jdk15on/${bcprov.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-bouncycastle/${jclouds.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-slf4j/${jclouds.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds.common/googlecloud/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.driver/jclouds-jsch/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.driver/jclouds-log4j/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.karaf/core/${project.version}</bundle>

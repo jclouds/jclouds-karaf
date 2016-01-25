@@ -33,6 +33,10 @@ limitations under the License.
       <groupId>org.apache.jclouds.karaf</groupId>
       <artifactId>core</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.apache.jclouds.common</groupId>
+      <artifactId>googlecloud</artifactId>
+    </dependency>
   </dependencies>
 
 </project>

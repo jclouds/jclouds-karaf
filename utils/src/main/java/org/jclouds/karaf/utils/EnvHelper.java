@@ -25,6 +25,12 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.jclouds.Constants;
+import org.jclouds.domain.Credentials;
+import org.jclouds.googlecloud.GoogleCredentialsFromJson;
+
+import com.google.common.base.Charsets;
+import com.google.common.base.Supplier;
+import com.google.common.io.Files;
 
 public class EnvHelper {
 
@@ -89,6 +95,22 @@ public class EnvHelper {
     public static String getComputeCredential(String credential) {
         return getValueOrPropertyOrEnvironmentVariable(
             credential, Constants.PROPERTY_CREDENTIAL, JCLOUDS_COMPUTE_CREDENTIAL);
+    }
+
+    /**
+     * Extracts the credential value from the Google Cloud credentials json file.
+     * @param jsonFile
+     * @return
+     */
+    public static String getGoogleCredentialFromJsonFile(String jsonFile) {
+        try {
+            String fileContents = Files.toString(new File(jsonFile), Charsets.UTF_8);
+            Supplier<Credentials> credentialSupplier = new GoogleCredentialsFromJson(fileContents);
+            String credential = credentialSupplier.get().credential;
+            return credential;
+         } catch (IOException e) {
+            return null;
+         }
     }
 
     /**

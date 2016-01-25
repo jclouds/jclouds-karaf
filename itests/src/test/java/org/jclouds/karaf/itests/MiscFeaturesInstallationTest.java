@@ -93,4 +93,9 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     public void testDigitalOcean2Feature() throws Exception {
         installAndCheckFeature("jclouds-digitalocean2");
     }
+
+    @Test
+    public void testGoogleComputeEngineFeature() throws Exception {
+        installAndCheckFeature("jclouds-google-compute-engine");
+    }
 }
