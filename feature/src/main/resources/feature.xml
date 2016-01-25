@@ -321,6 +321,12 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/openhosting-east1/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-digitalocean2' description='Components to access DigitalOcean v2' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.provider/digitalocean2/${jclouds.version}</bundle>
+    </feature>
+
     <feature name='jclouds-serverlove-z1-man' description='Serverlove implementation targeted to Manchester' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>

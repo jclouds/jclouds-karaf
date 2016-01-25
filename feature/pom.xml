@@ -130,6 +130,7 @@ limitations under the License.
                 <feature>jclouds-cloudsigma2-sjc</feature>
                 <feature>jclouds-cloudsigma2-wdc</feature>
                 <feature>jclouds-cloudsigma2-zrh</feature>
+                <feature>jclouds-digitalocean2</feature>
                 <feature>jclouds-dynect</feature>
                 <feature>jclouds-elastichosts-lon-b</feature>
                 <feature>jclouds-elastichosts-lon-p</feature>
