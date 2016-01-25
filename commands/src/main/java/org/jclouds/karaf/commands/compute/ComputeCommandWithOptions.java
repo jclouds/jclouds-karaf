@@ -20,6 +20,7 @@ package org.jclouds.karaf.commands.compute;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSet;
 import com.google.inject.Module;
+
 import org.apache.felix.gogo.commands.Option;
 import org.jclouds.Constants;
 import org.jclouds.ContextBuilder;
@@ -29,7 +30,7 @@ import org.jclouds.karaf.services.modules.PropertiesCredentialStore;
 import org.jclouds.karaf.utils.EnvHelper;
 import org.jclouds.karaf.utils.ServiceHelper;
 import org.jclouds.logging.log4j.config.Log4JLoggingModule;
-import org.jclouds.sshj.config.SshjSshClientModule;
+import org.jclouds.ssh.jsch.config.JschSshClientModule;
 
 import java.io.IOException;
 import java.io.File;
@@ -136,7 +137,7 @@ public abstract class ComputeCommandWithOptions extends ComputeCommandBase {
             ContextBuilder builder = ContextBuilder
                      .newBuilder(providerOrApiValue)
                      .credentials(identityValue, credentialValue)
-                     .modules(ImmutableSet.<Module> of(new SshjSshClientModule(), new Log4JLoggingModule(),
+                     .modules(ImmutableSet.<Module> of(new JschSshClientModule(), new Log4JLoggingModule(),
                               new PropertiesCredentialStore()));
             if (!Strings.isNullOrEmpty(endpointValue)) {
                builder = builder.endpoint(endpointValue);

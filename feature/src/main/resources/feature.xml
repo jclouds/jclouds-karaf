@@ -165,7 +165,7 @@ limitations under the License.
 
     <feature name='jclouds-aws-s3' description='Amazon Web Service - S3' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-api-s3</feature>
-        <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/${bcprov.version}</bundle>
+        <bundle dependency='true'>mvn:org.bouncycastle/bcprov-ext-jdk15on/${bcprov.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-bouncycastle/${jclouds.version}</bundle>
         <bundle dependency='true'>mvn:io.netty/netty/${netty.bundle.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.httpcomponents/httpcore-osgi/${httpcore.version}</bundle>
@@ -273,35 +273,30 @@ limitations under the License.
     <feature name='jclouds-elastichosts-lon-b' description='Elastichosts Bluesquare London' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.provider/elastichosts-lon-b/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-elastichosts-lon-p' description='Elastichosts Peer1 London' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.provider/elastichosts-lon-p/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-elastichosts-sat-p' description='Elastichosts Peer1 San Antonio' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.provider/elastichosts-sat-p/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-elastichosts-lax-p' description='Elastichosts Peer1 Los Angeles' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.provider/elastichosts-lax-p/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-elastichosts-tor-p' description='Elastichosts Peer1 Toronto' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.provider/elastichosts-tor-p/${jclouds.version}</bundle>
     </feature>
 
@@ -318,11 +313,6 @@ limitations under the License.
     <feature name='jclouds-glesys' description='GleSYS' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle>mvn:org.apache.jclouds.provider/glesys/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-hpcloud-compute' description='HP Cloud Compute' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-api-openstack-nova</feature>
-        <bundle>mvn:org.apache.jclouds.provider/hpcloud-compute/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-openhosting-east1' description='Open Hosting for East1' version='${project.version}' resolver='(obr)'>
@@ -346,11 +336,6 @@ limitations under the License.
     <feature name='jclouds-softlayer' description='Components to access SoftLayer' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle>mvn:org.apache.jclouds.provider/softlayer/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-digitalocean' description='Components to access DigitalOcean' version='${project.version}' resolver='(obr)'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle>mvn:org.apache.jclouds.labs/digitalocean/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-cloudsigma2-hnl' description='CloudSigma v2 Honolulu' version='${project.version}' resolver='(obr)'>
@@ -387,17 +372,16 @@ limitations under the License.
         <configfile finalname="/etc/org.apache.jclouds.credentials.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/credentials</configfile>
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-blobstore</feature>
-        <bundle dependency='true'>mvn:net.schmizz/sshj/${sshj.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch-agentproxy-sshj/${jsch.agentproxy.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch/${jsch.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch-agentproxy-jsch/${jsch.agentproxy.bundle.version}</bundle>
         <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.connector-factory/${jsch.agentproxy.version}</bundle>
         <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.usocket-nc/${jsch.agentproxy.version}</bundle>
         <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.sshagent/${jsch.agentproxy.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jzlib/${jzlib.bundle.version}</bundle>
-        <bundle dependency='true'>mvn:org.bouncycastle/bcpkix-jdk15on/${bcprov.version}</bundle>
-        <bundle dependency='true'>mvn:org.bouncycastle/bcprov-jdk15on/${bcprov.version}</bundle>
+        <bundle dependency='true'>mvn:org.bouncycastle/bcprov-ext-jdk15on/${bcprov.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-bouncycastle/${jclouds.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-slf4j/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.driver/jclouds-sshj/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.driver/jclouds-jsch/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.driver/jclouds-log4j/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.karaf/core/${project.version}</bundle>
         <bundle>mvn:org.apache.jclouds.karaf/cache/${project.version}</bundle>

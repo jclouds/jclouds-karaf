@@ -17,10 +17,10 @@
 
 package org.jclouds.karaf.services.internal;
 
-import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.reflect.TypeToken;
-import com.google.inject.Module;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.Properties;
+
 import org.jclouds.ContextBuilder;
 import org.jclouds.apis.ApiMetadata;
 import org.jclouds.apis.ApiPredicates;
@@ -34,7 +34,7 @@ import org.jclouds.karaf.services.ServiceFactorySupport;
 import org.jclouds.logging.log4j.config.Log4JLoggingModule;
 import org.jclouds.providers.ProviderMetadata;
 import org.jclouds.providers.ProviderPredicates;
-import org.jclouds.sshj.config.SshjSshClientModule;
+import org.jclouds.ssh.jsch.config.JschSshClientModule;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceRegistration;
@@ -43,9 +43,10 @@ import org.osgi.util.tracker.ServiceTracker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.Properties;
+import com.google.common.base.Strings;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.reflect.TypeToken;
+import com.google.inject.Module;
 
 public class ComputeServiceFactory extends ServiceFactorySupport {
 
@@ -159,7 +160,7 @@ public class ComputeServiceFactory extends ServiceFactorySupport {
                     builder = builder.endpoint(endpoint);
                 }
 
-                builder = builder.name(id).modules(ImmutableSet.<Module>of(new Log4JLoggingModule(), new SshjSshClientModule()));
+                builder = builder.name(id).modules(ImmutableSet.<Module>of(new Log4JLoggingModule(), new JschSshClientModule()));
 
                 if (credentialStore != null) {
                     builder = builder.modules(ImmutableSet.<Module>of(credentialStore));

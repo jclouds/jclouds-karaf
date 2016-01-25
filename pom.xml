@@ -182,7 +182,7 @@ limitations under the License.
 
   <properties>
     <aopalliance.bundle.version>1.0_5</aopalliance.bundle.version>
-    <bcprov.version>1.49</bcprov.version>
+    <bcprov.version>1.51</bcprov.version>
     <configadmin.version>1.2.8</configadmin.version>
     <easymock.version>3.0</easymock.version>
     <felix.configadmin.version>1.2.8</felix.configadmin.version>
@@ -200,8 +200,9 @@ limitations under the License.
     <jersey.version>1.11</jersey.version>
     <jersey.bundle.version>1.11_1</jersey.bundle.version>
     <joda.version>2.1</joda.version>
-    <jsch.bundle.version>0.1.44_2</jsch.bundle.version>
-    <jsch.agentproxy.version>0.0.8</jsch.agentproxy.version>
+    <jsch.version>0.1.49</jsch.version>
+    <jsch.bundle.version>${jsch.version}_1</jsch.bundle.version>
+    <jsch.agentproxy.version>0.0.9</jsch.agentproxy.version>
     <jsch.agentproxy.bundle.version>${jsch.agentproxy.version}_1</jsch.agentproxy.bundle.version>
     <jsr305.bundle.version>1.3.9_1</jsr305.bundle.version>
     <sericemix.specs.jsr250.version>1.9.0</sericemix.specs.jsr250.version>
@@ -218,7 +219,6 @@ limitations under the License.
     <scripting.api.bundle.version>2.0.0</scripting.api.bundle.version>
     <slf4j.version>1.5.8</slf4j.version>
     <snakeyaml.version>1.11</snakeyaml.version>
-    <sshj.version>0.8.1</sshj.version>
 
     <!-- Plugin Versions -->
     <depends-maven-plugin.version>1.2</depends-maven-plugin.version>
@@ -357,7 +357,7 @@ limitations under the License.
 
       <dependency>
         <groupId>org.bouncycastle</groupId>
-        <artifactId>bcprov-jdk15on</artifactId>
+        <artifactId>bcprov-ext-jdk15on</artifactId>
         <version>${bcprov.version}</version>
       </dependency>
 
@@ -448,11 +448,11 @@ limitations under the License.
         <version>${guava.version}</version>
       </dependency>
 
-      <!-- SSHJ -->
+      <!-- JSCH -->
       <dependency>
-        <groupId>net.schmizz</groupId>
-        <artifactId>sshj</artifactId>
-        <version>${sshj.version}</version>
+        <groupId>com.jcraft</groupId>
+        <artifactId>jsch</artifactId>
+        <version>${jsch.version}</version>
       </dependency>
       <dependency>
         <groupId>com.jcraft</groupId>
@@ -463,7 +463,7 @@ limitations under the License.
       <!-- JSch agentproxy -->
       <dependency>
         <groupId>org.apache.servicemix.bundles</groupId>
-        <artifactId>org.apache.servicemix.bundles.jsch-agentproxy-sshj</artifactId>
+        <artifactId>org.apache.servicemix.bundles.jsch-agentproxy-jsch</artifactId>
         <version>${jsch.agentproxy.bundle.version}</version>
       </dependency>
       <dependency>
@@ -536,11 +536,6 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.jclouds.driver</groupId>
         <artifactId>jclouds-jsch</artifactId>
-        <version>${jclouds.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.jclouds.driver</groupId>
-        <artifactId>jclouds-sshj</artifactId>
         <version>${jclouds.version}</version>
       </dependency>
       <dependency>

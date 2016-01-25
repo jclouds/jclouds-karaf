@@ -88,9 +88,4 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     public void testGlesysFeature() throws Exception {
         installAndCheckFeature("jclouds-glesys");
     }
-
-    @Test
-    public void testDigitalOceanFeature() throws Exception {
-        installAndCheckFeature("jclouds-digitalocean");
-    }
 }
