@@ -98,4 +98,9 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     public void testGoogleComputeEngineFeature() throws Exception {
         installAndCheckFeature("jclouds-google-compute-engine");
     }
+
+    @Test
+    public void testProfitBricksFeature() throws Exception {
+        installAndCheckFeature("jclouds-profitbricks");
+    }
 }

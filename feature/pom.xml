@@ -142,6 +142,7 @@ limitations under the License.
                 <feature>jclouds-google-compute-engine</feature>
                 <feature>jclouds-glesys</feature>
                 <feature>jclouds-openhosting-east1</feature>
+                <feature>jclouds-profitbricks</feature>
                 <feature>jclouds-rackspace-cloudfiles-us</feature>
                 <feature>jclouds-rackspace-cloudfiles-uk</feature>
                 <feature>jclouds-rackspace-cloudloadbalancers-us</feature>
