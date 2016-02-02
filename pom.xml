@@ -437,7 +437,13 @@ limitations under the License.
       <!-- Groovy -->
       <dependency>
         <groupId>org.codehaus.groovy</groupId>
-        <artifactId>groovy-all</artifactId>
+        <artifactId>groovy</artifactId>
+        <version>${groovy.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.groovy</groupId>
+        <artifactId>groovy-jsr223</artifactId>
         <version>${groovy.version}</version>
       </dependency>
 
