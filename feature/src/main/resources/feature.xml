@@ -398,7 +398,7 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch/${jsch.bundle.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch-agentproxy-jsch/${jsch.agentproxy.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds.karaf.bundles/jsch-agentproxy-jsch/${project.version}</bundle>
         <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.connector-factory/${jsch.agentproxy.version}</bundle>
         <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.usocket-nc/${jsch.agentproxy.version}</bundle>
         <bundle dependency='true'>mvn:com.jcraft/jsch.agentproxy.sshagent/${jsch.agentproxy.version}</bundle>

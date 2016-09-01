@@ -169,6 +169,7 @@ limitations under the License.
 
   <modules>
     <module>core</module>
+    <module>bundles</module>
     <module>utils</module>
     <module>cache</module>
     <module>commands</module>
