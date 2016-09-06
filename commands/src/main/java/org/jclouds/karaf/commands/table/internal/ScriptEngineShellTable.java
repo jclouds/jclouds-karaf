@@ -17,7 +17,11 @@
 
 package org.jclouds.karaf.commands.table.internal;
 
+import org.codehaus.groovy.jsr223.GroovyScriptEngineImpl;
+import org.jclouds.karaf.commands.blobstore.BlobStoreCommandBase;
 import org.jclouds.karaf.commands.table.BasicShellTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -27,17 +31,21 @@ import javax.script.ScriptEngineManager;
  */
 public class ScriptEngineShellTable<D extends Object> extends BasicShellTable<D> {
 
-  private final String engine;
+  private static final Logger LOGGER = LoggerFactory.getLogger(ScriptEngineShellTable.class);
+   
   private final ScriptEngineManager scriptEngineFactory = new ScriptEngineManager();
-  private final ScriptEngine scriptEngine;
+  private ScriptEngine scriptEngine;
 
   /**
    * Constructor
    * @param engine
    */
   public ScriptEngineShellTable(String engine) {
-    this.engine = engine;
     this.scriptEngine = scriptEngineFactory.getEngineByName(engine);
+    if (scriptEngine == null) {
+       LOGGER.warn("Could not load a script engine for {}. Will fallback to Groovy", engine);
+       scriptEngine = new GroovyScriptEngineImpl();
+    }
   }
 
   /**
