@@ -184,9 +184,8 @@ limitations under the License.
   <properties>
     <aopalliance.bundle.version>1.0_5</aopalliance.bundle.version>
     <bcprov.version>1.51</bcprov.version>
-    <configadmin.version>1.2.8</configadmin.version>
     <easymock.version>3.0</easymock.version>
-    <felix.configadmin.version>1.2.8</felix.configadmin.version>
+    <felix.configadmin.version>1.8.0</felix.configadmin.version>
     <groovy.version>2.4.4</groovy.version>
     <gson.version>2.5</gson.version>
     <guava.version>16.0.1</guava.version>
@@ -310,7 +309,7 @@ limitations under the License.
       <dependency>
         <groupId>org.apache.felix</groupId>
         <artifactId>org.apache.felix.configadmin</artifactId>
-        <version>${configadmin.version}</version>
+        <version>${felix.configadmin.version}</version>
       </dependency>
 
       <!-- Pax Url -->
