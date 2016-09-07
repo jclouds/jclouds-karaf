@@ -469,11 +469,6 @@ limitations under the License.
 
       <!-- JSch agentproxy -->
       <dependency>
-        <groupId>org.apache.servicemix.bundles</groupId>
-        <artifactId>org.apache.servicemix.bundles.jsch-agentproxy-jsch</artifactId>
-        <version>${jsch.agentproxy.bundle.version}</version>
-      </dependency>
-      <dependency>
         <groupId>com.jcraft</groupId>
         <artifactId>jsch.agentproxy.connector-factory</artifactId>
         <version>${jsch.agentproxy.version}</version>
