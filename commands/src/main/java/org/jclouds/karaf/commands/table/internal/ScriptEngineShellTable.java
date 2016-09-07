@@ -18,6 +18,8 @@
 package org.jclouds.karaf.commands.table.internal;
 
 import org.jclouds.karaf.commands.table.BasicShellTable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -26,18 +28,19 @@ import javax.script.ScriptEngineManager;
  * A shell table implementation that works with groovy expressions.
  */
 public class ScriptEngineShellTable<D extends Object> extends BasicShellTable<D> {
+  private static final Logger LOGGER = LoggerFactory.getLogger(ScriptEngineShellTable.class);
 
-  private final String engine;
-  private final ScriptEngineManager scriptEngineFactory = new ScriptEngineManager();
   private final ScriptEngine scriptEngine;
 
   /**
    * Constructor
    * @param engine
    */
-  public ScriptEngineShellTable(String engine) {
-    this.engine = engine;
-    this.scriptEngine = scriptEngineFactory.getEngineByName(engine);
+  public ScriptEngineShellTable(ScriptEngineManager scriptEngineManager, String engine) {
+    this.scriptEngine = scriptEngineManager.getEngineByName(engine);
+    if (scriptEngine == null) {
+       throw new IllegalStateException("Unable to load script engine " + engine);
+    }
   }
 
   /**
@@ -51,8 +54,10 @@ public class ScriptEngineShellTable<D extends Object> extends BasicShellTable<D>
     try {
       scriptEngine.put(getType(), obj);
       result = String.valueOf(scriptEngine.eval(expression));
-    } catch (Exception ex) {
-      //Ignore
+    } catch (Exception exception) {
+       LOGGER.warn("Unable to evaluate expression %s due to: %s. Please check your shell confugration",
+             expression, exception.getMessage());
+       result = "<evalution error - see log>";
     }
     return result;
   }
