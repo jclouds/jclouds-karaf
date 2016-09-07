@@ -169,6 +169,7 @@ limitations under the License.
 
   <modules>
     <module>core</module>
+    <module>bundles</module>
     <module>utils</module>
     <module>cache</module>
     <module>commands</module>
@@ -467,11 +468,6 @@ limitations under the License.
       </dependency>
 
       <!-- JSch agentproxy -->
-      <dependency>
-        <groupId>org.apache.servicemix.bundles</groupId>
-        <artifactId>org.apache.servicemix.bundles.jsch-agentproxy-jsch</artifactId>
-        <version>${jsch.agentproxy.bundle.version}</version>
-      </dependency>
       <dependency>
         <groupId>com.jcraft</groupId>
         <artifactId>jsch.agentproxy.connector-factory</artifactId>
