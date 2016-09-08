@@ -24,6 +24,10 @@ limitations under the License.
     <version>2.0.0-SNAPSHOT</version>
   </parent>
 
+  <!--
+    This bundle fixes the `org.apache.servicemix.bundles.jsch-agentproxy-jsch` bundle
+    by not exporting the core packages that are already exported by other bundles.
+  -->
   <groupId>org.apache.jclouds.karaf.bundles</groupId>
   <artifactId>jsch-agentproxy-jsch</artifactId>
   <name>jclouds :: Karaf :: JSch Agentproxy for JSch (shaded bundle)</name>
