@@ -80,6 +80,11 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
+    public void testB2Feature() throws Exception {
+        installAndCheckFeature("jclouds-b2");
+    }
+
+    @Test
     public void testDynectFeature() throws Exception {
         installAndCheckFeature("jclouds-dynect");
     }

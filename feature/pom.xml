@@ -125,6 +125,7 @@ limitations under the License.
                 <feature>jclouds-aws-sqs</feature>
                 <feature>jclouds-aws-sts</feature>
                 <feature>jclouds-azureblob</feature>
+                <feature>jclouds-b2</feature>
                 <feature>jclouds-cloudsigma2-hnl</feature>
                 <feature>jclouds-cloudsigma2-lvs</feature>
                 <feature>jclouds-cloudsigma2-sjc</feature>
