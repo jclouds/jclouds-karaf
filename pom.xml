@@ -194,7 +194,7 @@ limitations under the License.
     <guice.version>3.0</guice.version>
     <httpclient.version>4.1.1</httpclient.version>
     <httpcore.version>4.1</httpcore.version>
-    <java-xmlbuilder.bundle.version>0.3_1</java-xmlbuilder.bundle.version>
+    <java-xmlbuilder.bundle.version>1.1_1</java-xmlbuilder.bundle.version>
     <javax.inject.bundle.version>1_1</javax.inject.bundle.version>
     <jclouds.version>2.0.0-SNAPSHOT</jclouds.version>
     <jclouds.chef.version>${jclouds.version}</jclouds.chef.version>
