@@ -24,10 +24,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.script.ScriptEngineManager;
+
 /**
  * A basic {@link org.jclouds.karaf.commands.table.ShellTableFactory} implementation which is backed by a {@link Map}.
  */
 public class BasicShellTableFactory implements ShellTableFactory {
+   private ScriptEngineManager scriptEngineManager;
 
    private final Map properties = new HashMap();
   /**
@@ -49,7 +52,7 @@ public class BasicShellTableFactory implements ShellTableFactory {
       List<String> headers =  Arrays.asList(headersValue.split(delimiter));
       List<String> expressions =  Arrays.asList(expressionsValue.split(delimiter));
       List<String> alignments =  Arrays.asList(alignValue.split(delimiter));
-      ShellTable shellTable = new ScriptEngineShellTable(engine);
+      ShellTable shellTable = new ScriptEngineShellTable(scriptEngineManager, engine);
 
       shellTable.setType(type);
       shellTable.setHeaders(headers);
@@ -62,5 +65,9 @@ public class BasicShellTableFactory implements ShellTableFactory {
 
   public Map getProperties() {
     return properties;
+  }
+
+  public void setScriptEngineManager(ScriptEngineManager scriptEngineManager) {
+    this.scriptEngineManager = scriptEngineManager;
   }
 }

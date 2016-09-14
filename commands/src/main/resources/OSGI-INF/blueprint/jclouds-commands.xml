@@ -566,7 +566,13 @@ limitations under the License.
 
     <bean id="osFamilyCompleter" class="org.jclouds.karaf.commands.compute.completer.OsFamilyCompleter"/>
 
-  <bean id="shellTableFactory" class="org.jclouds.karaf.commands.table.internal.ManagedShellTableFactory"/>
+  <bean id="osgiScriptEngineManager" class="org.jclouds.karaf.commands.table.internal.OSGiScriptEngineManager">
+      <argument ref="blueprintBundleContext"/>
+  </bean>
+
+  <bean id="shellTableFactory" class="org.jclouds.karaf.commands.table.internal.ManagedShellTableFactory">
+      <property name="scriptEngineManager" ref="osgiScriptEngineManager"/>
+  </bean>
 
   <service ref="shellTableFactory">
       <interfaces>

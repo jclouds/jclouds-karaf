@@ -423,7 +423,6 @@ limitations under the License.
     <feature name="jclouds-commands" description="Karaf Commands for jclouds" version="${project.version}" resolver="(obr)">
         <configfile finalname="/etc/org.apache.jclouds.shell.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/shell</configfile>
         <feature version='${project.version}'>jclouds-services</feature>
-        <bundle>mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.scripting-api-1.0/${scripting.api.bundle.version}</bundle>
         <bundle dependency="true">mvn:org.codehaus.groovy/groovy/${groovy.version}</bundle>
         <bundle dependency="true">mvn:org.codehaus.groovy/groovy-jsr223/${groovy.version}</bundle>
         <bundle>mvn:org.apache.jclouds.karaf/core/${project.version}</bundle>
