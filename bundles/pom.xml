@@ -31,6 +31,8 @@ limitations under the License.
 
   <modules>
     <module>jsch-agentproxy-jsch</module>
+    <module>okio</module>
+    <module>okhttp</module>
   </modules>
 
 </project>
