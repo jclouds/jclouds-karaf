@@ -85,6 +85,11 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     }
 
     @Test
+    public void testAzureComputeArmFeature() throws Exception {
+        installAndCheckFeature("jclouds-azurecompute-arm");
+    }
+
+    @Test
     public void testDynectFeature() throws Exception {
         installAndCheckFeature("jclouds-dynect");
     }
