@@ -55,7 +55,7 @@ public class ScriptEngineShellTable<D extends Object> extends BasicShellTable<D>
       scriptEngine.put(getType(), obj);
       result = String.valueOf(scriptEngine.eval(expression));
     } catch (Exception exception) {
-       LOGGER.warn("Unable to evaluate expression %s due to: %s. Please check your shell confugration",
+       LOGGER.warn("Unable to evaluate expression {} due to: {}. Please check your shell confugration",
              expression, exception.getMessage());
        result = "<evalution error - see log>";
     }
