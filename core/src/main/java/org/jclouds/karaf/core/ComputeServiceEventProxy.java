@@ -149,7 +149,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      * {@link org.jclouds.compute.domain.NodeMetadata} objects.
      */
     @Override
-    public Set<? extends NodeMetadata> listNodesByIds(Iterable<String> ids) {
+    public Set<? extends ComputeMetadata> listNodesByIds(Iterable<String> ids) {
        return computeService.listNodesByIds(ids);
     }
 
@@ -275,7 +275,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      *                                       if no nodes matched the predicate specified
      */
     @Override
-    public Set<? extends NodeMetadata> resumeNodesMatching(Predicate<NodeMetadata> filter) {
+    public Set<? extends NodeMetadata> resumeNodesMatching(Predicate<? super NodeMetadata> filter) {
         return computeService.resumeNodesMatching(filter);
     }
 
@@ -309,7 +309,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      *                                       if no nodes matched the predicate specified
      */
     @Override
-    public Set<? extends NodeMetadata> suspendNodesMatching(Predicate<NodeMetadata> filter) {
+    public Set<? extends NodeMetadata> suspendNodesMatching(Predicate<? super NodeMetadata> filter) {
         return computeService.suspendNodesMatching(filter);
     }
 
@@ -344,7 +344,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      * @return list of nodes destroyed
      */
     @Override
-    public Set<? extends NodeMetadata> destroyNodesMatching(Predicate<NodeMetadata> filter) {
+    public Set<? extends NodeMetadata> destroyNodesMatching(Predicate<? super NodeMetadata> filter) {
         Set<? extends NodeMetadata> metadata = computeService.destroyNodesMatching(filter);
         try {
             for (NodeListener listener : getNodeListeners()) {
@@ -376,7 +376,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      *          if no nodes matched the predicate specified
      */
     @Override
-    public Set<? extends NodeMetadata> rebootNodesMatching(Predicate<NodeMetadata> filter) {
+    public Set<? extends NodeMetadata> rebootNodesMatching(Predicate<? super NodeMetadata> filter) {
         return computeService.rebootNodesMatching(filter);
     }
 
@@ -395,7 +395,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      * @param filter how to select the nodes you are interested in details on.
      */
     @Override
-    public Set<? extends NodeMetadata> listNodesDetailsMatching(Predicate<ComputeMetadata> filter) {
+    public Set<? extends NodeMetadata> listNodesDetailsMatching(Predicate<? super NodeMetadata> filter) {
         return computeService.listNodesDetailsMatching(filter);
     }
 
@@ -403,7 +403,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      * @see org.jclouds.compute.ComputeService#runScriptOnNodesMatching(com.google.common.base.Predicate, org.jclouds.scriptbuilder.domain.Statement, org.jclouds.compute.options.RunScriptOptions)
      */
     @Override
-    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<NodeMetadata> filter, String runScript) throws RunScriptOnNodesException {
+    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<? super NodeMetadata> filter, String runScript) throws RunScriptOnNodesException {
         return computeService.runScriptOnNodesMatching(filter, runScript);
     }
 
@@ -411,7 +411,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      * @see org.jclouds.compute.ComputeService#runScriptOnNodesMatching(com.google.common.base.Predicate, org.jclouds.scriptbuilder.domain.Statement, org.jclouds.compute.options.RunScriptOptions)
      */
     @Override
-    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<NodeMetadata> filter, Statement runScript) throws RunScriptOnNodesException {
+    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<? super NodeMetadata> filter, Statement runScript) throws RunScriptOnNodesException {
         return computeService.runScriptOnNodesMatching(filter, runScript);
     }
 
@@ -419,7 +419,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      * @see org.jclouds.compute.ComputeService#runScriptOnNodesMatching(com.google.common.base.Predicate, org.jclouds.scriptbuilder.domain.Statement, org.jclouds.compute.options.RunScriptOptions)
      */
     @Override
-    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<NodeMetadata> filter, String runScript, RunScriptOptions options) throws RunScriptOnNodesException {
+    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<? super NodeMetadata> filter, String runScript, RunScriptOptions options) throws RunScriptOnNodesException {
         return computeService.runScriptOnNodesMatching(filter, runScript, options);
     }
 
@@ -438,7 +438,7 @@ public class ComputeServiceEventProxy implements ComputeService {
      * @see org.jclouds.scriptbuilder.domain.Statements
      */
     @Override
-    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<NodeMetadata> filter, Statement runScript, RunScriptOptions options) throws RunScriptOnNodesException {
+    public Map<? extends NodeMetadata, ExecResponse> runScriptOnNodesMatching(Predicate<? super NodeMetadata> filter, Statement runScript, RunScriptOptions options) throws RunScriptOnNodesException {
         return computeService.runScriptOnNodesMatching(filter, runScript, options);
     }
 
