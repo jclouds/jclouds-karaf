@@ -67,6 +67,7 @@ public abstract class RunScriptBase extends ComputeCommandWithOptions {
          service = getComputeService();
       } catch (Throwable t) {
          System.err.println(t.getMessage());
+         t.printStackTrace(System.err);
          return null;
       }
       Set<? extends NodeMetadata> nodeMetaDataSet = service.listNodesDetailsMatching(getComputeFilter());

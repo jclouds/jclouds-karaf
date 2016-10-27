@@ -37,6 +37,7 @@ public class NodeDestroyAllCommand extends ComputeCommandWithOptions {
          service = getComputeService();
       } catch (Throwable t) {
          System.err.println(t.getMessage());
+         t.printStackTrace(System.err);
          return null;
       }
       Set<? extends NodeMetadata> nodeMetadatas = service.destroyNodesMatching(new Predicate<NodeMetadata>() {
