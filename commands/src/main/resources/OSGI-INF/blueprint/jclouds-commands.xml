@@ -24,6 +24,7 @@ limitations under the License.
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
                 <property name="recipeManager" ref="recipeManager"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <optional-completers>
                 <entry key="--name" value-ref="computeContextNameCompleter"/>
@@ -40,6 +41,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.NodeDestroyCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="activeNodeCompleter"/>
@@ -54,6 +56,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.NodeDestroyAllCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <optional-completers>
                 <entry key="--name" value-ref="computeContextNameCompleter"/>
@@ -65,6 +68,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.GroupDestroyCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="groupCompleter"/>
@@ -79,6 +83,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.NodeSuspendCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="activeNodeCompleter"/>
@@ -93,6 +98,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.NodeResumeCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="suspendedNodeCompleter"/>
@@ -106,6 +112,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.NodeRunScriptCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="activeNodeCompleter"/>
@@ -121,6 +128,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.NodeInfoCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="activeNodeCompleter"/>
@@ -136,6 +144,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.GroupRunScriptCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="groupCompleter"/>
@@ -146,6 +155,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.ProviderInfoCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <optional-completers>
                 <entry key="--name" value-ref="computeContextNameCompleter"/>
@@ -157,6 +167,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.ComputeServiceListCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
         </command>
         <command name="jclouds/compute-service-create">
@@ -257,6 +268,7 @@ limitations under the License.
             <action class="org.jclouds.karaf.commands.compute.ImageCreateCommand">
                 <property name="computeServices" ref="computeServices"/>
                 <property name="cacheProvider" ref="cacheProvider"/>
+                <property name="shellTableFactory" ref="shellTableFactory"/>
             </action>
             <completers>
                 <ref component-id="activeNodeCompleter"/>
