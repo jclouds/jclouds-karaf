@@ -67,6 +67,10 @@ public class BasicShellTableFactory implements ShellTableFactory {
     return properties;
   }
 
+  public ScriptEngineManager getScriptEngineManager() {
+    return scriptEngineManager;
+  }
+
   public void setScriptEngineManager(ScriptEngineManager scriptEngineManager) {
     this.scriptEngineManager = scriptEngineManager;
   }
