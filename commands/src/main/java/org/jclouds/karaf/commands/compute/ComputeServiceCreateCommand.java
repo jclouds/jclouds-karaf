@@ -145,8 +145,11 @@ public class ComputeServiceCreateCommand extends ComputeCommandWithOptions {
                   String providerValue = EnvHelper.getComputeProvider(provider);
                   String apiValue = EnvHelper.getComputeApi(api);
                   String identityValue = EnvHelper.getComputeIdentity(identity);
-                  String credentialValue = EnvHelper.getComputeCredential(credential);
                   String endpointValue = EnvHelper.getComputeEndpoint(endpoint);
+                  String credentialValue = EnvHelper.getComputeCredential(credential);
+                  if (providerValue != null && credentialValue != null && providerValue.equals("google-compute-engine")) {
+                     credentialValue = EnvHelper.getGoogleCredentialFromJsonFile(credentialValue);
+                  }
 
                   if (name != null) {
                     dictionary.put(Constants.NAME, name);
