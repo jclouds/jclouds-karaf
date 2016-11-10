@@ -136,7 +136,6 @@ public class ComputeServiceCreateCommand extends ComputeCommandWithOptions {
             try {
                Configuration configuration = findOrCreateFactoryConfiguration(configurationAdmin, "org.jclouds.compute", name, provider, api);
                if (configuration != null) {
-                  @SuppressWarnings("unchecked")
                   Dictionary<String, Object> dictionary = configuration.getProperties();
                   if (dictionary == null) {
                      dictionary = new Hashtable<String, Object>();
@@ -145,8 +144,11 @@ public class ComputeServiceCreateCommand extends ComputeCommandWithOptions {
                   String providerValue = EnvHelper.getComputeProvider(provider);
                   String apiValue = EnvHelper.getComputeApi(api);
                   String identityValue = EnvHelper.getComputeIdentity(identity);
-                  String credentialValue = EnvHelper.getComputeCredential(credential);
                   String endpointValue = EnvHelper.getComputeEndpoint(endpoint);
+                  String credentialValue = EnvHelper.getComputeCredential(credential);
+                  if (credentialValue != null && providerValue != null && providerValue.startsWith("google")) {
+                     credentialValue = EnvHelper.getGoogleCredentialFromJsonFileIfPath(credentialValue);
+                  }
 
                   if (name != null) {
                     dictionary.put(Constants.NAME, name);
