@@ -87,8 +87,8 @@ public abstract class ComputeCommandWithOptions extends ComputeCommandBase {
       String apiValue = EnvHelper.getComputeApi(api);
       String identityValue = EnvHelper.getComputeIdentity(identity);
       String credentialValue = EnvHelper.getComputeCredential(credential);
-      if (providerValue != null && credentialValue != null && providerValue.equals("google-compute-engine")) {
-         credentialValue = EnvHelper.getGoogleCredentialFromJsonFile(credentialValue);
+      if (credentialValue != null && providerValue != null && providerValue.startsWith("google")) {
+         credentialValue = EnvHelper.getGoogleCredentialFromJsonFileIfPath(credentialValue);
       }
       String endpointValue = EnvHelper.getComputeEndpoint(endpoint);
       boolean contextNameProvided = !Strings.isNullOrEmpty(name);
