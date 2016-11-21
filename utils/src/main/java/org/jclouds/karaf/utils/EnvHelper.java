@@ -102,7 +102,7 @@ public class EnvHelper {
      * @param credentialValue
      * @return
      */
-   public static String getGoogleCredentialFromJsonFile(String credentialValue) {
+   public static String getGoogleCredentialFromJsonFileIfPath(String credentialValue) {
       File credentialsFile = new File(credentialValue);
       if (credentialsFile.exists()) {
          try {

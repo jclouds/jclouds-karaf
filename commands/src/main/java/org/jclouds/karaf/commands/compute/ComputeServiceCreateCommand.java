@@ -147,7 +147,7 @@ public class ComputeServiceCreateCommand extends ComputeCommandWithOptions {
                   String endpointValue = EnvHelper.getComputeEndpoint(endpoint);
                   String credentialValue = EnvHelper.getComputeCredential(credential);
                   if (credentialValue != null && providerValue != null && providerValue.startsWith("google")) {
-                     credentialValue = EnvHelper.getGoogleCredentialFromJsonFile(credentialValue);
+                     credentialValue = EnvHelper.getGoogleCredentialFromJsonFileIfPath(credentialValue);
                   }
 
                   if (name != null) {
