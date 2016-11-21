@@ -99,19 +99,23 @@ public class EnvHelper {
 
     /**
      * Extracts the credential value from the Google Cloud credentials json file.
-     * @param jsonFile
+     * @param credentialValue
      * @return
      */
-    public static String getGoogleCredentialFromJsonFile(String jsonFile) {
-        try {
-            String fileContents = Files.toString(new File(jsonFile), Charsets.UTF_8);
+   public static String getGoogleCredentialFromJsonFile(String credentialValue) {
+      File credentialsFile = new File(credentialValue);
+      if (credentialsFile.exists()) {
+         try {
+            String fileContents = Files.toString(credentialsFile, Charsets.UTF_8);
             Supplier<Credentials> credentialSupplier = new GoogleCredentialsFromJson(fileContents);
-            String credential = credentialSupplier.get().credential;
-            return credential;
+            return credentialSupplier.get().credential;
          } catch (IOException e) {
             return null;
          }
-    }
+      } else {
+         return credentialValue;
+      }
+   }
 
     /**
      * Returns the endpoint value and falls back to env if the specified value is null.
