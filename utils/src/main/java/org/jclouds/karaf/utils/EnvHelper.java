@@ -89,12 +89,13 @@ public class EnvHelper {
     /**
      * Returns the credential value and falls back to env if the specified value is null.
      *
+     * @param The provider id
      * @param credential
      * @return
      */
-    public static String getComputeCredential(String credential) {
-        return getValueOrPropertyOrEnvironmentVariable(
-            credential, Constants.PROPERTY_CREDENTIAL, JCLOUDS_COMPUTE_CREDENTIAL);
+    public static String getComputeCredential(String provider, String credential) {
+        return getCredentialValue(provider, getValueOrPropertyOrEnvironmentVariable(
+            credential, Constants.PROPERTY_CREDENTIAL, JCLOUDS_COMPUTE_CREDENTIAL));
     }
 
     /**
@@ -102,7 +103,7 @@ public class EnvHelper {
      * @param credentialValue
      * @return
      */
-   public static String getGoogleCredentialFromJsonFileIfPath(String credentialValue) {
+   private static String getGoogleCredentialFromJsonFileIfPath(String credentialValue) {
       File credentialsFile = new File(credentialValue);
       if (credentialsFile.exists()) {
          try {
@@ -163,12 +164,13 @@ public class EnvHelper {
     /**
      * Returns the credential value and falls back to env if the specified value is null.
      *
+     * @param The provider id
      * @param credential
      * @return
      */
-    public static String getBlobStoreCredential(String credential) {
-        return getValueOrPropertyOrEnvironmentVariable(
-            credential, Constants.PROPERTY_CREDENTIAL, JCLOUDS_BLOBSTORE_CREDENTIAL);
+    public static String getBlobStoreCredential(String provider, String credential) {
+        return getCredentialValue(provider, getValueOrPropertyOrEnvironmentVariable(
+            credential, Constants.PROPERTY_CREDENTIAL, JCLOUDS_BLOBSTORE_CREDENTIAL));
     }
 
     /**
@@ -238,4 +240,12 @@ public class EnvHelper {
         }
         return value;
     }
+    
+   private static String getCredentialValue(String provider, String credential) {
+      return credential != null && isGoogleCloud(provider) ? getGoogleCredentialFromJsonFileIfPath(credential) : credential;
+   }
+   
+   private static boolean isGoogleCloud(String provider) {
+      return provider != null && provider.startsWith("google");
+   }
 }

@@ -146,7 +146,7 @@ public class BlobStoreServiceCreateCommand extends BlobStoreCommandWithOptions {
                   String providerValue = EnvHelper.getBlobStoreProvider(provider);
                   String apiValue = EnvHelper.getBlobStoreApi(api);
                   String identityValue = EnvHelper.getBlobStoreIdentity(identity);
-                  String credentialValue = EnvHelper.getBlobStoreCredential(credential);
+                  String credentialValue = EnvHelper.getBlobStoreCredential(providerValue, credential);
                   String endpointValue = EnvHelper.getBlobStoreEndpoint(endpoint);
 
                  if (id != null) {

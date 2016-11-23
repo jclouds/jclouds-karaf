@@ -88,10 +88,7 @@ public abstract class BlobStoreCommandWithOptions extends BlobStoreCommandBase {
       String providerValue = EnvHelper.getBlobStoreProvider(provider);
       String apiValue = EnvHelper.getBlobStoreApi(api);
       String identityValue = EnvHelper.getBlobStoreIdentity(identity);
-      String credentialValue = EnvHelper.getBlobStoreCredential(credential);
-      if (providerValue.equals("google-cloud-storage")) {
-         credentialValue = EnvHelper.getGoogleCredentialFromJsonFileIfPath(credentialValue);
-      }
+      String credentialValue = EnvHelper.getBlobStoreCredential(providerValue, credential);
       String endpointValue = EnvHelper.getBlobStoreEndpoint(endpoint);
       boolean contextNameProvided = !Strings.isNullOrEmpty(name);
       boolean canCreateService = (!Strings.isNullOrEmpty(providerValue) || !Strings.isNullOrEmpty(apiValue))

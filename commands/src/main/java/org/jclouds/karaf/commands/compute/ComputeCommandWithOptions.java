@@ -86,10 +86,7 @@ public abstract class ComputeCommandWithOptions extends ComputeCommandBase {
       String providerValue = EnvHelper.getComputeProvider(provider);
       String apiValue = EnvHelper.getComputeApi(api);
       String identityValue = EnvHelper.getComputeIdentity(identity);
-      String credentialValue = EnvHelper.getComputeCredential(credential);
-      if (credentialValue != null && providerValue != null && providerValue.startsWith("google")) {
-         credentialValue = EnvHelper.getGoogleCredentialFromJsonFileIfPath(credentialValue);
-      }
+      String credentialValue = EnvHelper.getComputeCredential(providerValue, credential);
       String endpointValue = EnvHelper.getComputeEndpoint(endpoint);
       boolean contextNameProvided = !Strings.isNullOrEmpty(name);
       boolean canCreateService = (!Strings.isNullOrEmpty(providerValue) || !Strings.isNullOrEmpty(apiValue))
