@@ -350,8 +350,8 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-azureblob</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.karaf.bundles/okio/${project.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.karaf.bundles/okhttp/${project.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/${okio.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/${okhttp.bundle.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-okhttp/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.labs/azurecompute-arm/${jclouds.version}</bundle>
     </feature>
