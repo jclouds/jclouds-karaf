@@ -220,6 +220,8 @@ limitations under the License.
     <snakeyaml.version>1.11</snakeyaml.version>
     <okhttp.version>2.2.0</okhttp.version>
     <okio.version>1.2.0</okio.version>
+    <okhttp.bundle.version>${okhttp.version}_1</okhttp.bundle.version>
+    <okio.bundle.version>${okio.version}_1</okio.bundle.version>
 
     <!-- Plugin Versions -->
     <depends-maven-plugin.version>1.2</depends-maven-plugin.version>
