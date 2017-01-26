@@ -94,4 +94,9 @@ public class ApisFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
         installAndCheckFeature("jclouds-api-cloudsigma2");
     }
 
+    @Test
+    public void testVagrant() throws Exception {
+        installAndCheckFeature("jclouds-vagrant");
+    }
+
 }
