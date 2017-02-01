@@ -118,4 +118,9 @@ public class MiscFeaturesInstallationTest extends JcloudsFeaturesTestSupport {
     public void testProfitBricksFeature() throws Exception {
         installAndCheckFeature("jclouds-profitbricks");
     }
+
+    @Test
+    public void testPacketFeature() throws Exception {
+        installAndCheckFeature("jclouds-packet");
+    }
 }
