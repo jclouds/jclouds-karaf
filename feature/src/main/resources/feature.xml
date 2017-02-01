@@ -362,6 +362,11 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.labs/vagrant/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-packet' description='Components to access Packet' version='${project.version}' resolver='(obr)'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle>mvn:org.apache.jclouds.labs/packet/${jclouds.version}</bundle>
+    </feature>
+
     <feature name='jclouds-profitbricks' description='Components to access ProfitBricks' version='${project.version}' resolver='(obr)'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle>mvn:org.apache.jclouds.provider/profitbricks/${jclouds.version}</bundle>
