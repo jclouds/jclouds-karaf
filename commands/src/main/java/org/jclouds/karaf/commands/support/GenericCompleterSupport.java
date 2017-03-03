@@ -17,18 +17,19 @@
 
 package org.jclouds.karaf.commands.support;
 
-import com.google.common.collect.Multimap;
-import org.apache.felix.service.command.CommandSession;
-import org.apache.karaf.shell.console.Completer;
-import org.apache.karaf.shell.console.completer.ArgumentCompleter;
-import org.apache.karaf.shell.console.completer.StringsCompleter;
-import org.apache.karaf.shell.console.jline.CommandSessionHolder;
-import org.jclouds.karaf.cache.CacheProvider;
-import org.jclouds.karaf.cache.Cacheable;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+
+import org.apache.felix.service.command.CommandSession;
+import org.apache.karaf.shell.console.CommandSessionHolder;
+import org.apache.karaf.shell.console.Completer;
+import org.apache.karaf.shell.console.completer.ArgumentCompleter;
+import org.apache.karaf.shell.console.completer.StringsCompleter;
+import org.jclouds.karaf.cache.CacheProvider;
+import org.jclouds.karaf.cache.Cacheable;
+
+import com.google.common.collect.Multimap;
 
 public abstract class GenericCompleterSupport<T,K> implements Completer, Cacheable<T> {
 

@@ -83,6 +83,7 @@ limitations under the License.
             <configuration>
               <!-- the RAT plugin complains if we use the default location and we don't want it in the SCM -->
               <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
+              <createDependencyReducedPom>false</createDependencyReducedPom>
               <artifactSet>
                 <includes>
                   <include>org.apache.servicemix.bundles:org.apache.servicemix.bundles.jsch-agentproxy-jsch</include>

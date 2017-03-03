@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements.  See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<features name="jclouds-labs-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+    <repository>mvn:org.apache.jclouds.karaf/jclouds-karaf/${jclouds.version}/xml/features</repository>
+
+    <!-- JCLOUDS-LABS -->
+    <feature name='jclouds-azurecompute-arm' description='Components to access Azure Compute ARM' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <feature version='${project.version}'>jclouds-azureblob</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/${okio.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/${okhttp.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-okhttp/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/azurecompute-arm/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-b2' description='Backblaze B2' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-blobstore</feature>
+        <bundle>mvn:org.apache.jclouds.labs/b2/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-cloudsigma2-hnl' description='CloudSigma v2 Honolulu' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-hnl/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-cloudsigma2-lvs' description='CloudSigma v2 Las Vegas' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-lvs/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-cloudsigma2-sjc' description='CloudSigma v2 San Jose' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-sjc/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-cloudsigma2-wdc' description='CloudSigma v2 Washington DC' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-wdc/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-cloudsigma2-zrh' description='CloudSigma v2 Zurich' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-zrh/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-google-cloud-storage' description='Google Cloud Storage' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-blobstore</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds.common/googlecloud/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/google-cloud-storage/${jclouds.version}</bundle>
+    </feature>
+    
+    <feature name='jclouds-packet' description='Packet' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle>mvn:org.apache.jclouds.labs/packet/${jclouds.version}</bundle>
+    </feature>
+    
+    <feature name='jclouds-vagrant' description='Components to access Vagrant' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:name.neykov/vagrant-java-bindings/${vagrant-java-bindings.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/vagrant/${jclouds.version}</bundle>
+    </feature>
+
+</features>
