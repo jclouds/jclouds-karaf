@@ -200,7 +200,7 @@ limitations under the License.
     <jersey.version>1.11</jersey.version>
     <jersey.bundle.version>1.11_1</jersey.bundle.version>
     <joda.version>2.1</joda.version>
-    <jsch.version>0.1.49</jsch.version>
+    <jsch.version>0.1.54</jsch.version>
     <jsch.bundle.version>${jsch.version}_1</jsch.bundle.version>
     <jsch.agentproxy.version>0.0.9</jsch.agentproxy.version>
     <jsch.agentproxy.bundle.version>${jsch.agentproxy.version}_1</jsch.agentproxy.bundle.version>
