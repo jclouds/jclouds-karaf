@@ -124,7 +124,7 @@ limitations under the License.
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
-      <artifactId>jclouds-jsch</artifactId>
+      <artifactId>jclouds-slf4j</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.jclouds.driver</groupId>
@@ -136,7 +136,7 @@ limitations under the License.
     </dependency>
     <dependency>
       <groupId>org.osgi</groupId>
-      <artifactId>org.osgi.compendium</artifactId>
+      <artifactId>osgi.cmpn</artifactId>
     </dependency>
     <dependency>
       <groupId>org.apache.karaf.shell</groupId>
@@ -153,6 +153,11 @@ limitations under the License.
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.jclouds.api</groupId>
+      <artifactId>ec2</artifactId>
+      <version>2.1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>
