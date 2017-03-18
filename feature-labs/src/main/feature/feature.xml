@@ -25,6 +25,7 @@ limitations under the License.
 
     <feature name='jclouds-labs-all-compute' description='jclouds-labs - all - macro feature to bundle all computes' version='${project.version}'>
         <feature version='${project.version}'>jclouds-azurecompute-arm</feature>
+        <feature version='${project.version}'>jclouds-api-cloudsigma2</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-hnl</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-lvs</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-sjc</feature>
@@ -48,6 +49,11 @@ limitations under the License.
     <feature name='jclouds-b2' description='Backblaze B2' version='${project.version}'>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <bundle>mvn:org.apache.jclouds.labs/b2/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-api-cloudsigma2' description='jclouds - API - CloudSigma v2' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-cloudsigma2-hnl' description='CloudSigma v2 Honolulu' version='${project.version}'>
