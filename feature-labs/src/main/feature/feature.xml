@@ -18,6 +18,22 @@ limitations under the License.
 <features name="jclouds-labs-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
     <repository>mvn:org.apache.jclouds.karaf/jclouds-karaf/${jclouds.version}/xml/features</repository>
 
+    <feature name='jclouds-labs-all-blobstore' description='jclouds-labs - all - macro feature to bundle all blobstores' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-b2</feature>
+        <feature version='${project.version}'>jclouds-google-cloud-storage</feature>
+    </feature>
+
+    <feature name='jclouds-labs-all-compute' description='jclouds-labs - all - macro feature to bundle all computes' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-azurecompute-arm</feature>
+        <feature version='${project.version}'>jclouds-cloudsigma2-hnl</feature>
+        <feature version='${project.version}'>jclouds-cloudsigma2-lvs</feature>
+        <feature version='${project.version}'>jclouds-cloudsigma2-sjc</feature>
+        <feature version='${project.version}'>jclouds-cloudsigma2-wdc</feature>
+        <feature version='${project.version}'>jclouds-cloudsigma2-zrh</feature>
+        <feature version='${project.version}'>jclouds-packet</feature>
+        <feature version='${project.version}'>jclouds-vagrant</feature>
+    </feature>
+
     <!-- JCLOUDS-LABS -->
     <feature name='jclouds-azurecompute-arm' description='Components to access Azure Compute ARM' version='${project.version}'>
         <feature version='${project.version}'>jclouds-compute</feature>
