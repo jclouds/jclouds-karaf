@@ -31,6 +31,35 @@ limitations under the License.
 
   <build>
     <plugins>
+      <!-- Attaches config files referenced in feature.xml (mvn protocol) as artifacts -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${build-helper-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>attach-feature-config</id>
+            <phase>package</phase>
+            <goals>
+              <goal>attach-artifact</goal>
+            </goals>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <file>src/main/resources/credentials.cfg</file>
+                  <type>cfg</type>
+                  <classifier>credentials</classifier>
+                </artifact>
+                <artifact>
+                  <file>src/main/resources/shell.cfg</file>
+                  <type>cfg</type>
+                  <classifier>shell</classifier>
+                </artifact>
+              </artifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>karaf-maven-plugin</artifactId>
