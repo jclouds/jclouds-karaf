@@ -267,6 +267,11 @@ public class FeatureInstallationTest extends BasePaxExamTest {
    }
 
    @Test
+   public void testB2Feature() throws Exception {
+      featuresService.installFeature("jclouds-b2");
+   }
+
+   @Test
    public void testDigitalOcean2Feature() throws Exception {
       featuresService.installFeature("jclouds-digitalocean2");
    }
@@ -314,6 +319,11 @@ public class FeatureInstallationTest extends BasePaxExamTest {
    @Test
    public void testGogridFeature() throws Exception {
       featuresService.installFeature("jclouds-gogrid");
+   }
+
+   @Test
+   public void testGoogleCloudStorageFeature() throws Exception {
+      featuresService.installFeature("jclouds-google-cloud-storage");
    }
 
    @Test

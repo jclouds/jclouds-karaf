@@ -58,11 +58,6 @@ public class FeatureLabsInstallationTest extends BasePaxExamTest {
    }
 
    @Test
-   public void testLabsB2Feature() throws Exception {
-      featuresService.installFeature("jclouds-b2");
-   }
-
-   @Test
    public void testLabsCloudsigma2HnlFeature() throws Exception {
       featuresService.installFeature("jclouds-cloudsigma2-hnl");
    }
@@ -85,11 +80,6 @@ public class FeatureLabsInstallationTest extends BasePaxExamTest {
    @Test
    public void testLabsCloudsigma2ZrhFeature() throws Exception {
       featuresService.installFeature("jclouds-cloudsigma2-zrh");
-   }
-
-   @Test
-   public void testLabsGoogleCloudStorageFeature() throws Exception {
-      featuresService.installFeature("jclouds-google-cloud-storage");
    }
 
    @Test

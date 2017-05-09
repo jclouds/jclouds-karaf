@@ -19,8 +19,6 @@ limitations under the License.
     <repository>mvn:org.apache.jclouds.karaf/jclouds-karaf/${jclouds.version}/xml/features</repository>
 
     <feature name='jclouds-labs-all-blobstore' description='jclouds-labs - all - macro feature to bundle all blobstores' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-b2</feature>
-        <feature version='${project.version}'>jclouds-google-cloud-storage</feature>
     </feature>
 
     <feature name='jclouds-labs-all-compute' description='jclouds-labs - all - macro feature to bundle all computes' version='${project.version}'>
@@ -44,11 +42,6 @@ limitations under the License.
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/${okhttp.bundle.version}</bundle>
         <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-okhttp/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.labs/azurecompute-arm/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-b2' description='Backblaze B2' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-blobstore</feature>
-        <bundle>mvn:org.apache.jclouds.labs/b2/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-api-cloudsigma2' description='jclouds - API - CloudSigma v2' version='${project.version}'>
@@ -84,13 +77,6 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-zrh/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-google-cloud-storage' description='Google Cloud Storage' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-blobstore</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/googlecloud/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/google-cloud-storage/${jclouds.version}</bundle>
     </feature>
     
     <feature name='jclouds-packet' description='Packet' version='${project.version}'>
