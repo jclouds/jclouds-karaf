@@ -84,7 +84,7 @@ limitations under the License.
     </feature>
 
     <feature name='jclouds-loadbalancer' description='jclouds - loadbalancer' version='${project.version}'>
-        <feature version='${project.version}'>jclouds</feature>
+        <feature version='${project.version}'>jclouds-compute</feature>
         <bundle>mvn:org.apache.jclouds/jclouds-loadbalancer/${jclouds.version}</bundle>
     </feature>
 
@@ -211,6 +211,7 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-loadbalancer</feature>
         <feature version='${project.version}'>jclouds-api-openstack-keystone</feature>
+        <feature version='${project.version}'>jclouds-api-rackspace-cloudidentity</feature>
         <bundle>mvn:org.apache.jclouds.api/rackspace-cloudloadbalancers/${jclouds.version}</bundle>
     </feature>
 
@@ -596,8 +597,9 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.karaf.chef/commands/${project.version}</bundle>
     </feature>
 
-     <feature name="jclouds-url-handler" description="Url Handler for jclouds Blobs" version="${project.version}">
+    <feature name="jclouds-url-handler" description="Url Handler for jclouds Blobs" version="${project.version}">
         <feature version='${project.version}'>jclouds</feature>
+        <feature version='${project.version}'>jclouds-services</feature>
         <bundle>mvn:org.apache.jclouds.karaf/urlhandler/${project.version}</bundle>
     </feature>
 

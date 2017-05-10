@@ -29,6 +29,20 @@ limitations under the License.
   <packaging>feature</packaging>
   <name>jclouds :: Karaf :: Feature</name>
 
+  <properties>
+	  <karaf.plugin.version>4.1.1</karaf.plugin.version>
+  </properties>
+
+  <dependencies>
+      <dependency>
+          <groupId>org.apache.karaf.features</groupId>
+          <artifactId>framework</artifactId>
+          <version>${karaf.version}</version>
+          <type>kar</type>
+          <scope>provided</scope>
+      </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <!-- Attaches config files referenced in feature.xml (mvn protocol) as artifacts -->
@@ -63,8 +77,25 @@ limitations under the License.
       <plugin>
         <groupId>org.apache.karaf.tooling</groupId>
         <artifactId>karaf-maven-plugin</artifactId>
-        <version>${karaf.version}</version>
+        <version>${karaf.plugin.version}</version>
         <extensions>true</extensions>
+        <configuration>
+            <descriptors>
+                <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
+                <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
+                <descriptor>file:${project.build.directory}/feature/feature.xml</descriptor>
+            </descriptors>
+            <distribution>org.apache.karaf.features:framework</distribution>
+            <javase>1.8</javase>
+            <framework>
+                <feature>framework</feature>
+                <feature>shell-compat</feature>
+            </framework>
+            <features>
+                jclouds*
+            </features>
+            <enableGeneration>false</enableGeneration>
+          </configuration>
       </plugin>
     </plugins>
   </build>
