@@ -26,6 +26,7 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-api-cloudsigma2</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-hnl</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-lvs</feature>
+        <feature version='${project.version}'>jclouds-cloudsigma2-mia</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-sjc</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-wdc</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-zrh</feature>
@@ -59,6 +60,12 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-lvs/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-cloudsigma2-mia' description='CloudSigma v2 Miami' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-mia/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-cloudsigma2-sjc' description='CloudSigma v2 San Jose' version='${project.version}'>

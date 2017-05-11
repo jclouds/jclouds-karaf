@@ -426,6 +426,18 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.provider/softlayer/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-b2' description='Backblaze B2' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-blobstore</feature>
+        <bundle>mvn:org.apache.jclouds.provider/b2/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-google-cloud-storage' description='Google Cloud Storage' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-blobstore</feature>
+        <feature version='${project.version}'>jclouds-api-oauth</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.common/googlecloud/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.provider/google-cloud-storage/${jclouds.version}</bundle>
+    </feature>
+
     <!-- DRIVERS -->
     <feature name="jclouds-driver-apachehc" description="Apache HTTP Components Client driver for jclouds" version="${project.version}">
         <feature version='${project.version}'>jclouds</feature>
@@ -500,59 +512,6 @@ limitations under the License.
         <bundle dependency="true">mvn:net.i2p.crypto/eddsa/0.1.0</bundle>
         <bundle dependency="true">mvn:com.hierynomus/sshj/0.20.0</bundle>
         <bundle>mvn:org.apache.jclouds.driver/jclouds-sshj/${jclouds.version}</bundle>
-    </feature>
-
-    <!-- JCLOUDS-LABS -->
-    <feature name='jclouds-azurecompute-arm' description='Components to access Azure Compute ARM' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <feature version='${project.version}'>jclouds-azureblob</feature>
-        <feature version='${project.version}'>jclouds-api-oauth</feature>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/${okio.bundle.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/${okhttp.bundle.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-okhttp/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/azurecompute-arm/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-b2' description='Backblaze B2' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-blobstore</feature>
-        <bundle>mvn:org.apache.jclouds.provider/b2/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-cloudsigma2-hnl' description='CloudSigma v2 Honolulu' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-hnl/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-cloudsigma2-lvs' description='CloudSigma v2 Las Vegas' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-lvs/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-cloudsigma2-sjc' description='CloudSigma v2 San Jose' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-sjc/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-cloudsigma2-wdc' description='CloudSigma v2 Washington DC' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-wdc/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-cloudsigma2-zrh' description='CloudSigma v2 Zurich' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-zrh/${jclouds.version}</bundle>
-    </feature>
-
-    <feature name='jclouds-google-cloud-storage' description='Google Cloud Storage' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-blobstore</feature>
-        <feature version='${project.version}'>jclouds-api-oauth</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.common/googlecloud/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.provider/google-cloud-storage/${jclouds.version}</bundle>
     </feature>
 
     <!-- SERVICES -->
