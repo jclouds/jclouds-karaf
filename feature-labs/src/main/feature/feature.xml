@@ -15,7 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<features name="jclouds-labs-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+<features name="jclouds-labs-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
     <repository>mvn:org.apache.jclouds.karaf/jclouds-karaf/${jclouds.version}/xml/features</repository>
 
     <feature name='jclouds-labs-all-blobstore' description='jclouds-labs - all - macro feature to bundle all blobstores' version='${project.version}'>

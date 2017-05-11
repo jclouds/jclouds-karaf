@@ -15,7 +15,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<features name="jclouds-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+<features name="jclouds-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
 
     <feature name='jclouds-all-blobstore' description='jclouds - all - macro feature to bundle all blobstores' version='${project.version}'>
         <feature version='${project.version}'>jclouds-api-s3</feature>
@@ -558,6 +558,7 @@ limitations under the License.
     <!-- SERVICES -->
     <feature name="jclouds-services" description="OSGi Service Factories for jclouds" version="${project.version}">
         <configfile finalname="${karaf.etc}/org.apache.jclouds.credentials.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/credentials</configfile>
+        <feature>aries-blueprint</feature>
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jsch/${jsch.bundle.version}</bundle>
@@ -580,6 +581,7 @@ limitations under the License.
 
     <feature name="jclouds-commands" description="Karaf Commands for jclouds" version="${project.version}">
         <configfile finalname="/etc/org.apache.jclouds.shell.cfg">mvn:org.apache.jclouds.karaf/jclouds-karaf/${project.version}/cfg/shell</configfile>
+        <feature>shell-compat</feature>
         <feature version='${project.version}'>jclouds-services</feature>
         <bundle dependency="true">mvn:org.codehaus.groovy/groovy/${groovy.version}</bundle>
         <bundle dependency="true">mvn:org.codehaus.groovy/groovy-jsr223/${groovy.version}</bundle>
@@ -598,7 +600,7 @@ limitations under the License.
     </feature>
 
     <feature name="jclouds-url-handler" description="Url Handler for jclouds Blobs" version="${project.version}">
-        <feature version='${project.version}'>jclouds</feature>
+        <feature>aries-blueprint</feature>
         <feature version='${project.version}'>jclouds-services</feature>
         <bundle>mvn:org.apache.jclouds.karaf/urlhandler/${project.version}</bundle>
     </feature>
