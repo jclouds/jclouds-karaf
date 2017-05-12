@@ -50,6 +50,11 @@ limitations under the License.
         <bundle>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
     </feature>
 
+    <feature name='jclouds-api-cloudsigma2' description='jclouds - API - CloudSigma v2' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
+    </feature>
+
     <feature name='jclouds-cloudsigma2-hnl' description='CloudSigma v2 Honolulu' version='${project.version}'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
