@@ -14,9 +14,13 @@ Install jclouds AWS Modules
 ---------------------------
 Install the feature and a provider for blobstore and compute service:
 
-    karaf@root()> feature:repo-add mvn:org.apache.jclouds.karaf/jclouds-karaf/2.1.0-SNAPSHOT/xml/features
+    karaf@root()> feature:repo-add mvn:org.apache.jclouds.karaf/jclouds-karaf/2.1.0/xml/features
     karaf@root()> feature:install jclouds-aws-s3
     karaf@root()> feature:install jclouds-aws-ec2
+
+    # Install the features from jclouds-labs by adding the labs repo:
+    karaf@root()> feature:repo-add mvn:org.apache.jclouds.karaf/jclouds-karaf-labs/2.1.0/xml/features
+    karaf@root()> feature:install jclouds-cloudsigma2-mia
 
 Install Karaf Commands:
 
