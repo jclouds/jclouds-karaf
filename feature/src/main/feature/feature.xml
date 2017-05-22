@@ -52,6 +52,7 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-digitalocean2</feature>
         <feature version='${project.version}'>jclouds-profitbricks</feature>
         <feature version='${project.version}'>jclouds-api-docker</feature>
+        <feature version='${project.version}'>jclouds-packet</feature>
     </feature>
 
     <feature name='jclouds-guice' description='jclouds - Google Guice' version='${project.version}'>
@@ -334,6 +335,11 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.api/elasticstack/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.provider/openhosting-east1/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-packet' description='Packet' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <bundle>mvn:org.apache.jclouds.provider/packet/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-profitbricks' description='Components to access ProfitBricks' version='${project.version}'>

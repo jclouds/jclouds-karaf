@@ -30,7 +30,6 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-cloudsigma2-sjc</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-wdc</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-zrh</feature>
-        <feature version='${project.version}'>jclouds-packet</feature>
         <feature version='${project.version}'>jclouds-vagrant</feature>
     </feature>
 
@@ -84,11 +83,6 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.labs/cloudsigma2-zrh/${jclouds.version}</bundle>
-    </feature>
-    
-    <feature name='jclouds-packet' description='Packet' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <bundle>mvn:org.apache.jclouds.labs/packet/${jclouds.version}</bundle>
     </feature>
     
     <feature name='jclouds-vagrant' description='Components to access Vagrant' version='${project.version}'>
