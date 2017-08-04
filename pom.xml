@@ -222,7 +222,7 @@ limitations under the License.
     <okio.version>1.2.0</okio.version>
     <okhttp.bundle.version>${okhttp.version}_1</okhttp.bundle.version>
     <okio.bundle.version>${okio.version}_1</okio.bundle.version>
-    <vagrant-java-bindings.version>0.1.1</vagrant-java-bindings.version>
+    <vagrant-java-bindings.version>0.2.0</vagrant-java-bindings.version>
 
     <!-- Plugin Versions -->
     <depends-maven-plugin.version>1.2</depends-maven-plugin.version>
