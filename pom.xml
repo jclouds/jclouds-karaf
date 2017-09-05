@@ -199,8 +199,8 @@ limitations under the License.
     <javax.ws.rs.api.version>2.0.1</javax.ws.rs.api.version>
     <jclouds.version>2.1.0-SNAPSHOT</jclouds.version>
     <jclouds.chef.version>${jclouds.version}</jclouds.chef.version>
-    <jersey.version>1.11</jersey.version>
-    <jersey.bundle.version>1.11_1</jersey.bundle.version>
+    <jersey.version>1.19</jersey.version>
+    <jersey.bundle.version>1.19_1</jersey.bundle.version>
     <joda.version>2.1</joda.version>
     <jsch.version>0.1.54</jsch.version>
     <jsch.bundle.version>${jsch.version}_1</jsch.bundle.version>
