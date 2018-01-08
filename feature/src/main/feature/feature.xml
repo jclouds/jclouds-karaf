@@ -53,6 +53,7 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-profitbricks</feature>
         <feature version='${project.version}'>jclouds-api-docker</feature>
         <feature version='${project.version}'>jclouds-packet</feature>
+        <feature version='${project.version}'>jclouds-azurecompute-arm</feature>
     </feature>
 
     <feature name='jclouds-guice' description='jclouds - Google Guice' version='${project.version}'>
@@ -272,6 +273,16 @@ limitations under the License.
     <feature name='jclouds-azureblob' description='Azureblob' version='${project.version}'>
         <feature version='${project.version}'>jclouds-blobstore</feature>
         <bundle>mvn:org.apache.jclouds.provider/azureblob/${jclouds.version}</bundle>
+    </feature>
+
+    <feature name='jclouds-azurecompute-arm' description='Components to access Azure Compute ARM' version='${project.version}'>
+        <feature version='${project.version}'>jclouds-compute</feature>
+        <feature version='${project.version}'>jclouds-azureblob</feature>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/${okio.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/${okhttp.bundle.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-okhttp/${jclouds.version}</bundle>
+        <bundle>mvn:org.apache.jclouds.provider/azurecompute-arm/${jclouds.version}</bundle>
     </feature>
 
     <feature name='jclouds-digitalocean2' description='Components to access DigitalOcean v2' version='${project.version}'>

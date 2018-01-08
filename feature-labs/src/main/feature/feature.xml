@@ -22,7 +22,6 @@ limitations under the License.
     </feature>
 
     <feature name='jclouds-labs-all-compute' description='jclouds-labs - all - macro feature to bundle all computes' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-azurecompute-arm</feature>
         <feature version='${project.version}'>jclouds-api-cloudsigma2</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-hnl</feature>
         <feature version='${project.version}'>jclouds-cloudsigma2-lvs</feature>
@@ -34,16 +33,6 @@ limitations under the License.
     </feature>
 
     <!-- JCLOUDS-LABS -->
-    <feature name='jclouds-azurecompute-arm' description='Components to access Azure Compute ARM' version='${project.version}'>
-        <feature version='${project.version}'>jclouds-compute</feature>
-        <feature version='${project.version}'>jclouds-azureblob</feature>
-        <bundle dependency='true'>mvn:org.apache.jclouds.api/oauth/${jclouds.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okio/${okio.bundle.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.okhttp/${okhttp.bundle.version}</bundle>
-        <bundle dependency='true'>mvn:org.apache.jclouds.driver/jclouds-okhttp/${jclouds.version}</bundle>
-        <bundle>mvn:org.apache.jclouds.labs/azurecompute-arm/${jclouds.version}</bundle>
-    </feature>
-
     <feature name='jclouds-api-cloudsigma2' description='jclouds - API - CloudSigma v2' version='${project.version}'>
         <feature version='${project.version}'>jclouds-compute</feature>
         <bundle>mvn:org.apache.jclouds.labs/cloudsigma2/${jclouds.version}</bundle>
