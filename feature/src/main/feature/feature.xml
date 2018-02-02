@@ -168,6 +168,7 @@ limitations under the License.
         <feature version='${project.version}'>jclouds-compute</feature>
         <feature version='${project.version}'>jclouds-api-openstack-keystone</feature>
         <bundle dependency='true'>mvn:org.apache.jclouds.common/openstack-common/${jclouds.version}</bundle>
+        <bundle dependency='true'>mvn:org.apache.jclouds.api/openstack-neutron/${jclouds.version}</bundle>
         <bundle>mvn:org.apache.jclouds.api/openstack-nova/${jclouds.version}</bundle>
     </feature>
 
