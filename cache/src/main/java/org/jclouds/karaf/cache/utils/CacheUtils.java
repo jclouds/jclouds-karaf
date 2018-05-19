@@ -69,7 +69,7 @@ public class CacheUtils {
             @Override
             public Object addingService(ServiceReference reference) {
                 Object service = super.addingService(reference);
-                if (serviceToken.isAssignableFrom(service.getClass())) {
+                if (serviceToken.isSupertypeOf(service.getClass())) {
                     cacheManager.bindService((T) service);
                 }
                 return service;
@@ -77,7 +77,7 @@ public class CacheUtils {
 
             @Override
             public void removedService(ServiceReference reference, Object service) {
-                if (serviceToken.isAssignableFrom(service.getClass())) {
+                if (serviceToken.isSupertypeOf(service.getClass())) {
                     cacheManager.unbindService((T) service);
                 }
                 super.removedService(reference, service);
