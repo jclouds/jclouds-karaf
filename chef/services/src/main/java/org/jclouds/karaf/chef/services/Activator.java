@@ -54,7 +54,7 @@ public class Activator implements BundleActivator {
             @Override
             public Object addingService(ServiceReference reference) {
                 Object obj =  super.addingService(reference);
-                if (CHEF_TOKEN.isAssignableFrom(obj.getClass())) {
+                if (CHEF_TOKEN.isSupertypeOf(obj.getClass())) {
                     String serviceId =  String.valueOf(reference.getProperty(Constants.SERVICE_ID));
                     registerRecipeProviderForService(context, serviceId, (ApiContext<ChefApi>) obj);
                 }

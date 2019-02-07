@@ -29,14 +29,10 @@ import org.apache.felix.gogo.commands.Command;
 import org.apache.felix.gogo.commands.CommandException;
 import org.apache.felix.gogo.commands.Option;
 import org.jclouds.blobstore.BlobStore;
-import org.jclouds.blobstore.KeyNotFoundException;
 
 import com.google.common.base.Charsets;
-import com.google.common.base.Strings;
 import com.google.common.io.CharStreams;
-import com.google.common.io.Closeables;
 import com.google.common.io.Files;
-import com.google.common.io.InputSupplier;
 
 @Command(scope = "jclouds", name = "blobstore-read", description = "Reads data from the blobstore")
 public class BlobReadCommand extends BlobStoreCommandWithOptions {

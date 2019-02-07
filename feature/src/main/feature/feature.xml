@@ -72,6 +72,7 @@ limitations under the License.
         <bundle dependency='true'>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.jersey-core/${jersey.bundle.version}</bundle>
         <bundle dependency='true'>mvn:com.google.code.gson/gson/${gson.version}</bundle>
         <bundle>mvn:org.apache.jclouds/jclouds-core/${jclouds.version}</bundle>
+        <requirement>osgi.ee;filter:="(&amp;(osgi.ee=JavaSE)(!(version>=1.9)))"</requirement>
     </feature>
 
     <feature name='jclouds-blobstore' description='jclouds - blobstore' version='${project.version}'>

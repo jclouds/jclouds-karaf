@@ -149,8 +149,8 @@ limitations under the License.
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
         </configuration>
       </plugin>
       <plugin>
@@ -183,14 +183,14 @@ limitations under the License.
   </modules>
 
   <properties>
-    <jdk.version>1.7</jdk.version>
+    <jdk.version>1.8</jdk.version>
     <aopalliance.bundle.version>1.0_5</aopalliance.bundle.version>
     <bcprov.version>1.51</bcprov.version>
     <easymock.version>3.0</easymock.version>
     <felix.configadmin.version>1.8.0</felix.configadmin.version>
     <groovy.version>2.4.4</groovy.version>
     <gson.version>2.5</gson.version>
-    <guava.version>18.0</guava.version>
+    <guava.version>21.0</guava.version>
     <guava.test.version>10.0</guava.test.version>
     <guice.version>3.0</guice.version>
     <httpclient.version>4.3.4</httpclient.version>
@@ -212,7 +212,7 @@ limitations under the License.
     <junit.version>4.8.2</junit.version>
     <jzlib.bundle.version>1.0.7_1</jzlib.bundle.version>
     <jzlib.version>1.0.7</jzlib.version>
-    <karaf.version>4.0.9</karaf.version>
+    <karaf.version>4.2.0</karaf.version> <!-- osgi version 6, java version supported 8 / 9 / 10 -->
     <net.oauth.bundle.version>20100527_1</net.oauth.bundle.version>
     <netty.bundle.version>3.5.9.Final</netty.bundle.version>
     <osgi.version>6.0.0</osgi.version>
